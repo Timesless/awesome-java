@@ -1,3 +1,5 @@
+package interview;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -13,7 +15,7 @@ public class Singleton {
 	static {
 		Properties prop = new Properties();
 		try {
-			prop.load(Singleton.class.getClassLoader().getResourceAsStream("singleton.propertites"));
+			prop.load(Singleton.class.getClassLoader().getResourceAsStream("interview/singleton.propertites"));
 			INSTANCE = new Singleton(prop.getProperty("info"));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
