@@ -1,9 +1,5 @@
 package com.yinhai.datastrcture.queue;
 
-import org.junit.Test;
-
-import java.util.Arrays;
-
 /**
  * @Author: yangzl
  * @Date: 2019/10/21 22:05
@@ -13,7 +9,7 @@ import java.util.Arrays;
  * 		假设 size = 6， 当5个元素入队，那么 rear = 5 + 1 % size == front，队满
  * 	队空条件： rear == front
  * 	front = rear = 0
- * 	有效数据 ： (rear + size - front) % szie;
+ * 	有效数据个数 ： (rear + size - front) % szie;
  **/
 public class CycleArrayQueue {
 	
@@ -25,7 +21,6 @@ public class CycleArrayQueue {
 		front = rear = 0;
 		ele = new int[size];
 	}
-	public CycleArrayQueue() {}
 	
 	// 是否满队列
 	public boolean isFull() {
@@ -79,9 +74,8 @@ public class CycleArrayQueue {
 		return sb.toString();
 	}
 
-
+	// main测试
 	public static void main(String[] args) {
-
 		CycleArrayQueue queue = new CycleArrayQueue(5);
 		queue.enqueue(1);
 		queue.enqueue(2);
