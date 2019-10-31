@@ -1,29 +1,29 @@
 
 # 1 JAVA基础
-## 基本数据类型与包装类型
-## 面向对象基础
-## 集合框架
-## IO流
-## NIO与Files
-## λ与Stream流
-## 多线程与并发编程
-### Synchronized(内置锁)
-### JUC(Java.util.concurrent)
-#### AQS(AbstractQueuedSynchronizer)
-## JVM(Java Vitrual Machine)
-## JMM(Java Memeroy Mode)
+  ## 基本数据类型与包装类型
+  ## 面向对象基础
+  ## 集合框架
+  ## IO流
+  ## NIO与Files
+  ## λ与Stream流
+  ## 多线程与并发编程
+    ### Synchronized(内置锁)
+    ### JUC(Java.util.concurrent)
+      #### AQS(AbstractQueuedSynchronizer)
+  ## JVM(Java Vitrual Machine)
+  ## JMM(Java Memeroy Mode)
 
 # 2 Spring Framework
 
-## Spring mvc
+  ## Spring mvc
 
-## Spring
+  ## Spring
 
-## SpringBoot
+  ## SpringBoot
 
-## Spring Data
+  ## Spring Data
 
-## Spring cloud
+  ## Spring cloud
 
 # 3 Mybatis
 
