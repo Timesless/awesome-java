@@ -138,16 +138,49 @@ public class SingleLinkedList {
 		sb.append(tmp.val);
 		return sb.append("]").toString();
 	}
+	
+	
+	/*
+	 * 合并两个有序链表为有序链表
+	 */
+	public static SingleLinkedList merge2List(SingleLinkedList list1, SingleLinkedList list2) {
+		SingleLinkedList rs = new SingleLinkedList();
+		/*
+		 * prev 和 rs.head是一个node节点，指向同一块内存地址
+		 * 虽然接下来prev一直在变化，但链接的下一个节点引用一直也都在rs.head
+		 */
+		Node prev = rs.head;
+		Node node1 = list1.head.next;
+		Node node2 = list2.head.next;
+		while (node1 != null && node2 != null) {
+			if(node1.val <= node2.val) {
+				prev.next = node1;
+				node1 = node1.next;
+			} else  {
+				prev.next = node2;
+				node2 = node2.next;
+			}
+			prev = prev.next;
+		}
+		prev.next = null == node1 ? node2 : node1;
+		return rs;
+	}
+	
 
 
 	// main
 	public static void main(String[] args) {
-		SingleLinkedList list = new SingleLinkedList();
+		SingleLinkedList list = new SingleLinkedList(), list2 = new SingleLinkedList();
 		list.add(1);
+		list.add(2);
 		
 		// 测试删除
-		list.remove();
-		System.out.println(list);
+		// list.remove();
+		list2.add(2);
+		list2.add(4);
+
+		System.out.println(merge2List(list, list2));
+
 	}
 	
 	
