@@ -7,9 +7,9 @@
   ## NIO与Files
   ## λ与Stream流
   ## 多线程与并发编程
-    ### Synchronized(内置锁)
-    ### JUC(Java.util.concurrent)
-      #### AQS(AbstractQueuedSynchronizer)
+   ### Synchronized(内置锁)
+   ### JUC(Java.util.concurrent)
+   #### AQS(AbstractQueuedSynchronizer)
   ## JVM(Java Vitrual Machine)
   ## JMM(Java Memeroy Mode)
 
