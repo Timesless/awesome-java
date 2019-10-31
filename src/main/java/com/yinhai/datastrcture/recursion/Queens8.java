@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @Desc: .. 解八皇后
  * 	使用一维数组代替本该需要的二维数组。
  * 	int[] ary = {0, 4, 7, 5, 2, 1, 6, 3}
- * 	第一个queen放在第一列，第二个queen放在第五列，...
+ * 	0: 第一个queen放在第一列，4: 第二个queen放在第五列，...
  **/
 public class Queens8 {
 
@@ -18,7 +18,7 @@ public class Queens8 {
 	private int allCount;	// 15720
 	
 	/*
-	 * 放置第idx个queen，此时应该从第一列开始放置，每次放置需校验
+	 * 放置第idx个queen，每次放置需校验，如果idx == size时，说明已放置所有的queen，即为一种解法
 	 */
 	void putQueen(int idx) {
 		if(idx == size) {
@@ -30,17 +30,16 @@ public class Queens8 {
 		for(int x = 0; x < size; ++x) {
 			// 首先将第idx个queen放在第一列，然后校验，然后依次放置以后的列
 			ary[idx] = x;
-			// 如果冲突，那么应该重新放置
+			// 不冲突，则应该继续放置queen
 			if(isAttack(idx))
 				putQueen(idx + 1);
-			// 不冲突，则应该继续放置queen
 		}
-		
 	}
 	
 	/*
 	 * 校验当前queen和之前摆放的所有queen是否冲突
 	 * 行是不可能冲突的，因为我们每次都会在下一行放置queen
+	 * 不冲突返回true
 	 */
 	boolean isAttack(int idx) {
 		allCount++;

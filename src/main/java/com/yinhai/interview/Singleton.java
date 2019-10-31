@@ -1,4 +1,4 @@
-package interview;
+package com.yinhai.interview;
 
 import java.io.IOException;
 import java.util.Properties;

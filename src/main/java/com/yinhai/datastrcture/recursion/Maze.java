@@ -10,7 +10,6 @@ public class Maze {
 
 	private int rows, cols;
 	private int[][] matrix;
-	
 	/*
 	 * 还未走过
 	 * 路障
@@ -29,7 +28,7 @@ public class Maze {
 	}
 	
 	/*
-	 * 初始化迷宫路障
+	 * 初始化迷宫，四周为墙壁并生成固定的2个路障
 	 */
 	private void initMaze() {
 		for(int x = 0; x < cols; ++x) {
@@ -43,21 +42,20 @@ public class Maze {
 		print();
 	}
 	
-	
 	/*
 	 * 解迷宫
 	 * 坐标，从哪开始
 	 * 需要定义规则： 下，右，上，左
-	 * 走到 matrix[8][8]即为成功解
+	 * 走到 matrix[rows - 2][cols - 2]即为成功解
 	 */
 	private boolean existPath(int row, int col) {
-		if(matrix[8][8] == access) {
+		if(matrix[rows - 2][cols - 2] == access) {
 			System.out.println("解迷宫成功...");
 			print();
 			return true;
 		}
 		if (row < rows - 1 && col < cols - 1) {
-			if(matrix[row][col] == yet) {
+			if(matrix[row][col] == yet) {	// 如果还未走过，则可以进入，所以上面if的边界判断可删除
 				// 将当前位置标记为通路
 				matrix[row][col] = access;
 				if(existPath(row + 1, col) || existPath(row, col + 1)
@@ -72,11 +70,6 @@ public class Maze {
 	}
 	
 	/*
-	 * 判断是否有通路
-	 */
-	
-	
-	/*
 	 * 打印当前迷宫
 	 */
 	private void print() {
@@ -88,8 +81,7 @@ public class Maze {
 			System.out.println();
 		}
 	}
-
-
+	
 	public static void main(String[] args) {
 		Maze maze = new Maze(10, 10);
 		maze.initMaze();
