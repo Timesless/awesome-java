@@ -6,7 +6,7 @@ package com.yinhai.datastrcture.linkedlist;
  * @Desc:
  * 	带头节点的单链表
  * 	由于head节点始终标识单链表开始，所以head节点不变，需定义临时节点来遍历链表
- *      size可以不用定义，有2种实现方式，一种通过size获取到元素总数，一种每次都遍历整个链表取值， 下列方法使用2种混合实现。
+ *  2种实现方式size，一种通过size获取到元素总数，一种每次都遍历整个链表取值， 下列方法使用2种混合实现。
  **/
 public class SingleLinkedList {
 
@@ -14,6 +14,7 @@ public class SingleLinkedList {
 	private int size;
 	// 头节点不存储数据
 	private Node head;
+	// 构造器
 	public SingleLinkedList() { this.head = new Node(-1); }
 	
 	// 添加到尾节点
@@ -25,12 +26,15 @@ public class SingleLinkedList {
 		tmp.next = new Node(n);
 		size++;
 	}
+	
 	// 索引位置添加
 	public void add(int index, int n) {
 		rangeCheck(index);
-		// 可以取第一个元素，或者哑元节点
+		// 可以取第一个元素 | 哑元节点
 		Node tmp = head;
-		// 找到要添加的位置。即index前一个
+		/*
+		 * 找到要添加的位置。即index前一个
+		 */
 		for(int x = 0; x < index; ++x) {
 			tmp = tmp.next;
 		}
@@ -57,7 +61,7 @@ public class SingleLinkedList {
 		// 如果要删除元素的后一个为null，那么当前元素是最后一个。置为null即可
 		if(null == remove.next)
 			tmp.next = null;
-		if(null != remove.next)
+		else 
 			tmp.next = remove.next;
 		size--;
 		return rs;
@@ -73,6 +77,7 @@ public class SingleLinkedList {
 		Node first = head.next;
 		Node second = head.next;
 		while (null != first) {
+			// 当k = 0，说明第一个指针移动了k步，那么第二个指针应该开始移动
 			if(k <= 0) {
 				second = second.next;
 			}
@@ -94,6 +99,10 @@ public class SingleLinkedList {
 			return;
 		// 倒序节点，遍历原链表采用头插链接在reverseHead后
 		Node reverseHead = new Node(-1);
+		/*
+		 * cur：正序链表遍历的当前元素
+		 * next： cur.next
+		 */
 		Node cur = head.next;
 		Node next = null;
 		while (null != cur) {
@@ -139,7 +148,6 @@ public class SingleLinkedList {
 		return sb.append("]").toString();
 	}
 	
-	
 	/*
 	 * 合并两个有序链表为有序链表
 	 */
@@ -150,6 +158,9 @@ public class SingleLinkedList {
 		 * 虽然接下来prev一直在变化，但链接的下一个节点引用一直也都在rs.head
 		 */
 		Node prev = rs.head;
+		/*
+		 * node1，node2第一个节点
+		 */
 		Node node1 = list1.head.next;
 		Node node2 = list2.head.next;
 		while (node1 != null && node2 != null) {
@@ -166,21 +177,17 @@ public class SingleLinkedList {
 		return rs;
 	}
 	
-
-
+	
 	// main
 	public static void main(String[] args) {
 		SingleLinkedList list = new SingleLinkedList(), list2 = new SingleLinkedList();
 		list.add(1);
 		list.add(2);
-		
 		// 测试删除
 		// list.remove();
 		list2.add(2);
 		list2.add(4);
-
 		System.out.println(merge2List(list, list2));
-
 	}
 	
 	

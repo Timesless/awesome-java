@@ -10,8 +10,8 @@ public class Node {
 
 	int val;
 	Node next;
-	public Node(int _val) {
-		this.val = _val;
+	public Node(int val) {
+		this.val = val;
 	}
 
 	@Override
