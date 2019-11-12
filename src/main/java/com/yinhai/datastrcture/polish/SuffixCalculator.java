@@ -27,8 +27,7 @@ import java.util.List;
  *  		+(*
  *  		+		遇见)则将该)内所有操作符出栈，压入操作数栈，且丢弃()
  *  		-	因为符号栈中的运算符，表示被挂起，当扫描的运算符优先级<=运算符栈中的优先级，那么应该先操作栈中的运算符
- *  		 	需要把运算符栈所有操作符出栈压入到操作数栈中	
- *  
+ *  		 	需要把运算符栈所有操作符出栈压入到操作数栈中
  **/
 public class SuffixCalculator {
 	
@@ -84,12 +83,11 @@ public class SuffixCalculator {
 	}
 
 	public static void main(String[] args) {
-		InfixCalculator infix = new InfixCalculator();
+		Infix2Suffix infix = new Infix2Suffix();
 		String expression = "(3+4)*5-6";
 		SuffixCalculator sufix = new SuffixCalculator();
 		// 中缀转后缀，计算后缀的值
 		System.out.printf("%s = %d", expression,
 				sufix.calculateWithSuffix(infix.infix2Suffix(expression)));
 	}
-	
 }

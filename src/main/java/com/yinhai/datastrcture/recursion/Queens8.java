@@ -16,7 +16,6 @@ public class Queens8 {
 	int[] ary = new int[size];
 	private int count;	// 92
 	private int allCount;	// 15720
-	
 	/*
 	 * 放置第idx个queen，每次放置需校验，如果idx == size时，说明已放置所有的queen，即为一种解法
 	 */
@@ -26,9 +25,15 @@ public class Queens8 {
 			System.out.println(Arrays.toString(ary));
 			return;
 		}
-		// 
+		/*
+		 * 有点没明白
+		 * 2019年11月10日 看明白了，  这个for是依次从第1列开始放置queen，如果不冲突，那么递归的放置下一个皇后，
+		 * 	退出条件是放第9个queen的时候，这时表名前8个皇后已经放好了。然后这里return，返回到放第8个queen的
+		 * 	puttQueen(9)这个位置，继续执行 ++x，放置第x + 1列，判断是否冲突，如果不冲突，那么又得到一个解
+		 * 	继续返回，继续防止，如果x遍历完毕，那么整个for循环结束，应该返回到上一层调用的地方
+		 */
 		for(int x = 0; x < size; ++x) {
-			// 首先将第idx个queen放在第一列，然后校验，然后依次放置以后的列
+			// 首先将第idx个queen放在第一列，即x = 0，然后校验，然后依次放置以后的列
 			ary[idx] = x;
 			// 不冲突，则应该继续放置queen
 			if(isAttack(idx))
@@ -58,8 +63,7 @@ public class Queens8 {
 		}
 		return true;
 	}
-
-
+	
 	public static void main(String[] args) {
 		Queens8 queen = new Queens8();
 		// 从第0个queen开始放
@@ -67,6 +71,4 @@ public class Queens8 {
 		System.out.println(queen.count);
 		System.out.println(queen.allCount);
 	}
-	
-	
 }

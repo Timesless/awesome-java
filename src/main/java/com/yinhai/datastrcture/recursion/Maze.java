@@ -7,14 +7,13 @@ package com.yinhai.datastrcture.recursion;
  * 使用一个矩阵来表示迷宫，0表示还未走过的路径，1表示路障，2表示通路，3表示走过的路径但无解
  **/
 public class Maze {
-
 	private int rows, cols;
 	private int[][] matrix;
 	/*
-	 * 还未走过
-	 * 路障
-	 * 通路
-	 * 该路径走不通
+	 * 0 还未走过
+	 * 1 路障
+	 * 2 通路
+	 * 3 该路径走不通
 	 */
 	char yet = 0;
 	char roadBlock = 1;

@@ -7,6 +7,7 @@ package com.yinhai.datastrcture.linkedlist;
  * 	带头节点的单链表
  * 	由于head节点始终标识单链表开始，所以head节点不变，需定义临时节点来遍历链表
  *  2种实现方式size，一种通过size获取到元素总数，一种每次都遍历整个链表取值， 下列方法使用2种混合实现。
+ *  删除需找到待删除节点的前一个节点。
  **/
 public class SingleLinkedList {
 
