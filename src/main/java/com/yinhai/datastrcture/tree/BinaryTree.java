@@ -5,12 +5,28 @@ package com.yinhai.datastrcture.tree;
  * @Date: 2019/11/12 22:38
  * @Desc: .. 二叉排序树 | 二叉搜索树 BST
  **/
-public class BinarySearchTree {
+public class BinaryTree {
 
 	// 头节点引用
 	private Node head;
 
-	public BinarySearchTree(Node head) { this.head = head; }
+	public BinaryTree(Node head) { this.head = head; }
+	
+	
+	public void sufixOrder() {
+		sufixOrder(head);
+	}
+
+	/**
+	 * @Date: 2019/11/16
+	 * @Desc: 感觉应该用这种方式， node需要高内聚，不需要实现遍历或者查找这种类型的代码，应该在tree中实现
+	 **/
+	private void sufixOrder(Node node) {
+		if (null != node.left) sufixOrder(node.left);
+		if (null != node.right) sufixOrder(node.right);
+		System.out.print(node.val + " ");
+	}
+
 
 	/*
 	 * @Date: 2019/11/12

@@ -34,11 +34,11 @@ public class BSTTest {
 	@Test
 	public void testTreeTraversing() {
 		Node head = this.init();
-		head.preOrder();	// 1234
+		head.preOrder();	// 12354
 		System.out.println();
-		head.infixOrder();	// 2134
+		head.infixOrder();	// 21534
 		System.out.println();
-		head.postOrder(); // 2431
+		head.postOrder(); // 25431
 	}
 
 	/*
@@ -51,6 +51,14 @@ public class BSTTest {
 		System.out.println(head.preSearch(3));
 		System.out.println(head.infixSearch(3));
 		System.out.println(head.postSearch(3));
+	}
+
+
+	@Test
+	public void testTreeSearch2() {
+		Node head = this.init();
+		BinaryTree tree = new BinaryTree(head);
+		tree.sufixOrder();
 	}
 	
 	
