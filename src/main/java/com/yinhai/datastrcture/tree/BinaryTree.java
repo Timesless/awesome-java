@@ -3,18 +3,17 @@ package com.yinhai.datastrcture.tree;
 /**
  * @Author: yangzl
  * @Date: 2019/11/12 22:38
- * @Desc: .. 二叉排序树 | 二叉搜索树 BST
+ * @Desc: .. 二叉树，只实现遍历和查找功能，其它功能参见bst/BinarySearchTree
  **/
 public class BinaryTree {
 
 	// 头节点引用
-	private Node head;
+	private Node root;
 
-	public BinaryTree(Node head) { this.head = head; }
-	
+	public BinaryTree(Node root) { this.root = root; }
 	
 	public void sufixOrder() {
-		sufixOrder(head);
+		sufixOrder(root);
 	}
 
 	/**
@@ -27,25 +26,24 @@ public class BinaryTree {
 		System.out.print(node.val + " ");
 	}
 
-
 	/*
 	 * @Date: 2019/11/12
 	 * @Desc: 前中后序遍历
 	 **/
 	public void preOrder() {
-		if(null == head)
+		if(null == root)
 			throw new RuntimeException("空二叉树");
-		head.preOrder();
+		root.preOrder();
 	}
 	public void infixOrder() {
-		if(null == head)
+		if(null == root)
 			throw new RuntimeException("空二叉树");
-		head.infixOrder();
+		root.infixOrder();
 	}
 	public void postOrder() {
-		if(null == head)
+		if(null == root)
 			throw new RuntimeException("空二叉树");
-		head.postOrder();
+		root.postOrder();
 	}
 
 	/*
@@ -53,25 +51,19 @@ public class BinaryTree {
 	 * @Desc: 前中后序查找，左右根
 	 **/
 	public int preSearch(int num) {
-		if(null == head)
+		if(null == root)
 			throw new RuntimeException("空二叉树");
-		return this.head.preSearch(num);
+		return this.root.preSearch(num);
 	}
 	public int infixSearch(int num) {
-		if(null == head)
+		if(null == root)
 			throw new RuntimeException("空二叉树");
-		return this.head.infixSearch(num);
+		return this.root.infixSearch(num);
 	}
 	public int postSearch(int num) {
-		if(null == head)
+		if(null == root)
 			throw new RuntimeException("空二叉树");
-		return this.head.postSearch(num);
+		return this.root.postSearch(num);
 	}
-	
-	
-	/**
-	 * @Date: 2019/11/13
-	 * @Desc: 节点的删除，一定是判断当前节点的子节点是否需要删除，因为这里树是单向的
-	 **/
 	
 }

@@ -8,7 +8,7 @@ import org.junit.Test;
  * @Desc: ..	满二叉树：树的节点个数为2的n次方，n为树的高度。
  * 				完全二叉树：在满二叉树的基础上从右往左顺序删除部分节点。
  **/
-public class BSTTest {
+public class TreeTest {
 
 	/*
 	 * @Date: 2019/11/12

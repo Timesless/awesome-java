@@ -3,7 +3,7 @@ package com.yinhai.datastrcture.tree;
 /**
  * @Author: yangzl
  * @Date: 2019/11/12 22:35
- * @Desc: .. 树节点类
+ * @Desc: .. 树节点类，此版本实现不是高内聚设计，因此需修改，参见bst/TreeNode
  **/
 public class Node {
 	
