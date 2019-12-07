@@ -24,7 +24,5 @@ public class Singleton {
 	private Singleton(String _info) {
 		this.info = _info;
 	}
-	public void setInfo(String info) {
-		this.info = info;
-	}
+	public void setInfo(String info) { this.info = info; }
 }

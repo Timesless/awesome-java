@@ -110,5 +110,4 @@ public class SparseArray {
 		int[][] rs = sparseArray();
 		resetArray(rs);
 	}
-	
 }

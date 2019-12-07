@@ -18,31 +18,25 @@ public class Node {
 	 **/
 	public void preOrder() {
 		System.out.print(this.val + " ");
-		if(null != this.left)
-			this.left.preOrder();
-		if(null != this.right)
-			this.right.preOrder();
+		if(null != this.left) this.left.preOrder();
+		if(null != this.right) this.right.preOrder();
 	}
 	/*
 	 * @Date: 2019/11/12
 	 * @Desc: 中序遍历，左根右
 	 **/
 	public void infixOrder() {
-		if(null != this.left)
-			this.left.infixOrder();
+		if(null != this.left) this.left.infixOrder();
 		System.out.print(this.val + " ");
-		if(null != this.right)
-			this.right.infixOrder();
+		if(null != this.right) this.right.infixOrder();
 	}
 	/*
 	 * @Date: 2019/11/12
 	 * @Desc: hou序遍历，左右根
 	 **/
 	public void postOrder() {
-		if(null != this.left)
-			this.left.postOrder();
-		if(null != this.right)
-			this.right.postOrder();
+		if(null != this.left) this.left.postOrder();
+		if(null != this.right) this.right.postOrder();
 		System.out.print(this.val + " ");
 	}
 	
@@ -59,43 +53,30 @@ public class Node {
 	 **/
 	public int preSearch(int num) {
 		System.out.println("进入前序查找...");
-		if(this.val == num)
-			return this.val;
+		if(this.val == num) return this.val;
 		int result = -1;
-		if(null != this.left)
-			result = this.left.preSearch(num);
-		if(result != -1)
-			return result;
-		if(null != this.right)
-			return this.right.preSearch(num);
+		if(null != this.left) result = this.left.preSearch(num);
+		if(result != -1) return result;
+		if(null != this.right) return this.right.preSearch(num);
 		return result;
 	}
 	public int infixSearch(int num) {
 		int result = -1;
-		if(null != this.left)
-			result =  this.left.infixSearch(num);
-		if(result != -1)
-			return result;
+		if(null != this.left) result =  this.left.infixSearch(num);
+		if(result != -1) return result;
 		System.out.println("进入中序查找...");
-		if(this.val == num)
-			return this.val;
-		if(null != this.right)
-			return this.right.infixSearch(num);
+		if(this.val == num) return this.val;
+		if(null != this.right) return this.right.infixSearch(num);
 		return result;
 	}
 	public int postSearch(int num) {
 		int result = -1;
-		if(null != this.left)
-			result = this.left.postSearch(num);
-		if(result != -1)
-			return result;
-		if(null != this.right)
-			result = this.right.postSearch(num);
-		if(result != -1)
-			return result;
+		if(null != this.left) result = this.left.postSearch(num);
+		if(result != -1) return result;
+		if(null != this.right) result = this.right.postSearch(num);
+		if(result != -1) return result;
 		System.out.println("进入后序查找...");
-		if(this.val == num)
-			return this.val;
+		if(this.val == num) return this.val;
 		return -1;
 	}
 	

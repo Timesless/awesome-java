@@ -1,11 +1,9 @@
 package com.yinhai.datastrcture.tree.bst;
 
-import com.yinhai.datastrcture.tree.BinaryTree;
-
 /**
  * @Author: yangzl
  * @Date: 2019/12/3 20:09
- * @Desc: .. 二叉搜索树 | 二叉排序树
+ * @Desc: .. 二叉搜索树 | 二叉排序树，正式版本可作为参考
  **/
 public class BinarySearchTree {
 	
@@ -50,7 +48,6 @@ public class BinarySearchTree {
 		System.out.print(node.val + " ");
 	}
 	
-	
 	/**
 	 * @Date: 2019/12/3 添加节点
 	 * @Desc: 
@@ -70,6 +67,4 @@ public class BinarySearchTree {
 		return node;
 	}	
 	
-	
-
 }

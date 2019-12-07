@@ -11,7 +11,6 @@ public class SelectionSort {
 
 	// 5 1 3
 	static void selectionSort(int[] ary) {
-		
 		int min, minIdx;
 		for (int x = 0; x < ary.length - 1; ++x) {	// 每次循环只交换一次值，所以比冒泡快
 			/*
@@ -22,9 +21,7 @@ public class SelectionSort {
 			min = ary[x];
 			minIdx = x;
 			for (int y = x + 1; y < ary.length; ++y) {
-				if(ary[y] < min) {
-					minIdx = y;
-				}
+				if(ary[y] < min) { minIdx = y; }
 			}
 			/*
 			 * 不等则说明进行了交换
@@ -38,11 +35,9 @@ public class SelectionSort {
 		}
 	}
 
-
 	public static void main(String[] args) {
 		int[] ary = {1, 4, 5, 3, 2, 6};
 		selectionSort(ary);
 		System.out.println(Arrays.toString(ary));
 	}
-	
 }

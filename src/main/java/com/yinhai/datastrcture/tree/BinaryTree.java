@@ -12,10 +12,13 @@ public class BinaryTree {
 
 	public BinaryTree(Node root) { this.root = root; }
 	
+	/*
+	 * 提供给外部调用
+	 * 重载提供私有实现
+	 */
 	public void sufixOrder() {
 		sufixOrder(root);
 	}
-
 	/**
 	 * @Date: 2019/11/16
 	 * @Desc: 感觉应该用这种方式， node需要高内聚，不需要实现遍历或者查找这种类型的代码，应该在tree中实现
@@ -31,18 +34,15 @@ public class BinaryTree {
 	 * @Desc: 前中后序遍历
 	 **/
 	public void preOrder() {
-		if(null == root)
-			throw new RuntimeException("空二叉树");
+		if(null == root) { throw new RuntimeException("空二叉树"); }
 		root.preOrder();
 	}
 	public void infixOrder() {
-		if(null == root)
-			throw new RuntimeException("空二叉树");
+		if(null == root) { throw new RuntimeException("空二叉树"); }
 		root.infixOrder();
 	}
 	public void postOrder() {
-		if(null == root)
-			throw new RuntimeException("空二叉树");
+		if(null == root) { throw new RuntimeException("空二叉树"); }
 		root.postOrder();
 	}
 
@@ -51,18 +51,15 @@ public class BinaryTree {
 	 * @Desc: 前中后序查找，左右根
 	 **/
 	public int preSearch(int num) {
-		if(null == root)
-			throw new RuntimeException("空二叉树");
+		if(null == root) throw new RuntimeException("空二叉树");
 		return this.root.preSearch(num);
 	}
 	public int infixSearch(int num) {
-		if(null == root)
-			throw new RuntimeException("空二叉树");
+		if(null == root) throw new RuntimeException("空二叉树");
 		return this.root.infixSearch(num);
 	}
 	public int postSearch(int num) {
-		if(null == root)
-			throw new RuntimeException("空二叉树");
+		if(null == root) throw new RuntimeException("空二叉树");
 		return this.root.postSearch(num);
 	}
 	

@@ -10,15 +10,9 @@ public class Maze {
 	private int rows, cols;
 	private int[][] matrix;
 	/*
-	 * 0 还未走过
-	 * 1 路障
-	 * 2 通路
-	 * 3 该路径走不通
+	 * 0还未走过 1路障 2通路 3该路径走不通
 	 */
-	char yet = 0;
-	char roadBlock = 1;
-	char access = 2;
-	char dead = 3;
+	char yet = 0, roadBlock = 1, access = 2, death = 3;
 	
 	public Maze(int rows, int cols) {
 		this.rows = rows;
@@ -62,7 +56,7 @@ public class Maze {
 					return true;
 				}
 				// 如果没有access，那么标记为dead
-				matrix[row][col] = dead;
+				matrix[row][col] = death;
 			}
 		}
 		return false;
@@ -74,9 +68,7 @@ public class Maze {
 	private void print() {
 		System.out.println("迷宫情况如下...");
 		for (int x = 0; x < rows; ++x) {
-			for(int y = 0; y < cols; ++y) {
-				System.out.printf("%d ", matrix[x][y]);
-			}
+			for(int y = 0; y < cols; ++y) { System.out.printf("%d ", matrix[x][y]); }
 			System.out.println();
 		}
 	}
@@ -86,5 +78,4 @@ public class Maze {
 		maze.initMaze();
 		maze.existPath(1, 1);
 	}
-	
 }

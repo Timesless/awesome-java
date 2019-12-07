@@ -52,15 +52,11 @@ public class TreeTest {
 		System.out.println(head.infixSearch(3));
 		System.out.println(head.postSearch(3));
 	}
-
-
+	
 	@Test
 	public void testTreeSearch2() {
 		Node head = this.init();
 		BinaryTree tree = new BinaryTree(head);
 		tree.sufixOrder();
 	}
-	
-	
-
 }

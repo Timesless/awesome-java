@@ -36,8 +36,7 @@ public class Queens8 {
 			// 首先将第idx个queen放在第一列，即x = 0，然后校验，然后依次放置以后的列
 			ary[idx] = x;
 			// 不冲突，则应该继续放置queen
-			if(isAttack(idx))
-				putQueen(idx + 1);
+			if(isAttack(idx)) { putQueen(idx + 1); }
 		}
 	}
 	

@@ -73,9 +73,7 @@ public class AvlTree {
 	 **/
 	public void add(int val) { root = add(val, root); }
 	private AvlNode add(int val, AvlNode node) {
-		if (null == node) {
-			return new AvlNode(val);
-		}
+		if (null == node) { return new AvlNode(val); }
 		if (val < node.val) {
 			node.left = add(val, node.left);
 		} else if (val > node.val){
@@ -100,26 +98,31 @@ public class AvlTree {
 	 * 			1. 在当前节点左子树的左子节点插入导致不平衡 右旋
 	 * 			2. 在当前节点左子树的右子节点插入导致不平衡 左右双旋 =》 先将当前节点的左子树左旋，再将当前节点的树右旋
 	 * 			3. 在当前节点右子树的左子节点插入导致不平衡 右左双旋 =》 先将当前节点的右子树右旋，再将当前节点的树左旋
-	 * 			4. 在当前节点右子树的右子节点插入导致不平衡 左旋	
+	 * 			4. 在当前节点右子树的右子节点插入导致不平衡 左旋
 	 **/
 	private void banlance(AvlNode node) {
 		// 当前节点左子树高度 - 当前节点右子树高度 > BANLANCE_FACTOR
 		if (height(node.left) - height(node.right) > 1) {
 			// 在左子树的左子节点插入
-			if (height(node.left.left) > height(node.left.right)) {
+			if (height(node.left.left) >= height(node.left.right)) {
 				rightRotate(node);
-			} else { // 在左子树的右子节点插入
+			}
+			// 这里为什么不写成else是因为删除例程也会调用banlance
+			// 在左子树的右子节点插入
+			if (height(node.left.right) > height(node.left.left)) {
 				leftRotate(node.left);
 				rightRotate(node);
 			}
 		}
 		// 当前节点右子树的高度 - 当前节点左子树的高度 > BANLANCE_FACTOR
 		if (height(node.right) - height(node.left) > 1) {
+			// 在右子树的右子节点插入
+			if (height(node.right.right) >= height(node.right.left)) {
+				leftRotate(node);
+			}
 			// 在右子树的左子节点插入
 			if (height(node.right.left) > height(node.right.right)) {
 				rightRotate(node.right);
-				leftRotate(node);
-			} else {	// 在右子树的右子节点插入
 				leftRotate(node);
 			}
 		}
@@ -168,14 +171,19 @@ public class AvlTree {
 		node.right = newRightNode;
 	}
 
-
+	/**
+	 * @Date: 2019/12/8 
+	 * @Desc: .. 以下代码为另一种实现方式，参考自数据结构与算法分析
+	 **/
 	private AvlNode banlanceWithReturn(AvlNode node) {
 		// 当前节点左子树高度 - 当前节点右子树高度 > BANLANCE_FACTOR
 		if (height(node.left) - height(node.right) > 1) {
 			// 在左子树的左子节点插入
 			if (height(node.left.left) > height(node.left.right)) {
 				node = rotateWithLeft(node);
-			} else { // 在左子树的右子节点插入
+			}
+			// 在左子树的右子节点插入
+			if (height(node.left.right) > height(node.left.left)) {
 				// 这里可以定义一下k1，k1永远在左边
 				AvlNode k1 = node.left;
 				node.left = rotateWithRight(k1);
@@ -184,13 +192,15 @@ public class AvlTree {
 		}
 		// 当前节点右子树的高度 - 当前节点左子树的高度 > BANLANCE_FACTOR
 		if (height(node.right) - height(node.left) > 1) {
+			// 在右子树的右子节点插入
+			if (height(node.right.right) > height(node.right.left)) {
+				node = rotateWithRight(node);
+			}
 			// 在右子树的左子节点插入
 			if (height(node.right.left) > height(node.right.right)) {
 				// 这里可以定义一下k2，或者不定义
 				AvlNode k2 = node.right;
 				node.right = rotateWithLeft(k2);
-				node = rotateWithRight(node);
-			} else {	// 在右子树的右子节点插入
 				node = rotateWithRight(node);
 			}
 		}

@@ -11,9 +11,7 @@ public class ArrayStack {
 	private int size, top = -1;
 	private int[] ele;
 	
-	public ArrayStack(int size) { 
-		this.ele = new int[size];
-	}
+	public ArrayStack(int size) { this.ele = new int[size]; }
 	
 	/*
 	 * 可以不声明size，使用top来判断
@@ -25,16 +23,14 @@ public class ArrayStack {
 	
 	// 入栈
 	public void push(int val) {
-		if(isFull())
-			throw new IndexOutOfBoundsException("栈满");
+		if(isFull()) { throw new IndexOutOfBoundsException("栈满"); }
 		ele[++top] = val;
 		size++;
 	}
 	
 	// 出栈
 	public int pop() {
-		if(isEmpty())
-			throw new IndexOutOfBoundsException("空栈");
+		if(isEmpty()) { throw new IndexOutOfBoundsException("空栈"); }
 		size--;
 		return ele[top--];
 	}
@@ -45,8 +41,7 @@ public class ArrayStack {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		for (int x = top; x >= 0; --x)
-			sb.append(ele[x]).append(' ');
+		for (int x = top; x >= 0; --x) { sb.append(ele[x]).append(' '); }
 		return sb.toString();
 	}
 	

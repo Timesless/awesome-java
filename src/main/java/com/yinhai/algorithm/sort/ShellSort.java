@@ -18,6 +18,7 @@ public class ShellSort {
 			// 对每组简单插入
 			for (int x = step; x < ary.length ; ++x) {
 				// 这里有点没看懂
+				// 2019年12月7日 这里其实就是让y指向每组的第一个元素，和每组后面的元素比较
 				for(int y = x -step; y >= 0; y -= step) {
 					if(ary[y] > ary[y + step]) {
 						tmp = ary[y];

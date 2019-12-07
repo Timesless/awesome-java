@@ -27,8 +27,7 @@ public class LinkedStack {
 	// 弹出栈顶节点
 	public int pop() {
 		Node first = head.next;
-		if(isEmpty())
-			throw new IndexOutOfBoundsException("栈空");
+		if(isEmpty()) { throw new IndexOutOfBoundsException("栈空"); }
 		--size;
 		head.next = first.next;
 		return first.val;
@@ -36,8 +35,7 @@ public class LinkedStack {
 	
 	// 查看栈顶节点的值
 	public int peek() {
-		if(isEmpty())
-			throw new IndexOutOfBoundsException("栈空");
+		if(isEmpty()) { throw new IndexOutOfBoundsException("栈空"); }
 		return head.next.val;
 	}
 	
@@ -45,8 +43,7 @@ public class LinkedStack {
 
 	@Override
 	public String toString() {
-		if (isEmpty())
-			return "空栈";
+		if (isEmpty()) { return "空栈"; }
 		StringBuilder sb = new StringBuilder("[");
 		Node tmp = head.next;
 		while (null != tmp.next) {

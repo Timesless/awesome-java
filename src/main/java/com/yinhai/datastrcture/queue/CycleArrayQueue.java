@@ -35,15 +35,13 @@ public class CycleArrayQueue {
 	
 	// 查看队头元素
 	public int peek() {
-		if(isEmpty())
-			throw new IllegalArgumentException("空队列");
+		if(isEmpty()) throw new IllegalArgumentException("空队列");
 		return ele[front];
 	}
 	
 	// 出队
 	public int dequeue() {
-		if(isEmpty())
-			throw new IllegalArgumentException("空队列");
+		if(isEmpty()) throw new IllegalArgumentException("空队列");
 		int rs = ele[front];
 		front = ++front % ele.length;
 		--size;
@@ -88,6 +86,4 @@ public class CycleArrayQueue {
 		System.out.println(queue.toString());
 		System.out.println(queue.peek());
 	}
-	
-	
 }

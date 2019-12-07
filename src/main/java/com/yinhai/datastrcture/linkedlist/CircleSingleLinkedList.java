@@ -13,10 +13,7 @@ public class CircleSingleLinkedList {
 
 	Node first;
 	int size;
-	
-	public CircleSingleLinkedList() {
-		this.first = new Node(-1);
-	}
+	public CircleSingleLinkedList() { this.first = new Node(-1); }
 
 	/*
 	 * 数数并出圈，这里未rangeCheck(start, step)
@@ -89,8 +86,4 @@ public class CircleSingleLinkedList {
 		System.out.println(list);
 		list.countAndExit(1, 2);
 	}
-
-	
-
-
 }

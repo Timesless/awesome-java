@@ -83,9 +83,8 @@ public class Infix2Suffix {
 		if(stackTopPriority >= curInfixPriority) {
 			operand.add(String.valueOf(operator.pop()));
 			operator.push(tmp);
-		} else {
+		} else
 			operand.add(String.valueOf(tmp));
-		}
 	}
 
 	/*
@@ -93,8 +92,7 @@ public class Infix2Suffix {
 	 */
 	boolean isOperator(char op) {
 		boolean flag = false;
-		if(op == '+' || op== '-' || op == '*' || op == '/')
-			flag = true;
+		if(op == '+' || op== '-' || op == '*' || op == '/') { flag = true; }
 		return flag;
 	}
 	
@@ -146,6 +144,4 @@ public class Infix2Suffix {
 		List<String> suffix = caclulator.infix2Suffix(expression);
 		System.out.println(suffix);
 	}
-	
-	
 }

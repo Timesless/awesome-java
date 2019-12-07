@@ -21,9 +21,7 @@ public class SingleLinkedList {
 	// 添加到尾节点
 	public void add(int n) {
 		Node tmp = head;
-		while (tmp.next != null) {
-			tmp = tmp.next;
-		}
+		while (tmp.next != null) { tmp = tmp.next; }
 		tmp.next = new Node(n);
 		size++;
 	}
@@ -36,9 +34,7 @@ public class SingleLinkedList {
 		/*
 		 * 找到要添加的位置。即index前一个
 		 */
-		for(int x = 0; x < index; ++x) {
-			tmp = tmp.next;
-		}
+		for(int x = 0; x < index; ++x) { tmp = tmp.next; }
 		Node node = new Node(n);
 		node.next = tmp.next;
 		tmp.next = node;
@@ -79,9 +75,7 @@ public class SingleLinkedList {
 		Node second = head.next;
 		while (null != first) {
 			// 当k = 0，说明第一个指针移动了k步，那么第二个指针应该开始移动
-			if(k <= 0) {
-				second = second.next;
-			}
+			if(k <= 0) { second = second.next; }
 			k--;
 			first = first.next;
 		}
@@ -96,8 +90,7 @@ public class SingleLinkedList {
 	 * 像单链表的操作一般不返回值，返回值只会有当前一个node会被toString()
 	 */
 	public void reverseList() {
-		if(size < 1)
-			return;
+		if(size < 1) return;
 		// 倒序节点，遍历原链表采用头插链接在reverseHead后
 		Node reverseHead = new Node(-1);
 		/*
@@ -128,8 +121,7 @@ public class SingleLinkedList {
 	 * 边界校验，确定index在有效范围
 	 **/
 	private void rangeCheck(int index) {
-		if(index < 0 || index >= this.size)
-			throw new IndexOutOfBoundsException("索引不在有效范围内");
+		if(index < 0 || index >= this.size) throw new IndexOutOfBoundsException("索引不在有效范围内");
 	}
 	
 	@Override
@@ -190,7 +182,4 @@ public class SingleLinkedList {
 		list2.add(4);
 		System.out.println(merge2List(list, list2));
 	}
-	
-	
-
 }

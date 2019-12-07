@@ -39,12 +39,9 @@ public class KMP {
 				y = maxCommonVal[y - 1];
 				// --y;
 			}
-			if(dest.charAt(x) == subString.charAt(y)) {
-				++y;
-			}
+			if(dest.charAt(x) == subString.charAt(y)) { ++y; }
 			// 为什么要写在循环里面
-			if(y == len2)
-				return x - y + 1;
+			if(y == len2) { return x - y + 1; }
 		}
 		// 匹配到子串
 		return -1;
@@ -72,11 +69,9 @@ public class KMP {
 		return maxCommonVal;
 	}
 
-
 	public static void main(String[] args) {
 		String dest = "BBC ABCDAB ABCDABCDABDE", subString = "ABCDABD";
 		System.out.println(Arrays.toString(getMaxTab(subString)));
 		System.out.println(kmpMatch(dest, subString));
 	}
-	
 }

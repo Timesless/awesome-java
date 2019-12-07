@@ -14,7 +14,7 @@ public class BubbleSort {
 		boolean flag = false;
 		for(int x = 0; x < ary.length - 1; ++x) {
 			// 每次循环将最大的数移到后面
-			for (int y = 0; y < ary.length - 1-x; ++y) {
+			for (int y = 0; y < ary.length - 1 - x; ++y) {
 				if(ary[y] > ary[y+1]) {
 					ary[y] = ary[y] ^ ary[y + 1];
 					ary[y + 1] = ary[y] ^ ary[y + 1];
@@ -22,8 +22,7 @@ public class BubbleSort {
 					flag = true;
 				}
 			}
-			if(!flag)
-				break;
+			if(!flag) { break; }
 		}
 	}
 
