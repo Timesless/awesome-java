@@ -86,10 +86,10 @@ public class SparseArray {
 	 */
 	private int getAryCount(int[][] old) {
 		int x = 0, rows = old.length, cols = old.length, count = 0;
-		for(; x < rows; ++x)
+		for(; x < rows; ++x) {
 			for (int y = 0; y < cols; ++y)
-				if (old[x][y] != 0)
-					++count;
+				if (old[x][y] != 0) { ++count; }
+		}
 		return count;
 	}
 	
