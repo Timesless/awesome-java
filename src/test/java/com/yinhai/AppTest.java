@@ -1,18 +1,15 @@
 package com.yinhai;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test for simple App.
@@ -56,9 +53,9 @@ public class AppTest {
         Predicate<String> predicate = Predicate.isEqual(str);
         System.out.println(predicate.test("123"));
     }
-    
     @Test
     public void testIntStream() {
         System.out.println(IntStream.rangeClosed(1, 1000_00).sum());
     }
+    
 }

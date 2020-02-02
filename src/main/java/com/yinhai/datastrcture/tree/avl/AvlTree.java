@@ -1,7 +1,5 @@
 package com.yinhai.datastrcture.tree.avl;
 
-import com.yinhai.datastrcture.tree.bst.Node;
-
 /**
  * @Author: yangzl
  * @Date: 2019/12/3 20:04
@@ -137,17 +135,18 @@ public class AvlTree {
 	 *	.. 当前节点，即node，即上图的1
 	 **/
 	private void leftRotate(AvlNode node) {
-		System.out.println("执行左旋");
+		System.out.println("执行左旋...");
+		AvlNode rt = node.right;
 		// 以当前节点的值创建一个新节点
 		AvlNode newLeftNode = new AvlNode(node.val);
 		// 新节点的左子树设置为当前节点的左子树
 		newLeftNode.left = node.left;
 		// 新节点的右子树设置为当前节点右子树的左子树
-		newLeftNode.right = node.right.left;
+		newLeftNode.right = rt.left;
 		// 当前节点的值用当前节点的右子节点的值替换
 		node.val = node.right.val;
 		// 当前节点的右子树设置为当前节点右子树的右子树
-		node.right = node.right.right;
+		node.right = rt.right;
 		// 当前节点的左子树设置为新节点
 		node.left = newLeftNode;
 	}
@@ -160,14 +159,15 @@ public class AvlTree {
 	 * 		  3
 	 **/
 	private void rightRotate(AvlNode node) {
-		System.out.println("执行右旋");
+		AvlNode lt = node.left;
+		System.out.println("执行右旋...");
 		AvlNode newRightNode = new AvlNode(node.val);
-		newRightNode.left = node.left.right;
+		newRightNode.left = lt.right;
 		newRightNode.right = node.right;
 		// 用当前节点左子节点的值替换当前节点的值
 		node.val = node.left.val;
 		// 当前节点的左子树 = 当前节点左子树的左子树
-		node.left = node.left.left;
+		node.left = lt.left;
 		node.right = newRightNode;
 	}
 
