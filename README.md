@@ -1,41 +1,37 @@
-# 1. JAVA基础
-## JUC
-+ java.util.concurrent.atomic
-+ java.util.concurrent.locks
-	+ ReentrantLock
-	+ ReentrantReadWriteLock.ReadLock
-	+ ReentrantReadWriteLock.WriteLock
-### Synchronized(内置锁) & Lock
+### 数据结构
+#### 线性表
++ 静态数据结构（数组）
++ 动态数据结构（链表）
+    > + 理解递归结构
+    > + 深入理解指针
+****
+使用动态，静态数据结构实现栈，队列
+****
+##### 队列
+##### 栈
+#### 非线性结构
+##### 树
++ 二叉搜索树
++ AVL树
++ 2-3树与左倾红黑树的等价性
++ 堆
+    + 最大堆
+    + 最小堆
++ 并查集
+> 使用数组表示
++ 线段树
++ Trie（字典树，前缀树）
+##### 图
 
-### AQS(AbstractQueuedSynchronizer)
+### 算法
 
-## JVM(Java Vitrual Machine)
-## JMM(Java Memeroy Mode)
+#### 分治与递归
+> 分治通常需要递归实现
+#### DP
+> 动态规划：问题能分解为更小的子问题，子问题之间通常有公共子问题
+#### 贪心算法
+> 
+#### 回溯
 
-# 2. Spring Framework
 
-  ## Spring mvc
-
-  ## Spring
-
-  ## SpringBoot
-
-  ## Spring Data
-
-  ## Spring cloud
-
-# 3 Mybatis
-
-# 4 Linux
-
-# 5 Mysql
-
-# 6 Redis
-
-# 7 Docker
-
-# 8 Dubbo（RPC框架）
-
-# 9 消息中间件
-
-# 10 Tomcat与jetty
+### LeedCode

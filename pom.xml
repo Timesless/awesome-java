@@ -8,7 +8,7 @@
   <artifactId>interview</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>interview</name>
+  <name>awesome-java</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
