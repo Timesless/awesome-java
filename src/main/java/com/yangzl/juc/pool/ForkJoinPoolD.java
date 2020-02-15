@@ -27,15 +27,16 @@ public class ForkJoinPoolD extends RecursiveTask<Integer> {
 	protected Integer compute() {
 		if (end - start > DIVIDE) {
 			int mid = (start + end) >> 1;
-			ForkJoinTask<Integer> taskOne = new ForkJoinPoolD(start, mid);
-			taskOne.fork();
-			ForkJoinPoolD taskTwo = new ForkJoinPoolD(mid + 1, end);
-			taskTwo.fork();
-			return taskOne.join() + taskTwo.join();
-		} else {
-			result += IntStream.rangeClosed(start, end).sum();
-		}
-		return result;
+			ForkJoinTask<Integer> leftTask = new ForkJoinPoolD(start, mid);
+			// 利用ForkJoin中另一个线程异步执行创建的子任务
+			leftTask.fork();
+			ForkJoinPoolD rightTask = new ForkJoinPoolD(mid + 1, end);
+			// 另外一个任务则由自己执行
+			int rightResult = rightTask.compute();
+			// taskTwo.fork();
+			return leftTask.join() + rightResult;
+		} 
+		return (result += IntStream.rangeClosed(start, end).sum());
 	}
 
 	public static void main(String[] args) throws Exception {

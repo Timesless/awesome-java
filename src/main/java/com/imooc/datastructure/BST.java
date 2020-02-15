@@ -1,4 +1,4 @@
-package com.imooc.datastructure.tree;
+package com.imooc.datastructure;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -202,9 +202,8 @@ public class BST<E extends Comparable<? super E>> {
 	 * @Desc: 当前节点作为根节点上最小值的节点
 	 **/
 	private Node<E> minimun(Node<E> node) {
-		if (null != node)
-			while (null != node.left)
-				node = node.left;
+		while (null != node)
+			node = node.left;
 		return node;
 	}
 	// 当前节点作为根节点的最大值的节点。递归实现
