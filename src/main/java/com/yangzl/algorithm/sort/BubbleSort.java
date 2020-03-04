@@ -26,11 +26,9 @@ public class BubbleSort {
 		}
 	}
 
-
 	public static void main(String[] args) {
 		int[] ary = {1, 6, 5, 4, 2, 3};
 		bubbleSort(ary);
 		System.out.println(Arrays.toString(ary));
 	}
-	
 }

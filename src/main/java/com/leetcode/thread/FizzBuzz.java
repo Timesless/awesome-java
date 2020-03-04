@@ -1,4 +1,4 @@
-package com.leetcode.thread.fizzbuzz;
+package com.leetcode.thread;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

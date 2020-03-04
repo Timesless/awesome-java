@@ -174,6 +174,7 @@ public class BST<E extends Comparable<? super E>> {
 			size++;
 			return new Node<>(val);
 		}
+		// 判断在哪个位置执行插入
 		int cmpResult = val.compareTo(node.val);
 		if (cmpResult < 0) {
 			node.left = add(val, node.left);

@@ -1,4 +1,4 @@
-package com.yangzl.datastrcture.tree.huffman;
+package com.yangzl.datastrcture.tree;
 
 import java.util.*;
 
@@ -9,6 +9,25 @@ import java.util.*;
  * 			用于构建Huffman编码。
  **/
 public class HuffmanTree {
+	
+	private static class Node implements Comparable{
+		Character val;	// 值
+		int weight;	// 权重
+		Node left, right;
+		public Node(Character val, int weight) {
+			this.val = val;
+			this.weight = weight;
+		}
+		@Override
+		public int compareTo(Object o) {
+			Node oth = (Node) o;
+			return this.weight - oth.weight;
+		}
+		@Override
+		public String toString() {
+			return "[val = " + val + ", weight = " + weight + "]";
+		}
+	}
 	
 	/**
 	 * @Date: 2019/11/17
@@ -50,9 +69,10 @@ public class HuffmanTree {
 	private static List<Node> getNodeList(char[] arr) {
 		Map<Character, Integer> map = new HashMap<>(arr.length << 1);
 		// 统计每个字母出现的频次
-		for (char tmp: arr) {
-			Object obj = map.containsKey(tmp) ? map.put(tmp, map.get(tmp) + 1) : map.put(tmp, 1);
-		}
+		for (char tmp: arr) 
+			// 如果tmp不存在，存入指定值1，如果存在合并oldValue 与 指定值
+			// map.merge(tmp, 1, (oldVal, newVal) -> oldVal + newVal);
+			map.merge(tmp, 1, Integer::sum);
 		List<Node> result = new ArrayList<>(arr.length);
 		map.entrySet().forEach(entry -> result.add(new Node(entry.getKey(), entry.getValue())));
 		return result;

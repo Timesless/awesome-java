@@ -1,6 +1,7 @@
 package com.yangzl;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @Author: yangzl
@@ -39,5 +40,22 @@ public class TestDate {
 			b = a + 1;
 		}
 		int c = a + 1;
+	}
+
+	/**
+	 * @Date: 2020/2/15
+	 * @Desc: 覆盖equals
+	 **/
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		TestDate other = (TestDate) o;
+		return count == other.count;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(count);
 	}
 }

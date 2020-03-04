@@ -9,8 +9,7 @@ import java.util.Arrays;
  * 首先是将元素按步长分组，对每组进行简单插入排序， 因为简单插入对有序的列表基本可以达到现行复杂度
  **/
 public class ShellSort {
-
-
+	
 	static void shellSort(int[] ary) {
 		int step = ary.length >> 1;
 		int tmp;

@@ -6,11 +6,16 @@ package com.yangzl.datastrcture.tree.avl;
  * @Desc: .. 平衡二叉树
  **/
 public class AvlTree {
+	
+	static class AvlNode {
+		int val;
+		AvlNode left, right;
+		public AvlNode(int val) { this.val = val; }
+	}
 
 	private AvlNode root;
 	public AvlTree() {}
 	public AvlTree(AvlNode root) { this.root = root; }
-	public AvlNode getRoot() { return this.root; }
 	
 	/**
 	 * @Date: 2019/12/3 计算树的高度，可作为AvlNode属性提供
@@ -28,11 +33,7 @@ public class AvlTree {
 	 * @Desc: .. 必定是往当前节点的左子树去查找
 	 **/
 	public AvlNode findMin(AvlNode node) {
-		if (null == node) {
-			return null;
-		} else if (null == node.left) {
-			return node;
-		}
+		if (null == node || null == node.left) { return null; }
 		return findMin(node.left);
 	}
 	/**

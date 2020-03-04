@@ -1,5 +1,83 @@
+### 变量名派系
++ 字母派：a, b, c, a1, b1, c1
++ 现代字母派：array, brray, crray
++ 后缀派：img, jpg, doc, xls
++ 卖萌派：QAQ, QAT, QWQ, TAT, TQT
++ 复读派：n, nn, nnn
++ 重排派：next, enxt, xnet
++ 化学派：co2, h20, ch4
++ 下划线派：_, __, ___
++ 脏话派：f\*\*k, s\*\*t, t**d
++ 滚键盘派：qwer, asdf, zxcv
++ 学术派：alpha, beta, gamma
++ 月球派：saber, archer, rider
++ 圈圈派：O0,OO0,O0O
++ 条形码派：IIII, llll, iiii
+
+### I/O原理
+> 用户程序IO读写依赖OS底层read&write系统  
+> 而read&write系统的调用并不是直接与物理设备进行数据交换（不是物理设备级别读写），而是缓冲区之间数据复制  
+> read系统调用：数据从内核缓冲区复制到用户进程缓冲区  
+> write系统调用：数据从用户缓冲区复制到内核缓冲区  
++ 为什么设置这么多缓冲区？
+> 物理设备的直接读写涉及到操作系统的中断，开销较大，为减少底层系统时间性能损耗， 出现缓冲区   
+> OS对缓冲区进行监控，等待缓冲区达到一定数量时再进行IO设备中断处理，至于什么时候中断（读，写中断），由内核维护，用户无需关心   
++ 典型socket调用流程  
+client <--> 网卡 <-read & write-> 内核空间(kernel buffer, socket buffer) <-read & write-> 用户缓冲区
+    + 数据准备（DMA copy: OS在物理设备与内核缓冲区交换数据，该阶段用户无感知）
+    + 内核缓冲区数据复制到进程缓冲区(CPU copy)
+> Java服务器完成一次socket请求和响应，流程如下   
+> 请求到达网卡后，调用read系统从硬盘 -DMA-> kernel buffer -CPU-> JVM buffer -CPU-> socket buffer -DMA-> 网卡
+
+名词解释：  
+用户空间(user space): 此处指JVM进程  
+内核空间(kernel space): 内核缓冲区(kernel buffer), socket缓冲区(socket buffer)  
+硬件： 硬盘，网卡
+
++ zero-copy(DMA copy无法避免，减少CPU copy（只传输文件描述符）)
+> 零拷贝：减少用户缓冲区与内核缓冲区之间的数据复制。有几种实现方式
+
++ 4种IO模型
+    + 同步阻塞IO
+    + 同步非阻塞IO(Non-blocking IO)  
+用户空间线程请求IO，内核返回用户一个状态值，继续执行用户空间代码流程
+    + IO多路复用(IO Multiplexing)
+即经典的Reactor反应器模式，需要底层Synchronous Event Demultiplexer支持，如Java的Selector，linux的select / epoll 
+    + 异步IO(Asynchronous IO)   
+    
+Reactor基于事件驱动（回调）scalable IO in Java中对Reactor描述如下：    
+> 多个client连接到一个Reactor，Reactor分发连接事件到acceptor，分发读写事件到handler处理请求
+> 1. Setup: 服务器端注册到selector并关注OP_ACCEPT事件   
+> 2. Dispatch Loop: 循环selector.select()   
+> 3. Acceptor: 处理OP_ACCEPT事件，生成SocketChannel   
+> 4. Handler setup: 读写事件处理器注册到selector   
+> 5. Request handling: 请求处理    
+
+**单Reactor多线程**：多worker线程（处理读写事件的handler采用多线程 / 线程池）   
+**主从Reactor**：多Reactor，多线程（处理连接事件多线程，处理读写事件多线程）   
+**netty**基于主从Reactor改进，采用事件循环组NioEventLoopGroup  
+每个事件循环 NioEventLoop  
+> while轮询（BossGroup轮询accpet，WorkerGroup轮询读写事件）
+> 处理：BossGroup处理连接事件生成NioSockeChannel注册到selector，WorkerGroup处理读写事件
+> runAllTask 处理队列中任务
+    
+> 阻塞 & 非阻塞：需要内核IO操作完成，才返回到用户空间执行用户操作，阻塞指用户空间程序执行状态   
+> 同步 & 异步：指用户空间与内核空间IO发起方式。
+>   同步指IO用户空间线程发起IO请求，异步指内核发起IO请求（注册各种IO事件回调，内核完成后主动调用）  
+
+### 面试
++ 项目经历
++ 项目遇到的实际问题
++ 印象最深的bug
++ 设计模式
++ 网络
++ 并发
+
+> 解决问题的思路，方向，考虑问题的条件，能否给出提示  
+> 选择技术，标准，小组运行模式，后续规划，产品某个问题怎么解决的
+
 ### JAVA基础
-> （final）变量捕获
+> 局部类与匿名内部类捕获作用域返回内final,effectively final变量
 #### 协变与逆变
 > LSP
 > + 子类完全拥有父类的方法，且具体子类必须实现父类抽象方法

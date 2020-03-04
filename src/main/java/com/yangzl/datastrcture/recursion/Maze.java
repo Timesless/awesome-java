@@ -51,7 +51,7 @@ public class Maze {
 			if(matrix[row][col] == YET) {	// 如果还未走过，则可以进入，所以上面if的边界判断可删除
 				// 将当前位置标记为通路
 				matrix[row][col] = ACCESS;
-				if(existPath(row + 1, col) || existPath(row, col + 1)
+				if (existPath(row + 1, col) || existPath(row, col + 1)
 						|| existPath(row - 1, col) || existPath(row, col - 1)) {
 					return true;
 				}

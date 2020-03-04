@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * @Date: 2020/2/13 11:11
  * @Desc: ..
  */
-public class Solution {
+public class TopKFrequent {
 
 	/**
 	 * @Date: 2020/2/12
@@ -20,7 +20,8 @@ public class Solution {
 		Map<Integer, Integer> map = new TreeMap<>();
 		for (int tmp : nums) {
 			if (map.containsKey(tmp))
-				map.compute(tmp, (ok, ov) -> ov + 1);
+				// map.compute(tmp, (ok, ov) -> ov + 1);
+				map.put(tmp, map.get(tmp) + 1);
 			else
 				map.put(tmp, 1);
 		}
@@ -34,17 +35,11 @@ public class Solution {
 		return queue.stream().sorted().collect(Collectors.toList());
 	}
 
-
-
-
-	// ====================================================================
-	// divide line
-	// ====================================================================
+	
 	@Test
 	public void test1() {
 		int[] nums = { 1 };
 		int k = 1;
 		System.out.println(topKFrequent(nums, k));
 	}
-	
 }

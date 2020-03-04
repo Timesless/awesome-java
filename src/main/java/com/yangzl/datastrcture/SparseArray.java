@@ -1,4 +1,4 @@
-package com.yangzl.datastrcture.array;
+package com.yangzl.datastrcture;
 
 import org.junit.Test;
 

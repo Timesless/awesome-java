@@ -8,26 +8,26 @@ import java.util.stream.Stream;
 /**
  * @Author: yangzl
  * @Date: 2020/1/19 14:44
- * @Desc: .. 判断一个数是否是两个数的平方和
+ * @Desc: .. 
  */
 public class SquareSum {
 
+	// 判断一个数是否是两个数的平方和
 	public boolean judgeSquareSum(int c) {
 		if (c == 1) return true;
 		int p1 = 0, p2 = (int) Math.sqrt(c), product;
 		while (p1 <= p2) {
 			product = p1 * p1 + p2 * p2;
 			if (product == c) { return true; }
-			if (product > c) {
+			if (product > c)
 				--p2;
-			} else {
+			else
 				++p1;
-			}
 		}
 		return false;
 	}
-
 	
+	// 反转原因字母
 	public static String reverseVowels(String s) {
 		if (s.length() == 1) return s;
 		Set<Character> set = Stream.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')

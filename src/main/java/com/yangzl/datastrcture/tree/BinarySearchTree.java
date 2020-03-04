@@ -1,4 +1,4 @@
-package com.yangzl.datastrcture.tree.bst;
+package com.yangzl.datastrcture.tree;
 
 /**
  * @Author: yangzl
