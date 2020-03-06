@@ -25,8 +25,7 @@ public class KMP {
 
 	public static int kmpMatch(String dest, String subString) {
 		int len1 = dest.length(), len2 = subString.length();
-		if(len1 < len2)
-			return -1;
+		if(len1 < len2) return -1;
 		int[] maxCommonVal = KMP.getMaxTab(subString);
 		int x = 0, y = 0;
 		for (; x < len1; ++x) {

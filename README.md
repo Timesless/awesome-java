@@ -31,38 +31,48 @@ client <--> 网卡 <-read & write-> 内核空间(kernel buffer, socket buffer) <
 
 名词解释：  
 用户空间(user space): 此处指JVM进程  
-内核空间(kernel space): 内核缓冲区(kernel buffer), socket缓冲区(socket buffer)  
-硬件： 硬盘，网卡
+内核空间(kernel space): 内核缓冲区(kernel buffer), socket缓冲区(kernel socket buffer)  
+硬件： 硬盘，网卡(协议引擎)
 
-+ zero-copy(DMA copy无法避免，减少CPU copy（只传输文件描述符）)
-> 零拷贝：减少用户缓冲区与内核缓冲区之间的数据复制。有几种实现方式
-
++ zero-copy(DMA copy无法避免，减少CPU copy（kernel buffer & user buffer可能需要传输fd）)
+> mmap & write：   
+> 数据通过 DMA 拷贝到 OS内核缓冲区。接着应用程序跟OS共享该缓冲区,这样OS内核和应用程序空间就不需要再进行任何的数据拷贝。      
+> 应用程序调用write()之后，OS内核将数据从原来的内核缓冲区中拷贝到与 socket 相关的内核缓冲区中。  
+> 接下来，数据从内核 socket 缓冲区拷贝到协议引擎中去   
+> sendfile：     
+> Linux 在版本 2.1 中引入了 sendfile() 这个系统调用。sendfile()不仅减少了数据拷贝操作，它也减少了上下文切换。    
+> 首先：sendfile()系统调用利用 DMA 引擎将文件中的数据拷贝到OS内核缓冲区中，然后数据被拷贝到与 socket 相关的内核缓冲区中去。   
+> 接下来，DMA 引擎将数据从内核 socket 缓冲区中拷贝到协议引擎中去。   
+> 如果在用户调用sendfile() 系统调用进行数据传输的过程中有其他进程截断了该文件，sendfile()会返回给用户应用程序中断前所传输的字节数   
+> splice：   
+> gather()&scatter()：gather()可以从多个缓冲区读数据聚集，scatter()可以分散到多个缓冲区写数据?   
+- - - - 
 + 4种IO模型
-    + 同步阻塞IO
+    + 同步阻塞IO  
     + 同步非阻塞IO(Non-blocking IO)  
-用户空间线程请求IO，内核返回用户一个状态值，继续执行用户空间代码流程
-    + IO多路复用(IO Multiplexing)
+用户空间线程请求IO，内核返回用户一个状态值，继续执行用户空间代码流程  
+    + IO多路复用(IO Multiplexing)  
 即经典的Reactor反应器模式，需要底层Synchronous Event Demultiplexer支持，如Java的Selector，linux的select / epoll 
     + 异步IO(Asynchronous IO)   
     
-Reactor基于事件驱动（回调）scalable IO in Java中对Reactor描述如下：    
-> 多个client连接到一个Reactor，Reactor分发连接事件到acceptor，分发读写事件到handler处理请求
+Reactor基于事件驱动（回调）scalable IO in Java中Basic Reactor模型如下：    
 > 1. Setup: 服务器端注册到selector并关注OP_ACCEPT事件   
 > 2. Dispatch Loop: 循环selector.select()   
 > 3. Acceptor: 处理OP_ACCEPT事件，生成SocketChannel   
 > 4. Handler setup: 读写事件处理器注册到selector   
 > 5. Request handling: 请求处理    
+>
+> 多个client连接到一个Reactor，Reactor分发连接事件到acceptor，分发读写事件到handler(每个handler开启一个线程)处理请求    
 
-**单Reactor多线程**：多worker线程（处理读写事件的handler采用多线程 / 线程池）   
-**主从Reactor**：多Reactor，多线程（处理连接事件多线程，处理读写事件多线程）   
+**单Reactor多线程**：多worker线程（处理读写事件的handler采用线程池）   
+**主从Reactor**：多Reactor，多线程（处理连接事件多线程，处理读写事件采用线程池）   
 **netty**基于主从Reactor改进，采用事件循环组NioEventLoopGroup  
-每个事件循环 NioEventLoop  
-> while轮询（BossGroup轮询accpet，WorkerGroup轮询读写事件）
-> 处理：BossGroup处理连接事件生成NioSockeChannel注册到selector，WorkerGroup处理读写事件
-> runAllTask 处理队列中任务
-    
+每个事件循环(NioEventLoop)模式同主从Reactor  
+> while轮询（BossGroup轮询accpet，WorkerGroup轮询读写事件）   
+> 处理：BossGroup处理连接事件生成NioSockeChannel注册到selector，WorkerGroup处理读写事件   
+> runAllTask 处理队列中任务   
 > 阻塞 & 非阻塞：需要内核IO操作完成，才返回到用户空间执行用户操作，阻塞指用户空间程序执行状态   
-> 同步 & 异步：指用户空间与内核空间IO发起方式。
+> 同步 & 异步：指用户空间与内核空间IO发起方式。  
 >   同步指IO用户空间线程发起IO请求，异步指内核发起IO请求（注册各种IO事件回调，内核完成后主动调用）  
 
 ### 面试

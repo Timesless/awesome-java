@@ -119,5 +119,4 @@ public class BinaryHeap {
 		System.out.println();
 		heap.heapSort();
 	}
-
 }

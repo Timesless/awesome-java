@@ -102,25 +102,5 @@ public class AppTest {
         }
     }
     
-
-    public void merge(int[] A, int m, int[] B, int n) {
-
-        int[] sorted = new int[A.length];
-        int i, j, count;
-        i = j = count = 0;
-        while (i < m && j < n) {
-            if (A[i] <= B[j])
-                sorted[count++] = A[i++];
-            else
-                sorted[count++] = B[j++];
-        }
-        System.out.println(Arrays.toString(sorted));
-    }
-    @Test
-    public void test4() {
-        int[] m = {1, 2, 3, 0, 0, 0};
-        int[] n = {2, 5, 6};
-        merge(m, 3, n, 3);
-    }
     
 }

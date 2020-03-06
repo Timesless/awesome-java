@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Author: yangzl
  * @Date: 2020/1/4 23:47
- * @Desc: ..	多资源互斥使用， 控制并发线程数
+ * @Desc: ..	多资源互斥使用，控制并发线程数
  **/
 public class SemaphoreD {
 

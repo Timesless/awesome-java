@@ -1,4 +1,4 @@
-package com.imooc.algorithm.backtrace;
+package com.imooc.algorithm;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -69,7 +69,7 @@ public class BackTrace {
 	// =======================================================================
 	// 17 电话号码字符串组合
 	// =======================================================================
-	final String[] letters = {" ", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+	final String[] letters = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 	/**
 	 * @Date: 2020/2/18
 	 * @Desc: 组合9键的字母
@@ -87,7 +87,7 @@ public class BackTrace {
 			path.add(str);
 			return;
 		}
-		String s = letters[digits.charAt(idx) - '0'];
+		String s = letters[digits.charAt(idx) - '2'];
 		for (int i = 0; i < s.length(); i++)
 			letterCombinationBT(digits, idx + 1, str + s.charAt(i), path);
 	}
@@ -264,7 +264,6 @@ public class BackTrace {
 	 *   b-- B        2    2
 	 * 	 |	 \		
 	 *	 2    2		 
-	 *    
 	 */
 	
 

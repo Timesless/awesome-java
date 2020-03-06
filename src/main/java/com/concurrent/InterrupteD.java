@@ -1,11 +1,9 @@
-package com.yangzl.concurrent;
-
-import org.junit.Test;
+package com.concurrent;
 
 /**
  * @Author: yangzl
  * @Date: 2020/2/29 17:37
- * @Desc: ..
+ * @Desc: .. Java并发编程之美
  * 
  * 没有任何语言方面的需求要求一个被中断的程序应该终止。中断一个线程只是为了引起该线程的注意，被中断线程可以决定如何应对中断
  * Interrupted的经典使用代码    
@@ -46,13 +44,8 @@ import org.junit.Test;
  */
 public class InterrupteD {
 	
+	// 线程中断
 	public static void main(String[] args) {
-		
-	}
-	
-	// 线程中断认识
-	@Test
-	public void test1() {
 		final Thread main = Thread.currentThread();
 		Thread t1 = new Thread(() -> {
 			System.out.println("t1 begin run");
@@ -100,7 +93,7 @@ class Example3 extends Thread {
 	 * 样，它就能够 再次运行run 方法了，然后检查到stop = true，while循环就不会再被执行，在执
 	 * 行了while后面的清理工作之后，run方法执行完 毕，线程终止。
 	 */
-	public static void main(String args[]) throws Exception {
+	public static void main(String[] args) throws Exception {
 		Example3 thread = new Example3();
 		System.out.println("Starting thread...");
 		thread.start();

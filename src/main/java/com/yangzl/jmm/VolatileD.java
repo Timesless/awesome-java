@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Author: yangzl
  * @Date: 2020/1/5 19:32
- * @Desc: ..	volatile 可见性，禁止指令重排
+ * @Desc: ..	volatile 可见性，禁止指令重排。不保证原子性
  **/
 public class VolatileD {
 	

@@ -10,6 +10,9 @@ import java.util.TreeMap;
  * 输入: sum("ap"), 输出: 3
  * 输入: insert("app", 2), 输出: Null
  * 输入: sum("ap"), 输出: 5
+ * 
+ * 带权值的Trie, sum搜索方式可作为正则匹配参考实现
+ * 
  **/
 public class MapSum {
     

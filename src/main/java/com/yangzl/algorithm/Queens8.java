@@ -1,4 +1,4 @@
-package com.yangzl.datastrcture.recursion;
+package com.yangzl.algorithm;
 
 import java.util.Arrays;
 
