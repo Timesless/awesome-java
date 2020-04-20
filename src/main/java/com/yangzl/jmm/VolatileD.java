@@ -1,5 +1,7 @@
 package com.yangzl.jmm;
 
+import org.junit.Test;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -26,5 +28,10 @@ public class VolatileD {
 		}, "A").start();
 		while (d.num == 10) {  }
 		System.out.println("mission complete...");
+	}
+	
+	@Test
+	public void test1() {
+		String[] str = {"123", "456"};
 	}
 }

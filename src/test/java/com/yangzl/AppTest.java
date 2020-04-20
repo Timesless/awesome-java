@@ -2,8 +2,7 @@ package com.yangzl;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -65,7 +64,7 @@ public class AppTest {
      **/
     @Test
     public void testFunctionalInterface() {
-        Function<String, Integer> f = str -> str.length();
+        Function<String, Integer> f = String::length;
         Function<Integer, String> f2 = num -> String.valueOf(num);
         System.out.println(f2.andThen(f).apply(1234));
         Stream<String> stream = Stream.of("i", "love", "this");
@@ -101,6 +100,71 @@ public class AppTest {
             System.out.println(System.currentTimeMillis() - s3);
         }
     }
-    
+
+    public int[] smallerNumbersThanCurrent(int[] copy) {
+        int n = copy.length;
+        int[] nums = Arrays.copyOf(copy, n);
+        Arrays.sort(nums);
+        Map<Integer, Integer> map = new HashMap<>(n << 1);
+        int[] tmp = new int[n];
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] == nums[i - 1])
+                tmp[i] = tmp[i - 1];
+            else
+                tmp[i] = i;
+            map.put(nums[i], tmp[i]);
+        }
+        map.put(nums[0], 0);
+        int[] rs = new int[n];
+        for(int i = 0; i < n; ++i)
+            rs[i] = map.get(copy[i]);
+        return rs;
+    }
+    @Test
+    public void testSmallerNumbersThanCurrent() {
+        int[] param = {8, 1, 2, 2, 3};
+        System.out.println(Arrays.toString(smallerNumbersThanCurrent(param)));
+    }
+
+    /**
+     * @Date: 2020/3/22
+     * @Desc:  TIMEOUT
+     */
+    public int minIncrementForUnique(int[] A) {
+        if (A.length == 0 || A.length == 1) return 0;
+        Set<Integer> set = Arrays.stream(A)
+                .mapToObj(Integer::valueOf).collect(Collectors.toSet());
+        int max = Arrays.stream(A).max().getAsInt();
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < A.length; ++i)
+            map.merge(A[i], 1, Integer::sum);
+        List<Map.Entry<Integer, Integer>> list = map.entrySet().stream()
+                .filter(node -> node.getValue() > 1)
+                .collect(Collectors.toList());
+        Iterator<Map.Entry<Integer, Integer>> iter = list.iterator();
+        int count = 0;
+        while (iter.hasNext()) {
+            Map.Entry<Integer, Integer> node = iter.next();
+            int k = node.getKey();
+            int v = node.getValue();
+            while (v > 1) {
+                for (int i = k; i <= max + 1; ++i) {
+                    if (!set.contains(i)) {
+                        set.add(i);
+                        break;
+                    }
+                    ++count;
+                }
+                --v;
+                max = set.stream().max(Integer::compare).get();
+            }
+        }
+        return count;
+    }
+    @Test
+    public void testMinIncrementForUnique() {
+        int[] arr = {2, 2, 2, 2, 0};
+        System.out.println(minIncrementForUnique(arr));
+    }
     
 }

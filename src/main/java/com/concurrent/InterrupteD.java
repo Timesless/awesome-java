@@ -123,3 +123,22 @@ class Example3 extends Thread {
 		System.out.println("Thread exiting under request...");
 	}
 }
+
+class InterrupteD2 {
+	public static void main(String[] args) throws Exception {
+		Thread thread = new Thread(() -> {
+			while (!Thread.interrupted()) {
+
+			}
+			System.out.println("go go..");
+		}, "t1");
+		
+		thread.start();
+		thread.interrupt();
+		
+		thread.join();
+		System.out.println(thread.isInterrupted());
+		System.out.println(thread.isInterrupted());
+		System.out.println("mission complete");
+	}
+}

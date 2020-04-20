@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
  * 			backtrack(路径，选择列表，条件变化)
  * 			撤销选择（状态回溯）
  */
-public class BackTrace {
+public class BackTrack {
 
 	// =======================================================================
 	// 131 分割回文串
@@ -51,9 +51,11 @@ public class BackTrace {
 		for (int i = idx; i < n; ++i) {
 			// 当前字符序列是回文串
 			if (isPalindrome(s, idx, i)) {
+				// 做选择
 				path.addLast(s.substring(idx, i + 1));
+				// 状态递进
 				partitonBT(s, i + 1, path);
-				// 状态回溯
+				// 状态回溯（撤销选择）
 				path.removeLast();
 			}
 		}

@@ -85,10 +85,23 @@ public class FunctionD {
 		 * 并行流带来的性能收益在ArrayList, HashMap, HashSet, ConcurrentHashMap, 数组, int类型范围, long类型范围, 实例
 		 * 并行的最佳操作是 reduce, min, max, sum, count, 短路操作 anyMatch, noneMatch, allMatch等
 		 */
-		
 	}
 
 	private List<String> getValues() {
 		return Arrays.asList("hGllo", "zSz", "ccCs", "ddHz", "dZfs", "Zf**k");
+	}
+	
+	
+	@Test
+	public void test3() {
+		
+	}
+	public int majorityElement(int[] nums) {
+		Map<Integer, Integer> res = new HashMap<>();
+		for(int tmp : nums) {
+			res.merge(tmp, 1, Integer::sum);
+		}
+		
+		return res.values().stream().mapToInt(Integer::intValue).max().getAsInt();
 	}
 }

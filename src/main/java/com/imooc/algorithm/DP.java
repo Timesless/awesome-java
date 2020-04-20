@@ -570,18 +570,22 @@ public class DP {
 			}
 		return dp[m][n];
 	}
-	// 原地修改数组
-	public int maxValue_DPInplace(int[][] grid) {
-		int m = grid.length, n = grid[0].length;
-		for (int i = 0; i < m; ++i)
-			for (int j = 0; j < n; ++j) {
-				
-			}
-		return grid[m - 1][n - 1];
-	}
-	@Test
-	public void testMaxValue_DPInplace() {
-		
+	
+	// =======================================================================
+	// 338 比特位计数 给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字i计算其二进制数中的 1 的数目并将它们作为数组返回。
+	// 输入: 2 输出: [0,1,1]；输入: 5 输出: [0,1,1,2,1,2]
+	// =======================================================================
+	public int[] countBitsDP(int num) {
+		int[] dp = new int[num + 1];
+		// 状态转移： 对于奇数，是前一个数比特为1的个数 + 1，对于偶数 = i >>> 1的比特位1的个数
+		// 101 = 100 + 1; 1000 = 100
+		for (int i = 1; i <= num; ++i) {
+			if ((i & 1) == 0) 
+				dp[i] = dp[i >>> 1];
+			else
+				dp[i] = dp[i - 1] + 1;
+		}
+		return dp;
 	}
 
 }
