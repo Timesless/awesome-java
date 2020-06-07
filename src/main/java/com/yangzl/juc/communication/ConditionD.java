@@ -16,14 +16,15 @@ public class ConditionD {
 
 	// 标识位
 	private int flag = 1;
-	private Lock lock = new ReentrantLock();
-	private Condition five = lock.newCondition();
-	private Condition ten = lock.newCondition();
-	private Condition fif = lock.newCondition();
+	private final Lock lock = new ReentrantLock();
+	private final Condition five = lock.newCondition();
+	private final Condition ten = lock.newCondition();
+	private final Condition fif = lock.newCondition();
 	
 	private void printFive() {
 		lock.lock();
 		try {
+			// 注意使用wihle而不是if
 			while (flag != 1) { five.await(); }
 			flag = 2;
 			System.out.println(5);

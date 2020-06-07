@@ -5,7 +5,7 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * @Author: yangzl
  * @Date: 2020/1/4 23:36
- * @Desc: .. 集齐七颗龙珠召唤神龙
+ * @Desc: .. 集齐七颗龙珠召唤神龙，回环屏障
  **/
 public class CyclicBarrierD {
 

@@ -19,11 +19,14 @@ public enum  Operator {
 		this.symbol = symbol;
 		this.binaryOp = binaryOp;
 	}
-	
-	public double apply(double x, double y) { return binaryOp.applyAsDouble(x, y); }
-	/*
-	 * 测试
+	/**
+	 * 2020/6/7
+	 * @param
+	 * @return
 	 */
+	public double apply(double x, double y) { return binaryOp.applyAsDouble(x, y); }
+
+
 	public static void main(String[] args) {
 		System.out.println(Operator.PLUS.apply(2, 5));
 	}

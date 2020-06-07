@@ -12,6 +12,8 @@ import java.lang.management.ThreadMXBean;
 public class MultiThread {
 
 	public static void main(String[] args) {
+
+		// 静态工厂方法
 		ThreadMXBean mxBean = ManagementFactory.getThreadMXBean();
 		ThreadInfo[] threads = mxBean.dumpAllThreads(false, false);
 		for (ThreadInfo thread : threads) {

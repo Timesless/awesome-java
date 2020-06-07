@@ -12,13 +12,17 @@ import java.util.stream.IntStream;
  * @Author: yangzl
  * @Date: 2020/1/5 00:06
  * @Desc: .. Interface ReadWriteLock
+ *
+ * 	ReentrantReadWriteLock 高16位表示读锁，低16位表示写锁
+ *
  **/
 public class ReadWriteLockD {
 
-	private volatile Map<String, Object> map = new HashMap<>();
-	private ReadWriteLock lock = new ReentrantReadWriteLock();
+	private final Map<String, Object> map = new HashMap<>();
+	private final ReadWriteLock lock = new ReentrantReadWriteLock();
 	Lock writeLock = this.lock.writeLock();
 	Lock readLock = this.lock.readLock();
+
 	private void put(Object val) {
 		writeLock.lock();
 		try {

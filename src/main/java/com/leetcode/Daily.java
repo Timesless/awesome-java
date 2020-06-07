@@ -48,10 +48,10 @@ public class Daily {
 		System.out.println(Arrays.toString(arr));
 	}
 
-	/**
-	 * @Date: 2020/4/3
-	 * @Desc: 8.字符串转整数。 脑瓜子嗡嗡的
-	 */
+	// =======================================================================
+	// 2020/4/3
+	// 字符串转整数。 脑瓜子嗡嗡的
+	// =======================================================================
 	public int myAtoi(String str) {
 		int ln;
 		if ((ln = str.length()) == 0) return 0;
@@ -120,6 +120,9 @@ public class Daily {
 		System.out.println(devide(5, 2));
 	}
 
+	// =======================================================================
+	// 
+	// =======================================================================
 	List<List<Integer>> res = new ArrayList<>();
 	public List<List<Integer>> findSolution(BiFunction<Integer, Integer, Integer> customfunction, int z) {
 		if (z == 0) return res;
@@ -142,40 +145,7 @@ public class Daily {
 		BiFunction<Integer, Integer, Integer> function = (x, y) -> x + y;
 		System.out.println(findSolution(function, 5));
 	}
-
-	/**
-	 * @Date: 2020/4/4
-	 * @Desc: 交换数字转换为二进制后的奇偶数位的数值
-	 */
-	public int exchangeBits(int num) {
-		String bs = Integer.toBinaryString(num);
-		StringBuilder builder = null;
-		int bln = bs.length();
-		if ((bln & 1) == 1) {
-			builder = new StringBuilder(++ bln);
-			bs = "0" + bs;
-		} else 
-			builder = new StringBuilder(bln);
-		for (int i = 0; i < bln - 1; i += 2)
-			builder.append(bs.charAt(i + 1)).append(bs.charAt(i));
-		int rs = 0, count = 0;
-		for (int i = bln - 1; i >= 0; --i) 
-			// count ++ 这里为2条指令：iload -> count的值压入操作数栈；iinc
-			rs += builder.charAt(i) - 48 << (count ++);
-		return rs;
-	}
-	@Test
-	public void testExchangeBits() {
-		System.out.println(exchangeBits(6));
-		// 提取所有偶数位，并移动到奇数位
-		int even = (6 & 0Xaaaaaaaa) >> 1;
-		// 提取所有奇数位，并移动到偶数位
-		int odd = (6 & 0X55555555) << 1;
-		System.out.println(even | odd);
-		// 1010	=> 0010
-		// 0110
-		// 0101	=> 0100
-	}
+	
 
 	/**
 	 * @Date: 2020/4/4
@@ -255,7 +225,11 @@ public class Daily {
 	@Test
 	public void test2() { System.out.println(reformat("c")); }
 
-
+	/**
+	 * 2020/5/28 DCP
+	 * @param orders
+	 * @return
+	 */
 	public List<List<String>> displayTable(List<List<String>> orders) {
 		List<List<String>> rs = new ArrayList<>();
 		int sz = orders.size();
@@ -273,7 +247,6 @@ public class Daily {
 		collect.sort(Comparator.naturalOrder());
 		collect.add(0, "Table");
 		rs.add(collect);
-
 		List<String> tabless = tables.stream().collect(Collectors.toList());
 		tabless.sort(Comparator.comparingInt(Integer::valueOf));
 		for (int x = 0; x < tabless.size(); ++ x) {
@@ -290,13 +263,11 @@ public class Daily {
 			rs.add(list);
 		}
 		return rs;
-		
 	}
 
-	public int minNumberOfFrogs(String croakOfFrogs) {
-		return 0;
-	}
+	
 
+	
 	// =======================================================================
 	// 
 	// =======================================================================

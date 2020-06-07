@@ -54,6 +54,40 @@ public class SortAlgorithm {
 	}
 
 	/**
+	 * @Date: 2020/3/31
+	 * @Desc: 归并排序
+	 */
+	public void mergeSort(int[] nums, int left, int right) {
+		if (left == right) return;
+		int mid = left + (right - left >>> 1);
+		mergeSort(nums, left, mid);
+		mergeSort(nums, mid + 1, right);
+		// 合并
+		merge(nums, left, mid, right);
+	}
+	public void merge(int[] nums, int L, int M, int R) {
+		int[] tmp = new int[R - L + 1];
+		// 左右指针，tmp数组指针
+		int i = L, j = M + 1, p = 0;
+		while (i <= M && j <= R) {
+			if (nums[i] <= nums[j])
+				tmp[p++] = nums[i++];
+			else
+				tmp[p++] = nums[j++];
+		}
+		while (i <= M) tmp[p++] = nums[i++];
+		while (j <= R) tmp[p++] = nums[j++];
+		// 复制回原数组
+		for (int k = 0; k < tmp.length; ++k)
+			nums[L + k] = tmp[k];
+	}
+	@Test
+	public void testMergeSort() {
+		mergeSort(unsort, 0, unsort.length - 1);
+		System.out.println(Arrays.toString(unsort));
+	}
+
+	/**
 	 * @Date: 2019/12/7 简单插入排序
 	 * @Desc: 掌握
 	 */

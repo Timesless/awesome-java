@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.impl;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -12,17 +12,17 @@ import java.util.TreeMap;
  * 输入: sum("ap"), 输出: 5
  * 
  * 带权值的Trie, sum搜索方式可作为正则匹配参考实现
- * 
  **/
 public class MapSum {
     
-    static class Node {
+    // 节点类
+    private static class Node {
         int val;
         Map<Character, Node> next;
         public Node() { this.next = new TreeMap<>(); }
     }
 
-    private Node root;
+    private final Node root;
     public MapSum() { this.root = new Node(); }
     
     public void insert(String key, int val) {

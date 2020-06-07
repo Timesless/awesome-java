@@ -1,4 +1,4 @@
-package com.imooc.algorithm;
+package com.imooc;
 
 import org.junit.Test;
 

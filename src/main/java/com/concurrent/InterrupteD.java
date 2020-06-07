@@ -20,7 +20,7 @@ package com.concurrent;
  *                        // cleanup, if required    
  *             }
  *     }
- * Interrupte中断应该被设计为业务逻辑
+ * Interrupt中断应该被设计为业务逻辑
  *  
  * 如果线程被阻塞，它便不能核查共享变量，也就不能停止。这在许多情况下会发生，例如调用 
  * Object.wait()、ServerSocket.accept()和DatagramSocket.receive()时，他们都可能永 
@@ -61,7 +61,7 @@ public class InterrupteD {
 		t2.start();
 		/*
 		 * interrupted只是修改线程的中断状态
-		 * 等待在Thread.sleep(), Object.wait(), Thread.join()的线程（即被阻塞，没有占用CPU所以无法给自己设置状态[产生Interrupte异常]）
+		 * 等待在Thread.sleep(), Object.wait(), Thread.join()的线程（即被阻塞，没有占用CPU所以无法给自己设置状态[产生Interrupt异常]）
 		 * 收到中断信号后会抛出InterruptedException并返回，同时会把中断状态置回为true。
 		 * 	线程需要在捕获的InterruptedException中自己决定该怎么办
 		 * 		1 Thread.interrupted()会对中断状态进行复位

@@ -1,4 +1,4 @@
-package com.imooc.algorithm;
+package com.imooc;
 
 import java.util.*;
 import java.util.regex.Matcher;

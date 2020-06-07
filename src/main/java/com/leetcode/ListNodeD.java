@@ -202,6 +202,20 @@ public class ListNodeD {
 		ListNode l2 = new ListNode(1);
 		System.out.println(addTwoNumbers(l1, l2));
 	}
+
+	// 合并k个有序链表
+	// TODO
+	public ListNode mergeKLists(ListNode[] lists) {
+
+		int ln = lists.length;
+		ListNode dummyHead = new ListNode(-1), p = dummyHead;
+		for (int i = 0; i < ln; ++i) {
+			ListNode cur = lists[i], next;
+			if (cur != null) {}
+		}
+		
+		return dummyHead.next;
+	}
 	
 
 }

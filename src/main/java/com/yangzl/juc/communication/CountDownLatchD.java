@@ -14,7 +14,8 @@ public class CountDownLatchD {
 		// countDownLatchClose();
 		closeDoor();
 	}
-	
+
+	// join可以等待线程执行完毕
 	private static void closeDoor() {
 		IntStream.rangeClosed(0, 5).forEach(
 				x -> {
@@ -30,6 +31,11 @@ public class CountDownLatchD {
 		System.out.println("班长关门...");
 	}
 
+	/**
+	 * 2020/6/7 使用CounctDownLatch完成
+	 * @param
+	 * @return
+	 */
 	private static void countDownLatchClose() {
 		CountDownLatch latch = new CountDownLatch(5);
 		for (int x = 0; x < 5; ++x) {

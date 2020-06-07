@@ -166,5 +166,15 @@ public class AppTest {
         int[] arr = {2, 2, 2, 2, 0};
         System.out.println(minIncrementForUnique(arr));
     }
+    @Test
+    public void testRotate() {
+        System.out.println(15 >>> -1);
+        System.out.println(Integer.bitCount(5));
+
+        List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        list.add(5);
+        list.remove((Object)4);
+        
+    }
     
 }
