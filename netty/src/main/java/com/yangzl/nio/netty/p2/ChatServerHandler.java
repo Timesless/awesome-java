@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
  * @Author: yangzl
  * @Date: 2020/1/1 17:08
  * @Desc: .. 实现上线提醒，离线提醒，消息转发
- **/
+ */
 public class ChatServerHandler extends SimpleChannelInboundHandler<String> {
 
 	/**
@@ -45,7 +45,7 @@ public class ChatServerHandler extends SimpleChannelInboundHandler<String> {
 	/**
 	 * @Date: 2020/1/1
 	 * @Desc: 通道可用时被调用
-	 **/
+	 */
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		System.out.println(ctx.channel().remoteAddress() + "上线...");

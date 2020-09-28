@@ -1,11 +1,11 @@
-package com.yangzl.datastrcture.polish;
+package com.yangzl.datastrcture;
 
 import java.util.*;
 
 /**
- * @Author: yangzl
- * @Date: 2019/10/26 12:57
- * @Desc: ..(3+4)*5-6中缀表达式计算值
+ * @author yangzl
+ * @date 2019/10/26 12:57
+ * @desc ..(3+4)*5-6中缀表达式计算值
  *	
  * 	前缀表达式(波兰式)：-*+3456(运算符和操作数分开)，从右往左扫描，数直接入操作数栈，运算符，则弹出数栈中两个数，
  * 	栈顶元素 操作符 次顶元素，然后将结果入数栈，依次执行，直到表达式最左
@@ -23,27 +23,25 @@ public class Infix2Suffix {
 	 * (3+4)*5-6
 	 * 运算符栈
 	 * 操作数栈
-	 * 4种情况：( ) 运算符，操作数
+	 * 4种情况：(, ), 运算符，\操作数
 	 */
 	List<String> infix2Suffix(String infix) {
 		
 		int x = 0, len = infix.length(), count;
-		Deque<Character> operator = new ArrayDeque(len);
+		Deque<Character> operator = new ArrayDeque<>(len);
 		List<String> operand = new ArrayList<>(len);
-		char tmp;
-		String number;
 		// count代表遍历infix步长，遍历的是中缀表达式
 		for (; x < len;) {
 			// ....注意每次循环都需要将count置为1，因为在获取数字时如果改变了count，那么count永远是其他值
 			count = 1;
-			tmp = infix.charAt(x);
+			char tmp = infix.charAt(x);
 			// 1 括号直接入运算符栈
 			if(tmp == '(') {
 				operator.push('(');
 			} else if (tmp == ')') {  // 2
 				// 右括号，会出栈运算符栈，直到遇见左括号，并且丢弃该对括号
 				while (operator.peek() != '(') {
-					operand.add(String.valueOf(operator.pop()));
+					operand.add(operator.pop().toString());
 				}
 				operator.pop();
 			} else if(isOperator(tmp)) {	// 3 栈顶如果是运算符那么比较优先级，有可能是括号
@@ -56,7 +54,7 @@ public class Infix2Suffix {
 			} else {	// 4
 				count = getNumber(x, infix);
 				// 最后一位数字，这里会越界
-				number = infix.substring(x, x + count);
+				String number = infix.substring(x, x + count);
 				operand.add(number);
 			}
 			x += count;

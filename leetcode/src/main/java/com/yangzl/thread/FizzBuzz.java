@@ -26,18 +26,19 @@ import java.util.function.IntConsumer;
  * 线程B将调用 buzz() 来判断是否能被 5 整除，如果可以，则输出 buzz。
  * 线程C将调用 fizzbuzz() 来判断是否同时能被 3 和 5 整除，如果可以，则输出 fizzbuzz。
  * 线程D将调用 number() 来实现输出既不能被 3 整除也不能被 5 整除的数字。
- **/
+ */
 public class FizzBuzz {
-	private int n;
-	private Lock lock = new ReentrantLock();
-	private Condition c = lock.newCondition();
-	private Condition c3 = lock.newCondition();
-	private Condition c5 = lock.newCondition();
-	private Condition c15 = lock.newCondition();
+	private final int n;
+	private final Lock lock = new ReentrantLock();
+	private final Condition c = lock.newCondition();
+	private final Condition c3 = lock.newCondition();
+	private final Condition c5 = lock.newCondition();
+	private final Condition c15 = lock.newCondition();
 	private boolean flag = false;
 
 	public FizzBuzz(int n) { this.n = n; }
 
+	// 打印fizz
 	public void fizz(Runnable printFizz) throws InterruptedException {
 		for (int x = 3; x <= n; x += 3) {
 			lock.lock();
@@ -54,6 +55,7 @@ public class FizzBuzz {
 		}
 	}
 
+	// 打印buzz
 	public void buzz(Runnable printBuzz) throws InterruptedException {
 		for (int x = 5; x <= n; x += 5) {
 			lock.lock();
@@ -70,6 +72,7 @@ public class FizzBuzz {
 		}
 	}
 
+	// 打印 fizzbuzz
 	public void fizzbuzz(Runnable printFizzBuzz) throws InterruptedException {
 		for (int x = 15; x <= n; x += 15) {
 			lock.lock();

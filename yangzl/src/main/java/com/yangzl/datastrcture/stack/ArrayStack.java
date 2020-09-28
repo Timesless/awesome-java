@@ -6,17 +6,17 @@ import org.omg.CORBA.Object;
  * @Author: yangzl
  * @Date: 2019/10/26 12:55
  * @Desc: 数组实现栈
- **/
+ */
 public class ArrayStack<E> {
 
 	// 栈中数据个数，栈顶指针
 	private int size, top = -1;
-	private E[] ele;
+	private final E[] ele;
 	
 	/**
 	 * @Date: 2020/2/11
 	 * @Desc:  new Object强转
-	 **/
+	 */
 	public ArrayStack(int size) { this.ele = (E[]) new Object[size]; }
 	
 	/*
@@ -52,7 +52,7 @@ public class ArrayStack<E> {
 	}
 	
 	public static void main(String[] args) {
-		ArrayStack<Integer> stack = new ArrayStack(10);
+		ArrayStack<Integer> stack = new ArrayStack<>(10);
 		stack.push(1);
 		stack.push(2);
 		stack.push(3);

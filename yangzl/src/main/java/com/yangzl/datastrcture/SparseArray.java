@@ -10,9 +10,9 @@ import org.junit.Test;
  * 第一行固定：原二维数组rows, cols, counts<元素个数>
  * 第二行开始依次存储每个元素的row, col, val
  * 可以存储到文件，再从文件读回内存
- **/
+ */
 public class SparseArray {
-
+	
 	/*
 	 * 对外提供转换为稀疏数组的函数
 	 */
@@ -105,6 +105,8 @@ public class SparseArray {
 		}
 	}
 
+
+	// entrypoint
 	@Test
 	public void test1() {
 		int[][] rs = sparseArray();

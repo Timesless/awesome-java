@@ -23,13 +23,13 @@ import java.nio.file.StandardOpenOption;
  * 	
  * 	硬盘/IO设备 -- buffer -- channel -- stream -- 应用程序
  * 	总结： 直接使用Files它不香吗
- **/
+ */
 public class NioChannel {
 	
 	/**
 	 * @Date: 2019/12/28
 	 * @Desc:  将字符串写入文件
-	 **/
+	 */
 	public static void str2File() {
 
 		Path path = Paths.get("file.txt");
@@ -47,7 +47,7 @@ public class NioChannel {
 	/**
 	 * @Date: 2019/12/28
 	 * @Desc: 将文件数据读入显示到console
-	 **/
+	 */
 	public static void file2Str() {
 		try (FileChannel channel = FileChannel.open(Paths.get("file.txt"), StandardOpenOption.READ)) {
 			/*
@@ -68,7 +68,7 @@ public class NioChannel {
 	/**
 	 * @Date: 2019/12/28
 	 * @Desc: 文件复制，将file.txt文件复制一份为file2.txt
-	 **/
+	 */
 	public static void copyFile() {
 		try (FileChannel in = FileChannel.open(Paths.get("file.txt"), StandardOpenOption.READ);
 			 FileChannel out = FileChannel.open(Files.createFile(Paths.get("file2.txt")), StandardOpenOption.WRITE)){ 
@@ -87,21 +87,21 @@ public class NioChannel {
 	
 	/**
 	 * @Date: 2019/12/29
-	 * @Desc: transferTo采用零拷贝
-	 **/
+	 * @Desc: transferTo 与 transferFrom 采用零拷贝（无须CPU拷贝，CPU配置DMA控制器去拷贝）实现
+	 */
 	public static void transfer() {
 		Path inPath = Paths.get("file.txt");
 		try (FileChannel in = FileChannel.open(inPath, StandardOpenOption.READ);
 		FileChannel out = FileChannel.open(Files.createFile(Paths.get("file3.txt")), StandardOpenOption.WRITE)){
 			// long len = Files.size(inPath);
-			// in.transferTo(0, in.size()	, out);
+			// in.transferTo(0, in.size(), out);
 			out.transferFrom(in, 0, in.size());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	// 以下测试顺序执行
+	// 以下测试请按顺序执行
 	public static void main(String[] args) {
 		str2File();
 		file2Str();

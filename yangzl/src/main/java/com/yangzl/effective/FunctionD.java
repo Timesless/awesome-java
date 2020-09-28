@@ -35,7 +35,7 @@ public class FunctionD {
 
 	@Test
 	public void testMethodRef() {
-		/**
+		/*
 		 * λ == 方法引用，选择较为简洁的一种方式
 		 * 
 		 * 静态方法引用		Integer::parseInt  == str -> Integer.parseInt(str)

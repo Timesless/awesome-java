@@ -10,7 +10,7 @@ import java.util.Iterator;
  * @Author: yangzl
  * @Date: 2019/12/29 16:43
  * @Desc: .. 注意处理客户端关闭连接的情况
- **/
+ */
 public class ChatServer {
 
 	private Selector selector;
@@ -67,7 +67,7 @@ public class ChatServer {
 	/**
 	 * @Date: 2019/12/29
 	 * @Desc: 转发消息。 读取发生异常，可能是客户端关闭连接
-	 **/
+	 */
 	private void forwardMsg(SocketChannel channel) {
 		ByteBuffer inBuffer = ByteBuffer.allocate(1024);
 		SelectionKey key = null;
@@ -92,7 +92,9 @@ public class ChatServer {
 			e.printStackTrace();
 			try {
 				System.out.println(channel.getRemoteAddress() + "下线...");
-				key.cancel();
+				if (null != key) {
+					key.cancel();
+				}
 				channel.close();
 			} catch (IOException e1) {
 				e1.printStackTrace();

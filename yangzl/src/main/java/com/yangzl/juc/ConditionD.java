@@ -1,4 +1,4 @@
-package com.yangzl.juc.communication;
+package com.yangzl.juc;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 		Interface Lock
  * 	ReentrantLock, ReentrantReadWriteLock.ReadLock, ReentrantLockReadWriteLock.WriteLock
  * 		非公平可重入递归锁
- **/
+ */
 public class ConditionD {
 
 	// 标识位

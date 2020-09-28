@@ -1,4 +1,4 @@
-package com.yangzl.juc.communication;
+package com.yangzl.juc;
 
 import java.util.concurrent.CyclicBarrier;
 
@@ -6,7 +6,7 @@ import java.util.concurrent.CyclicBarrier;
  * @Author: yangzl
  * @Date: 2020/1/4 23:36
  * @Desc: .. 集齐七颗龙珠召唤神龙，回环屏障
- **/
+ */
 public class CyclicBarrierD {
 
 	public static void main(String[] args) {

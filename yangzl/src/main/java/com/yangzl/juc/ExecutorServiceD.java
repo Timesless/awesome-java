@@ -1,4 +1,4 @@
-package com.yangzl.juc.pool;
+package com.yangzl.juc;
 
 import java.util.concurrent.*;
 
@@ -6,14 +6,14 @@ import java.util.concurrent.*;
  * @Author: yangzl
  * @Date: 2020/1/5 11:25
  * @Desc: ..
- **/
+ */
 public class ExecutorServiceD {
 	
 	/**
 	 * @Date: 2020/8/24
 	 * @Desc: 
 	 * Executor，只提供Runnable接口的任务
-	 * ExecutorService：提供Runnable与Callable
+	 * ExecutorService：提供Runnable + Callable
 	 * SecheduledExecutorService：可调度式执行器
 	 */
 	public static void main(String[] args) {

@@ -9,7 +9,7 @@ import java.net.Socket;
  * @Author: yangzl
  * @Date: 2019/12/28 20:44
  * @Desc: .. 使用telnet 127.0.0.1 6666  ctrl+] send hello world 执行测试
- **/
+ */
 public class Server {
 
 	public static void startServer() {

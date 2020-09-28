@@ -9,7 +9,7 @@ import io.netty.handler.codec.http.HttpServerCodec;
  * @Author: yangzl
  * @Date: 2020/1/1 13:48
  * @Desc: .. codec：code & decode编解码器
- **/
+ */
 public class HttpServerHandlerInitializer extends ChannelInitializer<SocketChannel> {
 	@Override
 	protected void initChannel(SocketChannel channel) throws Exception {

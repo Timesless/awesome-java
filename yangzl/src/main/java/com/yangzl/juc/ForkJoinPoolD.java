@@ -1,4 +1,4 @@
-package com.yangzl.juc.pool;
+package com.yangzl.juc;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
  * 
  * RecursiveTask 有返回值
  * RecursiveAction 无返回值
- **/
+ */
 public class ForkJoinPoolD extends RecursiveTask<Integer> {
 
 	private static final int DIVIDE = 1000_00;
@@ -27,7 +27,7 @@ public class ForkJoinPoolD extends RecursiveTask<Integer> {
 	/**
 	 * @Date: 2020/2/10
 	 * @Desc:  定义任务如何拆分
-	 **/
+	 */
 	@Override
 	protected Integer compute() {
 		if (end - start > DIVIDE) {
@@ -48,7 +48,7 @@ public class ForkJoinPoolD extends RecursiveTask<Integer> {
 	public static void main(String[] args) throws Exception {
 		ForkJoinPool pool = new ForkJoinPool();
 		ForkJoinPoolD task = new ForkJoinPoolD(0, 1000_000);
-		/**
+		/*
 		 * submit 有返回值
 		 * execute 无返回值
 		 */

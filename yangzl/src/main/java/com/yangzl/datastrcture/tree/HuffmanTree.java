@@ -7,10 +7,11 @@ import java.util.*;
  * @Date: 2019/11/17 15:46
  * @Desc: ..	哈夫曼树： 又称最优二叉树， 树的带权路径长度最小（所有叶子节点带权路径长度总和最小）
  * 			用于构建Huffman编码。
- **/
+ */
 public class HuffmanTree {
 	
-	private static class Node implements Comparable{
+	// Huffman树节点类，包括权重和值
+	private static class Node implements Comparable<Node> {
 		Character val;	// 值
 		int weight;	// 权重
 		Node left, right;
@@ -19,9 +20,8 @@ public class HuffmanTree {
 			this.weight = weight;
 		}
 		@Override
-		public int compareTo(Object o) {
-			Node oth = (Node) o;
-			return this.weight - oth.weight;
+		public int compareTo(Node o) {
+			return this.weight - o.weight;
 		}
 		@Override
 		public String toString() {
@@ -32,7 +32,7 @@ public class HuffmanTree {
 	/**
 	 * @Date: 2019/11/17
 	 * @Desc: 前序遍历
-	 **/
+	 */
 	public static void createHuffman(char[] arr) {
 		List<Node> list = getNodeList(arr);
 		Node root = huffmanTree(list);
@@ -48,7 +48,7 @@ public class HuffmanTree {
 	/**
 	 * @Date: 2019/11/17
 	 * @Desc: 将数组的元素构建为huffmanTree，返回哈夫曼树的根节点
-	 **/
+	 */
 	public static Node huffmanTree(List<Node> list) {
 		
 		Node left, right, parent;
@@ -69,18 +69,20 @@ public class HuffmanTree {
 	private static List<Node> getNodeList(char[] arr) {
 		Map<Character, Integer> map = new HashMap<>(arr.length << 1);
 		// 统计每个字母出现的频次
-		for (char tmp: arr) 
+		for (char tmp: arr) {
 			// 如果tmp不存在，存入指定值1，如果存在合并oldValue 与 指定值
 			// map.merge(tmp, 1, (oldVal, newVal) -> oldVal + newVal);
 			map.merge(tmp, 1, Integer::sum);
+		}
 		List<Node> result = new ArrayList<>(arr.length);
-		map.entrySet().forEach(entry -> result.add(new Node(entry.getKey(), entry.getValue())));
+		map.forEach((k, v) -> result.add(new Node(k, v)));
 		return result;
 	}
 
 
+	// entrypoint
 	public static void main(String[] args) {
-		char[] arr = "i like like".toCharArray();
+		char[] arr = "i like like buzz fizz clazz foo bar champion".toCharArray();
 		HuffmanTree.createHuffman(arr);
 	}
 }

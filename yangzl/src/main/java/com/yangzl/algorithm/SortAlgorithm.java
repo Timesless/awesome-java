@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  * @Author: yangzl
  * @Date: 2019/12/7 23:12
  * @Desc: .. 数据结构与算法分析描述的几种排序，需掌握
- **/
+ */
 public class SortAlgorithm {
 
 	int[] unsort = {1, 9, 6, 5, 4, 2, 3, 8};
@@ -77,9 +77,13 @@ public class SortAlgorithm {
 		}
 		while (i <= M) tmp[p++] = nums[i++];
 		while (j <= R) tmp[p++] = nums[j++];
-		// 复制回原数组
-		for (int k = 0; k < tmp.length; ++k)
-			nums[L + k] = tmp[k];
+		/*
+		 * 复制回原数组
+		 * for (int k = 0; k < tmp.length; ++k)
+		 *     nums[L + k] = tmp[k];
+		 * optimization System.arraycopy()
+		 */
+		System.arraycopy(tmp, 0, nums, L, tmp.length);
 	}
 	@Test
 	public void testMergeSort() {
@@ -160,7 +164,7 @@ public class SortAlgorithm {
 	/**
 	 * @Date: 2019/12/7 希尔排序
 	 * @Desc:  数据结构与算法实现
-	 **/
+	 */
 	static void shellSort_2(int[] arr) {
 		int step, x, y, tmp;
 		for (step = arr.length >>> 1; step > 0; step = step >>> 1) {

@@ -1,13 +1,13 @@
-package com.yangzl.datastrcture.polish;
+package com.yangzl.datastrcture;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 
 /**
- * @Author: yangzl
- * @Date: 2019/10/26 13:13
- * @Desc: ..逆波兰式计算器，支持括号
+ * @author yangzl
+ * @date 2019/10/26 13:13
+ * @desc ..逆波兰式计算器，支持括号
  * 
  * 	中缀 1+((2+3)*4)-5 ——> 后缀 1 2 3 + 4 * + 5 -
  * 操作数栈：1
@@ -28,7 +28,7 @@ import java.util.List;
  *  		+		遇见)则将该)内所有操作符出栈，压入操作数栈，且丢弃()
  *  		-	因为符号栈中的运算符，表示被挂起，当扫描的运算符优先级<=运算符栈中的优先级，那么应该先操作栈中的运算符
  *  		 	需要把运算符栈所有操作符出栈压入到操作数栈中
- **/
+ */
 public class SuffixCalculator {
 	
 	/*

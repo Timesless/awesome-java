@@ -1,18 +1,20 @@
-package com.yangzl.datastrcture.tree.avl;
+package com.yangzl.datastrcture.tree;
 
 /**
  * @Author: yangzl
  * @Date: 2019/12/3 20:04
  * @Desc: .. 平衡二叉树
- **/
+ */
 public class AvlTree {
 	
+	// 平衡二叉树节点类
 	static class AvlNode {
 		int val;
 		AvlNode left, right;
 		public AvlNode(int val) { this.val = val; }
 	}
 
+	// 字段与构造函数
 	private AvlNode root;
 	public AvlTree() {}
 	public AvlTree(AvlNode root) { this.root = root; }
@@ -20,7 +22,7 @@ public class AvlTree {
 	/**
 	 * @Date: 2019/12/3 计算树的高度，可作为AvlNode属性提供
 	 * @Desc: ..如果作为属性提供，每次添加 | 删除例程之后需调整树的高度
-	 **/
+	 */
 	public int height() {
 		return height(root);
 	}
@@ -31,15 +33,16 @@ public class AvlTree {
 	/**
 	 * @Date: 2019/12/3 查找值最小的节点
 	 * @Desc: .. 必定是往当前节点的左子树去查找
-	 **/
+	 */
 	public AvlNode findMin(AvlNode node) {
 		if (null == node || null == node.left) { return null; }
 		return findMin(node.left);
 	}
+	
 	/**
 	 * @Date: 2019/12/3 查找值最大的节点
 	 * @Desc: .. 必定是往当前节点的右子树去查找
-	 **/
+	 */
 	public AvlNode findMax(AvlNode node) {
 		while (null != node)
 			node = node.right;
@@ -49,7 +52,7 @@ public class AvlTree {
 	/**
 	 * @Date: 2019/12/3 提供中序遍历
 	 * @Desc: 
-	 **/
+	 */
 	public void infixOrder() {
 		if (null == root) { return; }
 		infixOrder(this.root);
@@ -63,7 +66,7 @@ public class AvlTree {
 	/**
 	 * @Date: 2019/12/3 添加节点
 	 * @Desc:
-	 **/
+	 */
 	public void add(int val) { root = add(val, root); }
 	private AvlNode add(int val, AvlNode node) {
 		if (null == node) { return new AvlNode(val); }
@@ -92,7 +95,7 @@ public class AvlTree {
 	 * 			2. 在当前节点左子树的右子节点插入导致不平衡 左右双旋 => 先将当前节点的左子树左旋，再将当前节点的树右旋
 	 * 			3. 在当前节点右子树的左子节点插入导致不平衡 右左双旋 => 先将当前节点的右子树右旋，再将当前节点的树左旋
 	 * 			4. 在当前节点右子树的右子节点插入导致不平衡 左旋
-	 **/
+	 */
 	private void banlance(AvlNode node) {
 		// 当前节点左子树高度 - 当前节点右子树高度 > BANLANCE_FACTOR
 		if (height(node.left) - height(node.right) > 1) {
@@ -138,7 +141,7 @@ public class AvlTree {
 	 * 			/  \
 	 * 		null	3
 	 *	.. 当前节点，即node，即上图的1
-	 **/
+	 */
 	private void leftRotate(AvlNode node) {
 		System.out.println("执行左旋...");
 		AvlNode rt = node.right;
@@ -162,7 +165,7 @@ public class AvlTree {
 	 * 			2
 	 * 		   /
 	 * 		  3
-	 **/
+	 */
 	private void rightRotate(AvlNode node) {
 		System.out.println("执行右旋...");
 		AvlNode lt = node.left;
@@ -179,7 +182,7 @@ public class AvlTree {
 	/**
 	 * @Date: 2019/12/8 
 	 * @Desc: .. 以下代码为另一种实现方式，参考自数据结构与算法分析
-	 **/
+	 */
 	private AvlNode banlanceWithReturn(AvlNode node) {
 		// 当前节点左子树高度 - 当前节点右子树高度 > BANLANCE_FACTOR
 		if (height(node.left) - height(node.right) > 1) {
@@ -220,7 +223,7 @@ public class AvlTree {
 	 * 		    3
 	 * .. k1即1，首先获取k2 = k1.right，那么获取之后k1.right就应该改变了，变成k2.left。
 	 * 改变之后 1 2断开链接，所以应该使用k2.left = k1;
-	 **/
+	 */
 	private AvlNode rotateWithRight(AvlNode k1) {
 		System.out.println("执行左旋...");
 		AvlNode k2 = k1.right;
@@ -231,7 +234,7 @@ public class AvlTree {
 	/**
 	 * @Date: 2019/12/3 有返回值的右旋例程
 	 * @Desc: 
-	 **/
+	 */
 	private AvlNode rotateWithLeft(AvlNode k2) {
 		System.out.println("执行右旋...");
 		AvlNode k1 = k2.left;

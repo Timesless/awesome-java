@@ -1,4 +1,4 @@
-package com.yangzl.juc.communication;
+package com.yangzl.juc;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
  * @Author: yangzl
  * @Date: 2020/1/4 23:25
  * @Desc: .. 
- **/
+ */
 public class CountDownLatchD {
 	
 	public static void main(String[] args) {

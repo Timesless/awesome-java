@@ -11,11 +11,11 @@ import org.omg.CORBA.Object;
  * 	假设 size = 6， 当5个元素入队，那么 rear = 5 + 1 % size == front，队满
  * 	队空条件： rear == front
  * 	有效数据个数 ： (rear + size - front) % szie | Math.abs(rear - front) % size;
- **/
+ */
 public class CycleArrayQueue<E> {
 	// size当前队列元素的个数
 	private int size, front, rear;
-	private E[] ele;
+	private final E[] ele;
 	// 构造器
 	public CycleArrayQueue(int len) { ele = (E[]) new Object[len + 1]; }
 	
@@ -72,14 +72,14 @@ public class CycleArrayQueue<E> {
 
 	// main测试
 	public static void main(String[] args) {
-		CycleArrayQueue queue = new CycleArrayQueue(5);
+		CycleArrayQueue<Integer> queue = new CycleArrayQueue<>(5);
 		queue.enqueue(1);
 		queue.enqueue(2);
 		queue.enqueue(3);
 		queue.enqueue(4);
 		System.out.println(queue.toString());
 		queue.dequeue();
-		queue.dequeue();
+		System.out.println(queue.dequeue());
 		System.out.println(queue.toString());
 		System.out.println(queue.peek());
 	}

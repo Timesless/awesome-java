@@ -17,7 +17,7 @@ import java.util.Queue;
  * 		rank/select
  * 		可重复 count
  * 	AVL树
- * 		在insert, remove之后添加平衡例程即可。参见com.yangzl.datastrcture.tree.avl.AvlTree
+ * 		在insert, remove之后添加平衡例程即可。@see com.yangzl.datastrcture.tree.avl.AvlTree
  */
 public class BST<E extends Comparable<? super E>> {
 
@@ -60,9 +60,9 @@ public class BST<E extends Comparable<? super E>> {
 	}
 	
 	/**
-	 * @Date: 2020/2/11
-	 * @Desc: 前序遍历的非递归实现，使用栈记录将要依次访问的节点
-	 **/
+	 * @date 2020/2/11
+	 * @desc 前序遍历的非递归实现，使用栈记录将要依次访问的节点
+	 */
 	public void preOrderNR() {
 		if (null == root)
 			return;
@@ -82,7 +82,7 @@ public class BST<E extends Comparable<? super E>> {
 	/**
 	 * @Date: 2020/2/11
 	 * @Desc: 中序遍历非递归实现
-	 **/
+	 */
 	public void inOrderNR() {
 		if (null == root)
 			return;
@@ -102,7 +102,7 @@ public class BST<E extends Comparable<? super E>> {
 	/**
 	 * @Date: 2020/2/11
 	 * @Desc:  广度优先遍历，借助队列实现
-	 **/
+	 */
 	public void BFS() {
 		Queue<Node<E>> queue = new ArrayDeque<>(this.size);
 		queue.offer(root);
@@ -119,13 +119,13 @@ public class BST<E extends Comparable<? super E>> {
 	/**
 	 * @Date: 2019/12/3 添加节点
 	 * @Desc: 重载提供实现
-	 **/
+	 */
 	public void add(E val) { root = this.add(val, root); }
 	
 	/**
 	 * @Date: 2020/2/11
 	 * @Desc: 是否包含元素
-	 **/
+	 */
 	public boolean contains(E e) { return this.contains(root, e); }
 	
 	public E findMin() {
@@ -141,7 +141,7 @@ public class BST<E extends Comparable<? super E>> {
 	 * @Date: 2020/2/11 删除节点
 	 * @Desc: 只有一个子树时，用子树替代删除节点
 	 * 		左右子树都存在时，用左子树的最大节点或右子树的最小节点代替删除节点
-	 **/
+	 */
 	public void remove(E e) { root = remove(root, e); }
 	
 	// ======================================================================
@@ -151,7 +151,7 @@ public class BST<E extends Comparable<? super E>> {
 	/**
 	 * @Date: 2019/12/3 重载提供实现
 	 * @Desc: 这样判断可节约栈帧
-	 **/
+	 */
 	private void preOrder(Node<E> node) {
 		System.out.print(node.val + " ");
 		if (null != node.left) { preOrder(node.left); }
@@ -201,7 +201,7 @@ public class BST<E extends Comparable<? super E>> {
 	/**
 	 * @Date: 2020/2/11
 	 * @Desc: 当前节点作为根节点上最小值的节点
-	 **/
+	 */
 	private Node<E> minimun(Node<E> node) {
 		while (null != node)
 			node = node.left;

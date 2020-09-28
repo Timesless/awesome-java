@@ -8,7 +8,7 @@ import java.lang.management.ThreadMXBean;
  * @Author: yangzl
  * @Date: 2020/1/10 15:50
  * @Desc: ..
- **/
+ */
 public class MultiThread {
 
 	public static void main(String[] args) {

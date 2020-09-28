@@ -15,13 +15,13 @@ import java.nio.channels.FileChannel;
  * 		clear 所有位置重置为初始状态	
  * 	
  * 	数据在buffer中达到一定数量再执行读取，一个channel对应一个buffer，数据读入写出都需要通过buffer
- **/
+ */
 public class NioBuffer {
 
 	/**
 	 * @Date: 2019/12/29
 	 * @Desc: 堆外内存
-	 **/
+	 */
 	public static void mappedByteBuffer() {
 		try {
 			RandomAccessFile accessFile = new RandomAccessFile("file.txt", "rw");
@@ -39,7 +39,7 @@ public class NioBuffer {
 	 * @Date: 2019/12/29
 	 * @Desc: .. 分散：将channel数据依次写入到buffer数组
 	 * 			聚合： 将buffer数组的数据依次写入到channel
-	 **/
+	 */
 	public static void scatterGather() {
 		
 	}

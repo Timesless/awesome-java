@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
  * @Desc: .. 单向环形链表，需要一个指向第一个节点的指针，类似于单链表的head节点
  * 		遍历：辅助指针，当tmp.next = first时遍历结束
  * 		解决约瑟夫问题：	
- **/
+ */
 public class CircleSingleLinkedList {
 
 	Node first;
@@ -80,6 +80,7 @@ public class CircleSingleLinkedList {
 		return sb.toString();
 	}
 
+	// 测试
 	public static void main(String[] args) {
 		CircleSingleLinkedList list = new CircleSingleLinkedList();
 		list.initialJosepfu(5);

@@ -5,10 +5,10 @@ package com.yangzl.algorithm;
  * @Date: 2019/10/26 21:14
  * @Desc: ..	递归 + 回溯解迷宫
  * 使用一个矩阵来表示迷宫，0表示还未走过的路径，1表示路障，2表示通路，3表示走过的路径但无解
- **/
+ */
 public class Maze {
-	private int rows, cols;
-	private int[][] matrix;
+	private final int rows, cols;
+	private final int[][] matrix;
 	/*
 	 * 0还未走过 1路障 2通路 3该路径走不通
 	 */

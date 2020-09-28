@@ -15,14 +15,14 @@ import java.util.Set;
  * 		int select(long timeout)：阻塞|超时阻塞 查询（select|epoll）
  * 			将有IO的SelectionKey加入Set<SelectionKey>	
  * 		Set<SelectionKey> selectedKeys(): 具体发生IO事件的所有SelectionKey集合
- **/
+ */
 public class NioSelector {
 	
 	private static int count = 0;
 	/**
 	 * @Date: 2019/12/29
 	 * @Desc: 不同事件的处理可作为一个handler
-	 **/
+	 */
 	public static void startServer() {
 		try (ServerSocketChannel serverChannel = ServerSocketChannel.open()) {
 			Selector selector = Selector.open();

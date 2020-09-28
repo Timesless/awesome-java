@@ -21,8 +21,9 @@ public enum  Operator {
 	}
 	/**
 	 * 2020/6/7
-	 * @param
-	 * @return
+	 * @param x op1
+	 * @param y op2   
+	 * @return double
 	 */
 	public double apply(double x, double y) { return binaryOp.applyAsDouble(x, y); }
 

@@ -12,7 +12,7 @@ import io.netty.handler.codec.string.StringEncoder;
  * @Author: yangzl
  * @Date: 2019/12/27 23:24
  * @Desc: .. child 为worker设置属性
- **/
+ */
 public class ServerStrap {
 
 	public static void startServer() {

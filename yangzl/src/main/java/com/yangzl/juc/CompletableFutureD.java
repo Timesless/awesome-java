@@ -1,4 +1,4 @@
-package com.yangzl.juc.pool;
+package com.yangzl.juc;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -6,7 +6,7 @@ import java.util.concurrent.CompletableFuture;
  * @Author: yangzl
  * @Date: 2020/1/5 15:02
  * @Desc: .. 可组合式异步回调
- **/
+ */
 public class CompletableFutureD {
 
 	public static void main(String[] args) throws Exception {

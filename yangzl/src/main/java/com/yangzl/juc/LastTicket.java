@@ -1,4 +1,4 @@
-package com.yangzl.juc.demo;
+package com.yangzl.juc;
 
 /**
  * @Author: yangzl
@@ -9,7 +9,7 @@ package com.yangzl.juc.demo;
  * 				3. 防止虚假唤醒
  * 	caution: judge always be used in a loop
  * 	
- **/
+ */
 public class LastTicket {
 	// 无票出售，恰好作为标识位
 	private int num = 0;
@@ -50,7 +50,7 @@ public class LastTicket {
 	/**
 	 * @Date: 2020/1/4
 	 * @Desc:  程序的入口，与Ticket无关
-	 **/
+	 */
 	public static void main(String[] args) {
 		LastTicket lastTicket = new LastTicket();
 		new Thread(() -> { for (int x = 0; x < 10; ++x) lastTicket.incre();}, "p1").start();

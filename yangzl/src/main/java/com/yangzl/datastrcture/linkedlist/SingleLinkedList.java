@@ -8,13 +8,13 @@ package com.yangzl.datastrcture.linkedlist;
  * 	由于head节点始终标识单链表开始，所以head节点不变，需定义临时节点来遍历链表
  *  2种实现方式size，一种通过size获取到元素总数，一种每次都遍历整个链表取值， 下列方法使用2种混合实现。
  *  删除需找到待删除节点的前一个节点。
- **/
+ */
 public class SingleLinkedList {
 
 	// 数据有效个数
 	private int size;
 	// 头节点不存储数据
-	private Node head;
+	private final Node head;
 	// 构造器
 	public SingleLinkedList() { this.head = new Node(-1); }
 	
@@ -116,7 +116,7 @@ public class SingleLinkedList {
 	
 	/**
 	 * 边界校验，确定index在有效范围
-	 **/
+	 */
 	private void rangeCheck(int index) {
 		if(index < 0 || index >= this.size) throw new IndexOutOfBoundsException("索引不在有效范围内");
 	}

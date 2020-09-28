@@ -1,4 +1,4 @@
-package com.yangzl.juc.communication;
+package com.yangzl.juc;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
  *
  * 	ReentrantReadWriteLock 高16位表示读锁，低16位表示写锁
  *
- **/
+ */
 public class ReadWriteLockD {
 
 	private final Map<String, Object> map = new HashMap<>();

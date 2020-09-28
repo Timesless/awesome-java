@@ -4,10 +4,10 @@ package com.yangzl.datastrcture.stack;
  * @Author: yangzl
  * @Date: 2019/10/26 12:55
  * @Desc: 带头节点单链表实现栈，链表是动态数据结构不用判断isFull
- **/
+ */
 public class LinkedStack<E> {
 	private int size;
-	private Node<E> head;
+	private final Node<E> head;
 	public LinkedStack() { this.head = new Node(-1); }
 
 	/*
@@ -17,7 +17,7 @@ public class LinkedStack<E> {
 		E val;
 		Node<E> next;
 		public Node(E val) { this.val = val; }
-		public Node(E val, Node next) {
+		public Node(E val, Node<E> next) {
 			this.val = val;
 			this.next = next;
 		}
@@ -30,8 +30,7 @@ public class LinkedStack<E> {
 	
 	// 应采用头插法，这样不需要反向遍历
 	public void push(E val) {
-		Node<E> newNode = new Node(val, head.next);
-		head.next = newNode;
+		head.next = new Node<>(val, head.next);
 		++size;
 	}
 	
@@ -63,8 +62,9 @@ public class LinkedStack<E> {
 		return sb.toString();
 	}
 
+	
 	public static void main(String[] args) {
-		LinkedStack<Integer> stack = new LinkedStack();
+		LinkedStack<Integer> stack = new LinkedStack<>();
 		stack.push(1);
 		stack.push(2);
 		stack.push(3);

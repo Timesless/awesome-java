@@ -14,7 +14,7 @@ import java.util.Set;
 /**
  * @Author: yangzl
  * @Date: 2020/3/14 13:53
- * @Desc: .. 经典Reactor模式 -> 单线程
+ * @Desc: .. 经典Reactor模式（Scalable I/O in Java） -> 单线程
  * Reactor Pattern
  * 		<em>Reactor</em> responds to IO events by dispatching the appropriate handler
  * 		<em>Handlers</em> perform non-blocking actions 

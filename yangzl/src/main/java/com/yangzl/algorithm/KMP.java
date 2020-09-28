@@ -20,7 +20,7 @@ import java.util.Arrays;
  * 	对比1 2 发现完全一样
  * 	所以2种都可以使用。	
  * 	？？？？？？
- **/
+ */
 public class KMP {
 
 	public static int kmpMatch(String dest, String subString) {
