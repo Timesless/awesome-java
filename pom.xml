@@ -15,7 +15,7 @@
     <module>imooc</module>
     <module>java-core</module>
     <module>yangzl</module>
-    <module>other</module>
+    <module>kafka</module>
   </modules>
 
   <name>awesome-java</name>

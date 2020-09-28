@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * @Author: yangzl
  * @Date: 2020/1/5 15:02
- * @Desc: .. 异步回调
+ * @Desc: .. 可组合式异步回调
  **/
 public class CompletableFutureD {
 

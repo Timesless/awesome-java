@@ -9,11 +9,16 @@ import java.util.stream.IntStream;
  * @Author: yangzl
  * @Date: 2020/1/5 13:55
  * @Desc: .. 分支合并框架
+ * 
+ * RecursiveTask 有返回值
+ * RecursiveAction 无返回值
  **/
 public class ForkJoinPoolD extends RecursiveTask<Integer> {
 
 	private static final int DIVIDE = 1000_00;
-	private int start, end, result;
+	private final int start;
+    private final int end;
+    private int result;
 	public ForkJoinPoolD(int start, int end) {
 		this.start = start;
 		this.end = end;
