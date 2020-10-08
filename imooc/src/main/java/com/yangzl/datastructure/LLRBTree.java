@@ -33,7 +33,7 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	/**
 	 * @Date: 2020/2/15
 	 * @Desc: 
-	 **/
+	 */
 	public void add(K k, V v) {
 		root = add0(root, k, v);
 		// 维持根节点为黑色
@@ -65,7 +65,7 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	 * 	1  		RED    RED                       1
 	 * 	1  	            1	                     1
 	 *  ------------------------------------------
-	 **/
+	 */
 	private Node<K,V> balanceBlack(Node<K,V> node) {
 		// 左旋
 		if (!isRed(node.left) && isRed(node.right))
@@ -89,7 +89,7 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	 *        RED    =>   RED  BLACK  ====>    RED  RED
 	 *        /
 	 *      RED
-	 **/
+	 */
 	private Node<K,V> rightRotate(Node<K,V> k2) {
 		Node<K,V> k1 = k2.left;
 		k2.left = k1.right;
@@ -106,7 +106,7 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	 *    k1
 	 *      \
 	 *       k2
-	 **/
+	 */
 	private Node<K,V> leftRotate(Node<K, V> k1) {
 		Node<K,V> k2 = k1.right;
 		k1.right = k2.left;
@@ -120,7 +120,7 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	/**
 	 * @Date: 2020/2/15
 	 * @Desc: 颜色翻转
-	 **/
+	 */
 	private void flipColor(Node<K,V> node) {
 		node.left.color = node.right.color = BLACK;
 		node.color = RED;

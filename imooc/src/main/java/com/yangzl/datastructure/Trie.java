@@ -6,12 +6,12 @@ import java.util.List;
 /**
  * @Date: 2020/2/15
  * @Desc:  前缀树，字典树。
- **/
+ */
 public class Trie {
     /**
      * @Date: 2020/2/14
      * @Desc: 这个节点类，真的是太沙雕了
-     **/
+     */
     static class Node {
         boolean isWord;
         char c;
@@ -24,7 +24,7 @@ public class Trie {
         }
     }
 
-    private Node root;
+    private final Node root;
     public Trie() { this.root = new Node((char) -1); }
     
     public void insert(String word) {

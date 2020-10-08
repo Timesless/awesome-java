@@ -11,9 +11,11 @@ import java.util.*;
  */
 
 public class Tree {
-	
-	// 二叉树节点类
-	private static class TreeNode {
+
+	/*
+	 * Leetcode 二叉树节点类
+	 */
+	public static class TreeNode {
 		int val;
 		TreeNode left, right;
 		public TreeNode() {}
@@ -107,7 +109,7 @@ public class Tree {
 			for (int i = 0; i < sz; ++i) {
 				TreeNode cur = q.poll();
 				// 双端队列实现
-				LinkedList clist = (LinkedList) rs.get(level);
+				LinkedList<Integer> clist = (LinkedList<Integer>) rs.get(level);
 				boolean obj = (level & 1) == 1 ? clist.offerFirst(cur.val) : clist.offerLast(cur.val);
 				if (cur.left != null) q.offer(cur.left);
 				if (cur.right != null) q.offer(cur.right);
@@ -153,6 +155,47 @@ public class Tree {
 		}};
 		Node root = new Node(1, children);
 		System.out.println(maxDepth(root));
+	}
+
+
+	/**
+	 * 2020/9/29 利用队列实现二叉树的层序遍历
+	 * @param root 树根节点
+	 * @return
+	 */
+	public List<List<Integer>> levelOrderBinary(TreeNode root) {
+		if (null == root) return new ArrayList<>();
+		List<List<Integer>> rs = new LinkedList<>();
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.offer(root);
+		while (!queue.isEmpty()) {
+			List<Integer> list = new ArrayList<>();
+			// 通过sz确保不会多弹出元素
+			int sz = queue.size();
+			while (sz-- > 0) {
+				TreeNode cur = queue.poll();
+				if (cur.left != null) {
+					queue.offer(cur.left);
+				}
+				if (cur.right != null) {
+					queue.offer(cur.right);
+				}
+				list.add(cur.val);
+			}
+			rs.add(list);
+		}
+		return rs;
+	}
+	@Test
+	public void testLevelOrder() {
+		// 手动构建一棵树
+		TreeNode root = new TreeNode(3);
+		TreeNode ftl = new TreeNode(9);
+		TreeNode ftr = new TreeNode(20);
+		root.left = ftl;
+		root.right = ftr;
+
+		System.out.println(levelOrderBinary(root));
 	}
 
 

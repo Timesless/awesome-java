@@ -45,7 +45,7 @@ public class BST<E extends Comparable<? super E>> {
 	 * @Date: 2019/12/3 前中后序遍历，是DFS
 	 * @Desc: 以下的判断可以在递归的例程进行判断，这样就无须判断多次
 	 * 		对每个节点有三次机会进行访问，所以前中后遍历只是选择某次机会进行访问
-	 **/
+	 */
 	public void preOrder() {
 		if (null == root) { return; }
 		preOrder(this.root);

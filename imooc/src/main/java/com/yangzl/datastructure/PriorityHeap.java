@@ -36,7 +36,7 @@ public class PriorityHeap<E extends Comparable<? super E>> {
 	/**
 	 * @Date: 2020/2/12
 	 * @Desc: 入队
-	 **/
+	 */
 	public void offer(E e) {
 		if (size == heap.length) 
 			growUp(size + (size >>> 1));
@@ -61,7 +61,7 @@ public class PriorityHeap<E extends Comparable<? super E>> {
 	/**
 	 * @Date: 2020/2/12
 	 * @Desc: 上滤
-	 **/
+	 */
 	private void percolateUp(int hole) {
 		E e = heap[hole];
 		while (hole > 0) {
@@ -78,7 +78,7 @@ public class PriorityHeap<E extends Comparable<? super E>> {
 	/**
 	 * @Date: 2020/2/12
 	 * @Desc: 下滤
-	 **/
+	 */
 	private void percolateDown(int hole) {
 		E e = heap[hole];
 		while (hole < (size >>> 1)) {
@@ -105,7 +105,7 @@ public class PriorityHeap<E extends Comparable<? super E>> {
 	/**
 	 * @Date: 2020/2/12
 	 * @Desc: 获取parent,left,right索引的封装
-	 **/
+	 */
 	private int parent(int idx) { return idx - 1 >>> 1; }
 	private int left(int idx) { return (idx << 1) + 1; }
 	private int right(int idx) { return (idx << 1) + 2; }

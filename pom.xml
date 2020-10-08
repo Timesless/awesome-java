@@ -13,7 +13,7 @@
     <module>netty</module>
     <module>leetcode</module>
     <module>imooc</module>
-    <module>java-core</module>
+    <module>java</module>
     <module>yangzl</module>
     <module>kafka</module>
   </modules>

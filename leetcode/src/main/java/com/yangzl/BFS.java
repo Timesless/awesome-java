@@ -2,8 +2,7 @@ package com.yangzl;
 
 import org.junit.Test;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
 /**
  * @Author: yangzl

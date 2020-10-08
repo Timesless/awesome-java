@@ -60,7 +60,7 @@ public class Producer {
 	 */
 	@Test
 	public void test3() {
-		/**
+		/*
 		 * acks
 		 * -1 / all：所有ISR副本确认之后才发送acks，当ISR只有leader副本时退化为acks = "1"的情况
 		 * 0：消息发送无需确认机制
