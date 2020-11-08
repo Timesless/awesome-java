@@ -1,6 +1,6 @@
 package com.yangzl;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +26,8 @@ public class VolatileD {
 			}
 			d.changeNum();
 		}, "A").start();
-		while (d.num == 10) {  }
+		while (d.num == 10) {
+		}
 		System.out.println("mission complete...");
 	}
 	

@@ -58,6 +58,21 @@ public class Contest {
 	// =======================================================================
 	// 186
 	// =======================================================================
+	public int maxDepth(String s) {
+		int deepth = 0, maxDeepth = 0;
+		Deque<Character> stack = new LinkedList<>();
+		for (char c : s.toCharArray()) {
+			if (c == '(') {
+				++ deepth;
+				maxDeepth = Math.max(maxDeepth, deepth);
+				stack.push(c);
+			} else if (c == ')') {
+				--deepth;
+				stack.pop();
+			}
+		}
+		return maxDeepth;
+	}
 	
 
 }

@@ -5,7 +5,9 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @Author: yangzl
@@ -51,8 +53,8 @@ public class SlideWindow {
 	@Test
 	public void testfindContinuousSequence() {
 		int[][] rs = findContinuousSequence(15);
-		for (int i = 0; i < rs.length; ++i) {
-			System.out.print(Arrays.toString(rs[i]));
+		for (int[] r : rs) {
+			System.out.print(Arrays.toString(r));
 			System.out.println();
 		}
 	}
@@ -78,6 +80,50 @@ public class SlideWindow {
 		int[] m = {1, 2, 3, 0, 0, 0};
 		int[] n = {2, 5, 6};
 		merge(m, 3, n, 3);
+	}
+	
+	
+	
+	/**
+	 * 2020/10/15 字节春招
+	 * 
+	 * @param 
+	 * @return 
+	 */
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String[] ND = scanner.nextLine().split(" ");
+		int N = Integer.parseInt(ND[0]), D = Integer.parseInt(ND[1]);
+		int[] nums = Stream.of(scanner.nextLine().split(" "))
+				.limit(N).mapToInt(Integer::parseInt).toArray();
+
+		int i = 0, j = 2;
+		long rs = 0;
+		while (j < nums.length) {
+			while (j < nums.length - 1) {
+				if (nums[j + 1] - nums[i] > D){
+					break;
+				}
+				++j;
+			}
+			if (nums[j] - nums[i] <= D) {
+				int count = j - i + 1;
+				long tmp = factorial(count) / 6;
+				rs += tmp;
+			}
+			++i;
+			++j;
+		}
+		System.out.println(rs);
+	}
+	
+	static long factorial(int n) {
+		long rs = 1;
+		while (n > 1) {
+			rs *= n;
+			--n;
+		}
+		return rs % 99997867;
 	}
 
 }

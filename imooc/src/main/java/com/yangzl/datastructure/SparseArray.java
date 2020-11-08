@@ -1,6 +1,6 @@
 package com.yangzl.datastructure;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @Author: yangzl

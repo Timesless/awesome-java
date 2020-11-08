@@ -1,6 +1,6 @@
 package com.yangzl;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.function.BiFunction;
@@ -86,10 +86,10 @@ public class Daily {
 		if (bln > 0 && bln < 12) {
 			char bfc = builder.charAt(0);
 			if (bfc != '-') {
-				long rs = Long.valueOf(builder.toString());
+				long rs = Long.parseLong(builder.toString());
 				return rs > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int)rs;
 			} else if (bln > 1) {
-				long rs = Long.valueOf(builder.deleteCharAt(0).toString());
+				long rs = Long.parseLong(builder.deleteCharAt(0).toString());
 				return rs > Integer.MAX_VALUE ? Integer.MIN_VALUE : -1 * (int) rs;
 			}
 		} else if (bln > 11) {  // 大整数

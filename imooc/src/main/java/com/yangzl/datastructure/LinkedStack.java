@@ -53,7 +53,7 @@ public class LinkedStack<E> {
 	public String toString() {
 		if (isEmpty()) { return "空栈"; }
 		StringBuilder sb = new StringBuilder("[");
-		Node tmp = head.next;
+		Node<E> tmp = head.next;
 		while (null != tmp.next) {
 			sb.append(tmp.val).append(" -> ");
 			tmp = tmp.next;

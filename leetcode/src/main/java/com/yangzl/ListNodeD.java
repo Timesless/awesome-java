@@ -1,6 +1,6 @@
 package com.yangzl;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -57,15 +57,15 @@ public class ListNodeD {
 		for (int i = 0; i < ln; ++i)
 			for (int j = i + 1; j < ln; ++j) {
 				if (words[i].length() > words[j].length()) {
-					if (words[i].indexOf(words[j]) >= 0)
+					if (words[i].contains(words[j]))
 						rs.add(words[j]);
 				} else {
-					if (words[j].indexOf(words[i]) >= 0)
+					if (words[j].contains(words[i]))
 						rs.add(words[i]);
 				}
 			}
 		
-		return rs.stream().collect(Collectors.toList());
+		return new ArrayList<>(rs);
 	}
 	@Test
 	public void testStringMatching() {
@@ -98,7 +98,7 @@ public class ListNodeD {
 	public int[] processQueries(int[] queries, int m) {
 		if (m ==1) return queries;
 		List<Integer> list = IntStream.rangeClosed(1, m)
-				.mapToObj(Integer::valueOf).collect(Collectors.toCollection(LinkedList::new));
+				.boxed().collect(Collectors.toCollection(LinkedList::new));
 		int[] rs = new int[queries.length];
 		for (int i = 0; i < queries.length; ++i) {
 			rs[i] = list.indexOf(queries[i]);

@@ -7,6 +7,7 @@ import java.util.concurrent.CompletableFuture;
  * @Date: 2020/1/5 15:02
  * @Desc: .. 可组合式异步回调
  */
+
 public class CompletableFutureD {
 
 	public static void main(String[] args) throws Exception {
