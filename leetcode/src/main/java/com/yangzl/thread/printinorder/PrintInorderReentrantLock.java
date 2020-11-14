@@ -8,17 +8,17 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @Author: yangzl
  * @Date: 2020/1/18 09:26
- * @Desc: .. 多线程按顺序打印
+ * @Desc: .. 多线程按顺序打印 -> ReentrantLock实现
  */
-public class PrintInorderMultiLock {
+public class PrintInorderReentrantLock {
 
-	private Lock lock = new ReentrantLock();
-	private Condition one = lock.newCondition();
-	private Condition two = lock.newCondition();
-	private Condition three = lock.newCondition();
+	private final Lock lock = new ReentrantLock();
+	private final Condition one = lock.newCondition();
+	private final Condition two = lock.newCondition();
+	private final Condition three = lock.newCondition();
 	int state = 1;
 	
-	public PrintInorderMultiLock() { }
+	public PrintInorderReentrantLock() { }
 	public void first(Runnable printFirst) throws InterruptedException {
 		lock.lock();
 		try {
@@ -55,7 +55,7 @@ public class PrintInorderMultiLock {
 
 	public static void main(String[] args) {
 
-		PrintInorderMultiLock cdl = new PrintInorderMultiLock();
+		PrintInorderReentrantLock cdl = new PrintInorderReentrantLock();
 		new Thread(() -> {
 			try {
 				cdl.third(() -> System.out.println("three"));

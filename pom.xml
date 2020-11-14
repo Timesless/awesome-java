@@ -13,8 +13,7 @@
     <module>netty</module>
     <module>leetcode</module>
     <module>imooc</module>
-    <module>java</module>
-    <module>yangzl</module>
+    <module>java-core</module>
     <module>kafka</module>
   </modules>
 
@@ -36,6 +35,11 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>5.2.4.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.12</version>
     </dependency>
   </dependencies>
 

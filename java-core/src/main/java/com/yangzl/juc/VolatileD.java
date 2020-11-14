@@ -1,4 +1,4 @@
-package com.yangzl;
+package com.yangzl.juc;
 
 import org.junit.jupiter.api.Test;
 

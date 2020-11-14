@@ -1,4 +1,4 @@
-package com.yangzl.volume1.proxy;
+package com.yangzl.volume.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

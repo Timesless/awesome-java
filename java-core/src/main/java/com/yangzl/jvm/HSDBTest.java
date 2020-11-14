@@ -1,4 +1,4 @@
-package com.yangzl;
+package com.yangzl.jvm;
 
 import java.io.IOException;
 
@@ -19,13 +19,11 @@ abstract class A {
 	public void print() {
 		System.out.println("I Love Vim");
 	}
-	
 	public abstract void sayHello();
 }
 
 class B extends A {
 	@Override
 	public void sayHello() {
-		
 	}
 }
