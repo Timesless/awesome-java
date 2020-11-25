@@ -5,9 +5,22 @@ import java.util.stream.IntStream;
 /**
  * @Author: yangzl
  * @Date: 2020/5/31 23:08
- * @Desc: .. 客户端测试代码
+ * @Desc: .. 测试代码
  */
 public class Client {
+
+	static class OrderUtil {
+		private static int count;
+		private final ZkDistributedLock lock = new ZkDistributedLock();
+		public void getOrder() {
+			try {
+				lock.zkLock();
+				System.out.printf("------------: %d\n", ++count);
+			} finally {
+				lock.zkUnLock();
+			}
+		}
+	}
 	
 	public static void main(String[] args) {
 		// 每次new OrderUtil 可模拟多个JVM，Spring每个Service为单例
@@ -17,15 +30,4 @@ public class Client {
 
 }
 
-class OrderUtil {
-	private static int count;
-	private final ZkDistributedLock lock = new ZkDistributedLock();
-	public void getOrder() {
-		try {
-			lock.zkLock();
-			System.out.printf("------------: %d\n", ++count);
-		} finally {
-			lock.zkUnLock();
-		}
-	}
-}
+

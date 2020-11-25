@@ -1,5 +1,6 @@
 package com.yangzl;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -42,7 +43,8 @@ public class Apirl {
 		ListNode dummyHead = new ListNode(-1), cur = dummyHead;
 		// 若ListNode提供getVal方法，那么可以方法引用ListNode::getVal
 		// PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparing(ListNode::getVal));
-		PriorityQueue<ListNode> pq = new PriorityQueue<>((x1, x2) -> x1.val - x2.val);
+		// PriorityQueue<ListNode> pq = new PriorityQueue<>((x1, x2) -> x1.val - x2.val);
+		PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparingInt(x -> x.val));
 		for (ListNode listNode : lists) {
 			if (listNode != null)
 				pq.offer(listNode);

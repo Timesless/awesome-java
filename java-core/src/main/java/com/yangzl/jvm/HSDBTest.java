@@ -8,6 +8,20 @@ import java.io.IOException;
  * @desc 启动HSDB：java -cp sa-jdi.jar sun.jvm.hotspot.HSDB
  */
 public class HSDBTest {
+
+	static abstract class A {
+		public void print() {
+			System.out.println("I Love Vim");
+		}
+		public abstract void sayHello();
+	}
+
+	static class B extends A {
+		@Override
+		public void sayHello() {
+		}
+	}
+	
 	public static void main(String[] args) throws IOException {
 		A obj = new B();
 		System.in.read();
@@ -15,15 +29,4 @@ public class HSDBTest {
 	}
 }
 
-abstract class A {
-	public void print() {
-		System.out.println("I Love Vim");
-	}
-	public abstract void sayHello();
-}
 
-class B extends A {
-	@Override
-	public void sayHello() {
-	}
-}

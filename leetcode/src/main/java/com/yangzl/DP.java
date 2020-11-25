@@ -3,9 +3,9 @@ package com.yangzl;
 import org.junit.jupiter.api.Test;
 
 /**
- * @Author: yangzl
- * @Date: 2020/4/19 08:27
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/4/19 08:27
+ * @desc ..
  */
 public class DP {
 	

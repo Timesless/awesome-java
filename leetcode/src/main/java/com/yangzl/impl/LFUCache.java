@@ -1,51 +1,56 @@
 package com.yangzl.impl;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
-import java.util.TreeMap;
 
 /**
- * @Date: 2020/4/8
- * @Desc: 设计实现 LFU 缓存
+ * @date 2020/4/8
+ * @desc 设计实现 LFU 缓存
  * 
  * 时间复杂度较高，缓存满之后remove都需要构造一个PriorityQueue，可以使用LinkedHashMap来做LRU（当frq相同时按LRU排）
  * TODO LinkedHashMap
+ * 
+ * 	2020年11月15日
+ * 	如果想要达到O(1)时间复杂度，那么数据结构应该是 cache: Map<Node, Value> + frequency： Map<frq, LinkedList<Integer>>
+ *  每一个频率都分配一个链表，在访问时置换到队头，当频率相同时删除链表中的队尾数据
+ *  
+ *  Node 节点至少需要 key和 frq。  那么 frequency 可以使用 LinkedHashMap来实现，使用访问顺序的构造器
+ *  	即： new LinkedHashMap<>(true)
  */
 public class LFUCache {
 
-	private static class Node implements Comparable {
+	private static class Node implements Comparable<Node> {
 		int key, val, frq, time;
 		public Node(int key, int val) {
 			this.key = key;
 			this.val = val;
 			this.time = t++;
 		}
-
 		@Override
-		public int compareTo(Object o) {
-			Node ot = (Node) o;
-			return frq == ot.frq ? time - ot.time : frq - ot.frq;
+		public int compareTo(Node o) {
+			return frq == o.frq ? time - o.time : frq - o.frq;
 		}
 	}
 
-	TreeMap<Integer, Node> map;
+	Map<Integer, Node> map;
 	int sz;
+	// 当作全局的时间戳
 	static int t = 0;
 
 	public LFUCache(int capacity) {
 		sz = capacity;
-		map = new TreeMap<>();
+		map = new HashMap<>(capacity);
 	}
 
 	public int get(int key) {
-		if (sz == 0) return -1;
-		boolean flag = map.containsKey(key);
-		if (flag) {
-			Node node = map.get(key);
-			node.frq ++;
-			node.time = t++;
-			return node.val;
+		if (sz == 0 || !map.containsKey(key)) {
+			return -1;
 		}
-		return -1;
+		Node node = map.get(key);
+		node.frq ++;
+		node.time = t++;
+		return node.val;
 	}
 
 	public void put(int key, int value) {

@@ -10,11 +10,12 @@
   <packaging>pom</packaging>
   
   <modules>
-    <module>netty</module>
-    <module>leetcode</module>
-    <module>imooc</module>
     <module>java-core</module>
+    <module>netty</module>
     <module>kafka</module>
+    <module>leetcode</module>
+    <module>slgs4</module>
+    <module>utility</module>
   </modules>
 
   <name>awesome-java</name>
@@ -40,6 +41,7 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.12</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 

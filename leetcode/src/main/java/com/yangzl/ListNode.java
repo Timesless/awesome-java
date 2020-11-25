@@ -14,7 +14,7 @@ public class ListNode {
 
 	@Override
 	public String toString() {
-		StringBuilder bd = new StringBuilder();
+		StringBuilder bd = new StringBuilder(16);
 		ListNode p = this;
 		while (p.next != null) {
 			bd.append(p.val + " -> ");

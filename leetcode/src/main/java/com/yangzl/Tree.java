@@ -143,12 +143,12 @@ public class Tree {
 	}
 	@Test
 	public void testMaxDepth() {
-		List<Node> children3 = new ArrayList() {{
+		List<Node> children3 = new ArrayList<Node>() {{
 			add(new Node(5));
 			add(new Node(6));
 		}};
 		Node three = new Node(3, children3);
-		List<Node> children = new ArrayList() {{ 
+		List<Node> children = new ArrayList<Node>() {{ 
 			add(three);
 			add(new Node(2));
 			add(new Node(4));
@@ -161,7 +161,7 @@ public class Tree {
 	/**
 	 * 2020/9/29 利用队列实现二叉树的层序遍历
 	 * @param root 树根节点
-	 * @return
+	 * @return List
 	 */
 	public List<List<Integer>> levelOrderBinary(TreeNode root) {
 		if (null == root) return new ArrayList<>();
@@ -196,6 +196,35 @@ public class Tree {
 		root.right = ftr;
 
 		System.out.println(levelOrderBinary(root));
+	}
+
+	/**
+	 * 2020/11/24 计算完全二叉树的节点个数
+	 * 
+	 * @param root root
+	 * @return int
+	 */
+	public int countNodes(TreeNode root) {
+		if (root == null) {
+			return 0;
+		}
+		int rs = 0;
+		Queue<TreeNode> q = new LinkedList<>();
+		q.offer(root);
+		while (!q.isEmpty()) {
+			int sz = q.size();
+			rs += sz;
+			for (int i = 0; i < sz; ++i) {
+				TreeNode curr = q.poll();
+				if (curr.left != null) {
+					q.offer(curr.left);
+				}
+				if (curr.right != null) {
+					q.offer(curr.right);
+				}
+			}
+		}
+		return rs;
 	}
 
 

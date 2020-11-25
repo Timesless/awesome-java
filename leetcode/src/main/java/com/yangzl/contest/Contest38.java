@@ -48,7 +48,7 @@ public class Contest38 {
 		return rs;
 	}
 	@Test
-	public void test() {
+	public void testFrequencySort() {
 		int[] arr = {1,1,1,2,2,2,3};
 		System.out.println(Arrays.toString(frequencySort(arr)));
 	}
@@ -111,8 +111,88 @@ public class Contest38 {
 		return Arrays.stream(arr).max().orElse(0);
 	}
 	@Test
-	public void test1() {
+	public void testGetMaximumGenerated() {
 		System.out.println(getMaximumGenerated(2));
 	}
+
+	
+	/**
+	 * 2020/11/14 leetcode 39 双周赛第一题
+	 * 
+	 * @param code code
+	 * @param  k k
+	 * @return int[]
+	 */
+	public int[] decrypt(int[] code, int k) {
+		if (k == 0) {
+			return new int[code.length];
+		}
+		int ln = code.length;
+		int[] rs = new int[ln];
+		if (k < 0) {
+			for (int i = 0; i < ln; ++i) {
+				// 4
+				// 3 2
+				// start = 0, stop = -2
+				int start = i + ln, stop = start + k;
+				int sum = 0;
+				for (int j = stop; j < start; ++j) {
+					sum += code[(j + ln) % ln];
+				}
+				rs[i] = sum;
+			}
+		} else {
+			for (int i = 0; i < ln; ++i) {
+				int sum = 0;
+				int start = i + 1, stop = start + k;
+				for (; start < stop; ++start) {
+					sum += code[start % ln];
+				}
+				rs[i] = sum;
+			}
+		}
+		return rs;
+	}
+	@Test
+	public void testDecrypt() {
+		int[] code = {2,4,9,3};
+		System.out.println(Arrays.toString(decrypt(code, -2)));
+	}
+
+
+	public boolean closeStrings(String word1, String word2) {
+		if (word1.length() != word2.length()) {
+			return false;
+		}
+		Set<Character> s1 = new HashSet(Arrays.asList(word1.split("")));
+		Set<Character> s2 = new HashSet(Arrays.asList(word2.split("")));
+		s1.removeAll(s2);
+		return s1.size() == 0;
+	}
+	@Test
+	public void testColseStrings() {
+		System.out.println(closeStrings("cabbbbbacc", "aaaabbbbca"));
+	}
+
+
+	/**
+	 * 2020/11/22 leetcode周赛，判断两个数组连接出的字符串是否相同
+	 * 
+	 * @param word1 字符串1
+	 * @param  word2 字符串2
+	 * @return boolean
+	 */
+	public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+		String str1 = String.join("", word1);
+		String str2 = String.join("", word2);
+		return str1.equals(str2);
+	}
+	@Test
+	public void testArrayStringsAreEqual() {
+		String[] arr1 = {"a", "bc", "de"};
+		String[] arr2 = {"ab", "cde"};
+		System.out.println(arrayStringsAreEqual(arr1, arr2));
+	}
+	
 	
 }

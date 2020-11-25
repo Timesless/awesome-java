@@ -46,7 +46,13 @@ public class ForkJoinPoolD extends RecursiveTask<Integer> {
 	}
 
 	public static void main(String[] args) throws Exception {
-		ForkJoinPool pool = new ForkJoinPool();
+		System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism",
+				String.valueOf(Runtime.getRuntime().availableProcessors() << 1));
+		// new 时，直接传入 availableProcessors()，所以parallelism = 8
+		ForkJoinPool newPool = new ForkJoinPool();
+		System.out.println(newPool);
+		ForkJoinPool pool = ForkJoinPool.commonPool();
+		System.out.println(pool);
 		ForkJoinPoolD task = new ForkJoinPoolD(0, 1000_000);
 		/*
 		 * submit 有返回值
