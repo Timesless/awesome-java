@@ -11,8 +11,7 @@
   
   <modules>
     <module>java-core</module>
-    <module>netty</module>
-    <module>kafka</module>
+    <module>middle-ware</module>
     <module>leetcode</module>
     <module>slgs4</module>
     <module>utility</module>

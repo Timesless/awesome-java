@@ -51,7 +51,7 @@ public class KMP {
 	 * 	next[]是将最大长度值表整体向右移动1位，并将next[]初始值赋值为-1
 	 * --y 和 result[y - 1] 是相同的，因为y从0开始，相同则递增
 	 */
-	private static int[] getMaxTab(String subString) {
+	public static int[] getMaxTab(String subString) {
 		int x = 1, y = 0, len = subString.length();
 		int[] maxCommonVal = new int[len];
 		for (; x < len; ++x) {

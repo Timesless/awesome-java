@@ -1,5 +1,7 @@
 package com.yangzl.juc;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.concurrent.*;
 
 /**
@@ -30,6 +32,31 @@ public class ExecutorServiceD {
 				60L,
 				TimeUnit.SECONDS,
 				new ArrayBlockingQueue<Runnable>(20));
-		
+	}
+	
+	/**
+	 * 2020/11/29 无界队列时，max core 无用，永远只是core szie
+	 * 
+	 * @param 
+	 * @return void
+	 */
+	@Test
+	public void testUnbundedQ() {
+		ThreadPoolExecutor p = new ThreadPoolExecutor(4, 8, 8, TimeUnit.MINUTES, new LinkedBlockingQueue<>());
+		Runnable r = () -> {
+			try { TimeUnit.SECONDS.sleep(4); } catch(InterruptedException e) { e.printStackTrace(); }
+			System.out.println(Thread.currentThread().getName());
+		};
+
+		p.execute(r);
+		p.execute(r);
+		p.execute(r);
+		p.execute(r);
+		p.execute(r);
+		p.execute(r);
+		p.execute(r);
+		p.execute(r);
+		try { TimeUnit.SECONDS.sleep(10); } catch(InterruptedException e) { e.printStackTrace(); }
+		p.shutdown();
 	}
 }

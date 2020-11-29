@@ -91,7 +91,7 @@ public class Appendix {
 	// =====================================================================================
 	@Test
 	public void testLibUp() {
-		Map<String, Integer> map = new HashMap<>();
+		Map<String, Integer> map = new HashMap<>(4);
 		map.getOrDefault("Aston Martin", 0);
 		map.computeIfAbsent("Aston Martin", String::length);
 

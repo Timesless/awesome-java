@@ -1,5 +1,6 @@
 package com.yangzl.contest;
 
+import com.yangzl.algorithm.SortAlgorithm;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -14,14 +15,15 @@ import java.util.stream.Collectors;
 public class Contest38 {
 
 	/**
-	 * 2020/11/1 
-	 * 5539. 按照频率将数组升序排序 
-	 * 给你一个整数数组 nums ，请你将数组按照每个值的频率 升序 排序。如果有多个值的频率相同，请你按照数值本身将它们 降序 排序。 
+	 * 2020/11/1
+	 * 5539. 按照频率将数组升序排序
+	 * 给你一个整数数组 nums ，请你将数组按照每个值的频率 升序 排序。如果有多个值的频率相同，请你按照数值本身将它们 降序 排序。
 	 * 请你返回排序后的数组。
 	 * 示例 1：
 	 * 输入：nums = [1,1,2,2,2,3]
 	 * 输出：[3,1,1,2,2,2]
 	 * 解释：'3' 频率为 1，'1' 频率为 2，'2' 频率为 3 。
+	 *
 	 * @param nums 参数
 	 * @return int[]
 	 */
@@ -47,12 +49,13 @@ public class Contest38 {
 		}
 		return rs;
 	}
+
 	@Test
 	public void testFrequencySort() {
-		int[] arr = {1,1,1,2,2,2,3};
+		int[] arr = {1, 1, 1, 2, 2, 2, 3};
 		System.out.println(Arrays.toString(frequencySort(arr)));
 	}
-	
+
 
 	public boolean canFormArray(int[] arr, int[][] pieces) {
 		String arrString = Arrays.stream(arr).boxed().map(String::valueOf).collect(Collectors.joining(""));
@@ -64,16 +67,17 @@ public class Contest38 {
 		}
 		return true;
 	}
+
 	@Test
 	public void testCount() {
 		int[] arr = {1, 3, 5, 7};
-		int[][] pieces = { {2, 4, 6, 8} };
+		int[][] pieces = {{2, 4, 6, 8}};
 		System.out.println(canFormArray(arr, pieces));
 		System.out.println(Arrays.toString(arr));
-		
+
 	}
-	
-	
+
+
 	@Test
 	public void testCompletableFuture() {
 		CompletableFuture<Void> future1 = CompletableFuture.runAsync(() -> {
@@ -85,7 +89,7 @@ public class Contest38 {
 		}).whenComplete((v, error) -> {
 			System.out.println("任务2执行完毕");
 		});
-		
+
 		future1.runAfterEither(future2, () -> {
 			System.out.println("任务1、2任意一个执行完毕，我就开始执行");
 		});
@@ -110,17 +114,18 @@ public class Contest38 {
 		}
 		return Arrays.stream(arr).max().orElse(0);
 	}
+
 	@Test
 	public void testGetMaximumGenerated() {
 		System.out.println(getMaximumGenerated(2));
 	}
 
-	
+
 	/**
 	 * 2020/11/14 leetcode 39 双周赛第一题
-	 * 
+	 *
 	 * @param code code
-	 * @param  k k
+	 * @param k    k
 	 * @return int[]
 	 */
 	public int[] decrypt(int[] code, int k) {
@@ -153,9 +158,10 @@ public class Contest38 {
 		}
 		return rs;
 	}
+
 	@Test
 	public void testDecrypt() {
-		int[] code = {2,4,9,3};
+		int[] code = {2, 4, 9, 3};
 		System.out.println(Arrays.toString(decrypt(code, -2)));
 	}
 
@@ -169,6 +175,7 @@ public class Contest38 {
 		s1.removeAll(s2);
 		return s1.size() == 0;
 	}
+
 	@Test
 	public void testColseStrings() {
 		System.out.println(closeStrings("cabbbbbacc", "aaaabbbbca"));
@@ -177,9 +184,9 @@ public class Contest38 {
 
 	/**
 	 * 2020/11/22 leetcode周赛，判断两个数组连接出的字符串是否相同
-	 * 
+	 *
 	 * @param word1 字符串1
-	 * @param  word2 字符串2
+	 * @param word2 字符串2
 	 * @return boolean
 	 */
 	public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
@@ -187,12 +194,79 @@ public class Contest38 {
 		String str2 = String.join("", word2);
 		return str1.equals(str2);
 	}
+
 	@Test
 	public void testArrayStringsAreEqual() {
 		String[] arr1 = {"a", "bc", "de"};
 		String[] arr2 = {"ab", "cde"};
 		System.out.println(arrayStringsAreEqual(arr1, arr2));
 	}
-	
-	
+
+
+	/**
+	 * 2020/11/26
+	 * 给定一个无序的数组，找出数组在排序之后，相邻元素之间最大的差值。
+	 * 如果数组元素个数小于 2，则返回 0。
+	 * <p>
+	 * 你可以假设数组中所有元素都是非负整数，且数值在 32 位有符号整数范围内。
+	 * 请尝试在线性时间复杂度和空间复杂度的条件下解决此问题。
+	 *
+	 * @param nums source
+	 * @return int gap
+	 */
+	public int maximumGap(int[] nums) {
+		if (nums.length < 2) {
+			return 0;
+		}
+		SortAlgorithm.radixSort(nums);
+		System.out.println(Arrays.toString(nums));
+		int max = -1;
+		for (int i = 1; i < nums.length; ++i) {
+			int gap = nums[i] - nums[i - 1];
+			max = Math.max(gap, max);
+		}
+		return max;
+	}
+	@Test
+	public void testMaxiumGap() {
+		int[] arr = new int[]{3, 6, 9, 1, 27, 11, 0, 9, 234, 3432, 342, 21, 4543, 321, 43};
+		System.out.println(maximumGap(arr));
+	}
+
+
+	public int maxRepeating(String sequence, String word) {
+		int slen = sequence.length(), wlen = word.length();
+		if (wlen > slen || !sequence.contains(word)) {
+			return 0;
+		}
+		int max = 1;
+		String t = word;
+		int tlen = wlen;
+		while (tlen <= slen) {
+			t += word;
+			if (sequence.contains(t)) {
+				max += 1;
+			}
+			tlen = wlen + t.length();
+		}
+		return max;
+	}
+	@Test
+	public void testMaxRepeating() {
+		System.out.println(maxRepeating("abcbca", "cb"));
+	}
+
+	public int maximumWealth(int[][] accounts) {
+		int max = Integer.MIN_VALUE;
+		for (int[] tmp : accounts) {
+			int rs = Arrays.stream(tmp).sum();
+			max = Math.max(max, rs);
+		}
+		return max;
+	}
+	@Test
+	public void testMax() {
+		
+	}
+
 }

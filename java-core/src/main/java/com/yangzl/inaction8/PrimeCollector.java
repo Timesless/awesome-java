@@ -101,24 +101,6 @@ public class PrimeCollector implements
 		return IntStream.rangeClosed(2, sqrtRoot).noneMatch(i -> candidate % i == 0);
 	}
 	
-	
-	/**
-	 * 2020/11/23 只获取满足条件的列表元素，这样节省很大空间
-	 * 
-	 * @param list 列表所有元素
-	 * @param  p 谓词
-	 * @return java.util.List<A>
-	 */
-	public static <A> List<A> takeWihle(List<A> list, Predicate<A> p) {
-		int i = 0;
-		for (A a : list) {
-			if (!p.test(a)) {
-				return list.subList(0, i);
-			}
-			++ i;
-		}
-		return list;
-	}
 
 	/**
 	 * 2020/11/23 仅使用质数做除数， 如果除数本身不是质数，那么用不着测试了
@@ -142,9 +124,10 @@ public class PrimeCollector implements
 	 * 			collect(Suppier<R> s, BiConsumer<R, <? super T>> acc, BiConsumer<R, R> combiner)这个函数即可实现
 	 * 
 	 * @param n 2 - n 的自然数
+	 *          Suppiler Accumulator Combiner   
 	 * @return Map
 	 */
-	public Map<Boolean, List<Integer>> partionByCustom(int n) {
+	public Map<Boolean, List<Integer>> partionBySAC(int n) {
 		int sz = n >>> 3;
 		Supplier<Map<Boolean, List<Integer>>> sup = () -> new HashMap<Boolean, List<Integer>>() {{
 			put(Boolean.TRUE, new ArrayList<>(sz));
@@ -157,15 +140,50 @@ public class PrimeCollector implements
 			acc1.get(false).addAll(acc2.get(false));
 		};
 		
-		return IntStream.rangeClosed(2, n).boxed()
-				.collect(sup, accumulator, combiner);
+		return IntStream.rangeClosed(2, n).boxed().collect(sup, accumulator, combiner);
+	}
+
+	/*
+	 * 4 * 1000000 => min = 270
+	 */
+	public Map<Boolean, List<Integer>> partionPrime(int n) {
+		return IntStream.rangeClosed(2, n).boxed().collect(new PrimeCollector());
+	}
+
+	/*
+	 * 未优化的isPrime
+	 * 4 * 1000000 => min = 320
+	 */
+	public Map<Boolean, List<Integer>> partionWithJdk(int n) {
+		return IntStream.rangeClosed(2, n).boxed().collect(Collectors.partitioningBy(PrimeCollector::isPrime1));
 	}
 	
 	
 	// ================================================================
-	// test
+	// private
 	// ================================================================
 
+	/**
+	 * 2020/11/23 只获取满足条件的列表元素，这样节省很大空间
+	 *
+	 * @param list 列表所有元素
+	 * @param  p 谓词
+	 * @return java.util.List<A>
+	 */
+	private static <A> List<A> takeWihle(List<A> list, Predicate<A> p) {
+		int i = 0;
+		for (A a : list) {
+			if (!p.test(a)) {
+				return list.subList(0, i);
+			}
+			++ i;
+		}
+		return list;
+	}
+
+	// ======================================================
+	// test
+	// ======================================================
 
 	// 收集测试
 	@Test
@@ -176,23 +194,6 @@ public class PrimeCollector implements
 				50, rs.get(Boolean.TRUE), rs.get(Boolean.FALSE));
 	}
 	
-	/*
-	 * 4 * 1000000 => min = 270
-	 */
-	public void partionWithCustomCollector(int n) {
-		IntStream.rangeClosed(2, n).boxed()
-				.collect(new PrimeCollector());
-	}
-	
-	/*
-	 * 未优化的isPrime
-	 * 4 * 1000000 => min = 320 
-	 */
-	public Map<Boolean, List<Integer>> partionWithJdk(int n) {
-		return IntStream.rangeClosed(2, n).boxed()
-				.collect(Collectors.partitioningBy(PrimeCollector::isPrime1));
-	}
-	
 	// 性能测试
 	@Test
 	public void testCollectPerformance() {
@@ -200,7 +201,7 @@ public class PrimeCollector implements
 		for (int i = 0; i < 4; ++i) {
 			long start = System.currentTimeMillis();
 			// partionWithCustomCollector(2_000_000);
-			partionByCustom(2_000_000);
+			partionBySAC(2_000_000);
 			// partionWithJdk(2_000_000);
 			long take = System.currentTimeMillis() - start;
 			if (take < min)
