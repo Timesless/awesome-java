@@ -227,6 +227,7 @@ public class Contest38 {
 		}
 		return max;
 	}
+
 	@Test
 	public void testMaxiumGap() {
 		int[] arr = new int[]{3, 6, 9, 1, 27, 11, 0, 9, 234, 3432, 342, 21, 4543, 321, 43};
@@ -251,6 +252,7 @@ public class Contest38 {
 		}
 		return max;
 	}
+
 	@Test
 	public void testMaxRepeating() {
 		System.out.println(maxRepeating("abcbca", "cb"));
@@ -264,9 +266,54 @@ public class Contest38 {
 		}
 		return max;
 	}
+
 	@Test
 	public void testMax() {
+
+	}
+
+
+	/*
+	 * 34. 在排序数组中查找元素的第一个和最后一个位置
+	 * 请设计 O(log n)来解决此问题
+	 * nums = [5,7,7,8,8,10], target = 8
+	 * 输出：[3,4]
+	 */
+	public int[] searchRange(int[] nums, int target) {
+		if (nums.length == 0) {
+			return new int[] {-1, -1};
+		}
+		// 既然要logn，那就是左边界的二分 + 右边界的二分
+		int ln = nums.length - 1;
 		
+		int l = 0, r = ln;
+		while (l < r) {
+			int m = l + (r - l >>> 1);
+			if (nums[m] >= target)
+				r = m;
+			else 
+				l = m + 1;
+		}
+		int left = nums[l] == target ? l : -1;
+		r = ln;
+		while (l < r) {
+			int m = l + (r - l >>> 1);
+			if (nums[m] <= target)
+				l = m + 1;
+			else 
+				r = m;
+		}
+		int right = nums[l - 1] == target ? l - 1 : -1;
+		return new int[]{left, right};
+	}
+	
+	
+	@Test
+	public void testBinarySearch() {
+		int[] nums = {1, 1};
+
+		final int[] ints = searchRange(nums, 2);
+		System.out.println(Arrays.toString(ints));
 	}
 
 }

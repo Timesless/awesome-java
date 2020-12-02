@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,14 +17,14 @@ import java.util.stream.Stream;
 public class SortAlgorithm {
 
 	int[] unsort = {1, 9, 1006, -1562, 4, 102, 3, 88};
-
-
+	
 	/**
 	 * 2020/11/26 基数排序， 空间复杂度： 10 * O(n)，时间复杂度 maxLength * O(n)
+	 * 			可以考虑用List代理数组存放索引
 	 * <p>
 	 * 要解决负数排序的话，只需要偏移10即可
 	 *
-	 * @param nums unsort array
+	 * @param nums source
 	 * @return void
 	 */
 	public static void radixSort(int[] nums) {
@@ -49,7 +50,42 @@ public class SortAlgorithm {
 			}
 		}
 	}
-
+	/**
+	 * 2020/12/2 基数排序
+	 * 
+	 * @param nums source
+	 * @return void
+	 */
+	public static void radixSort2(int[] nums) {
+		int digit = getDiget(nums), ln = nums.length;
+		// 空间复杂度 20 * ln => O(n)
+		List<List<Integer>> list = new ArrayList<>(20);
+		for (int i = 0; i < 20; ++i) {
+			list.add(new ArrayList<>(ln));
+		}
+		int[] arr = nums;
+		int offset = 10, mod = 10;
+		for (int i = 0, base = 1; i < digit; ++i) {
+			for (int tmp : arr) {
+				int md = (tmp / base) % mod;
+				list.get(md + offset).add(tmp);
+			}
+			// 每一轮排序后的数组
+			arr = list.stream().flatMap(List::stream).filter(Objects::nonNull).mapToInt(Integer::intValue).toArray();
+			for (List<Integer> cur : list) {
+				cur.clear();
+			}
+			base *= 10;
+		}
+		// 复制回原数组
+		System.arraycopy(arr, 0, nums, 0, ln);
+	}
+	/**
+	 * 2020/12/2 计算数组类最大数值的位数
+	 * 
+	 * @param nums source
+	 * @return int 数值的位数
+	 */
 	private static int getDiget(int[] nums) {
 		int max = 0x80000000, digital = 0;
 		for (int i : nums) {
@@ -57,9 +93,7 @@ public class SortAlgorithm {
 			if (i < 0) {
 				i = ~i + 1;
 			}
-			if (i > max) {
-				max = i;
-			}
+			max = Math.max(max, i);
 		}
 		while (max > 0) {
 			max /= 10;
@@ -67,12 +101,52 @@ public class SortAlgorithm {
 		}
 		return digital;
 	}
-
 	@Test
 	public void testRadixSort() {
 		radixSort(unsort);
+		int[] unsorts = {1, 9, 1006, -1562, 4, 102, 3, 88};
+		radixSort2(unsorts);
+		System.out.println(Arrays.toString(unsorts));
 	}
-
+	
+	
+	/**
+	 * 2020/12/2 快排
+	 * 
+	 * @param nums source
+	 * @return void
+	 */
+	public static void quickSort(int[] nums) {
+		quickSort(nums, 0, nums.length - 1);
+	}
+	private static void quickSort(int[] nums, int start, int end) {
+		int l = start, r = end;
+		if (l > r) {
+			return;
+		}
+		/*
+		 * partion 分区
+		 * 选择一个基准值（随机化快排需随机选择一个值）
+		 */
+		int pivot = nums[l];
+		while (l < r) {
+			// 右指针向左找到一个小于pivot的值停下
+			while (l < r && nums[r] >= pivot) {
+				-- r;
+			}
+			// 因为保存了pivot，
+			nums[l] = nums[r];
+			// 左指针向右找到一个大于pivot的值停下
+			while (l < r && nums[l] <= pivot) {
+				++ l;
+			}
+			nums[r] = nums[l];
+		}
+		// 填入基准值
+		nums[l] = pivot;
+		quickSort(nums, start, l - 1);
+		quickSort(nums, l + 1, end);
+	}
 
 	/**
 	 * @Date: 2020/3/6
@@ -103,12 +177,13 @@ public class SortAlgorithm {
 			list.addAll(larger);
 		}
 	}
-
 	@Test
 	public void testQuickSort() {
 		List<Integer> list = Stream.of(2, 7, 4, 1, 3, 5, 8, 6, 9, 11).collect(Collectors.toList());
 		quickSort(list);
 		System.out.println(list);
+		quickSort(unsort);
+		System.out.println(Arrays.toString(unsort));
 	}
 
 	/**
@@ -127,7 +202,6 @@ public class SortAlgorithm {
 		// 合并
 		merge(nums, left, mid, right);
 	}
-
 	private static void merge(int[] nums, int L, int M, int R) {
 		int[] tmp = new int[R - L + 1];
 		// 左右指针，tmp数组指针
@@ -148,7 +222,6 @@ public class SortAlgorithm {
 		 */
 		System.arraycopy(tmp, 0, nums, L, tmp.length);
 	}
-
 	@Test
 	public void testMergeSort() {
 		mergeSort(unsort);
@@ -174,7 +247,7 @@ public class SortAlgorithm {
 	public static void insertionSort_2(int[] arr) {
 		// 第一个元素有序
 		int cur, count;
-		for (int x = 1; x < arr.length; ++x) {
+		for (int x = 1, ln = arr.length; x < ln; ++x) {
 			cur = arr[x];
 			count = 0;
 			for (int y = x - 1; y >= 0; --y) {
@@ -190,7 +263,7 @@ public class SortAlgorithm {
 
 	// _2的改进
 	public static void insertionSort_3(int[] arr) {
-		for (int x = 1; x < arr.length; ++x) {
+		for (int x = 1, ln = arr.length; x < ln; ++x) {
 			int cur = arr[x];
 			int y = x;
 			for (; y > 0 && cur < arr[y - 1]; --y)
@@ -198,7 +271,6 @@ public class SortAlgorithm {
 			arr[y] = cur;
 		}
 	}
-
 	@Test
 	public void testInsertionSort() {
 		insertionSort_1(unsort);
@@ -212,7 +284,7 @@ public class SortAlgorithm {
 		int tmp;
 		while (step > 0) {
 			// 对每组简单插入
-			for (int x = step; x < arr.length; ++x) {
+			for (int x = step, ln = arr.length; x < ln; ++x) {
 				// 这里有点没看懂
 				// 2019年12月7日 这里其实就是让y指向每组的第一个元素，和每组后面的元素比较
 				for (int y = x - step; y >= 0; y -= step) {
@@ -232,10 +304,10 @@ public class SortAlgorithm {
 	 * @Desc: 数据结构与算法实现
 	 */
 	public static void shellSort_2(int[] arr) {
-		int step, x, y, tmp;
-		for (step = arr.length >>> 1; step > 0; step = step >>> 1) {
+		int step, x, y, tmp, ln;
+		for (step = arr.length >>> 1; step > 0; step >>>= 1) {
 			// 假设分为3段，那每段的数据都需要自排
-			for (x = step; x < arr.length; ++x) {
+			for (x = step, ln = arr.length; x < ln; ++x) {
 				tmp = arr[x];
 				// 这里与插入排序逻辑相似
 				for (y = x; y >= step && tmp < arr[y - step]; y -= step) {
@@ -245,7 +317,6 @@ public class SortAlgorithm {
 			}
 		}
 	}
-
 	@Test
 	public void testShellSort() {
 		shellSort_1(unsort);
@@ -258,22 +329,24 @@ public class SortAlgorithm {
 	 */
 	public static void bubbleSort(int[] arr) {
 		boolean flag = false;
-		for (int x = 0; x < arr.length - 1; ++x) {
+		int ln = arr.length;
+		for (int x = 0; x < ln - 1; ++x) {
 			// 每次循环将最大的数移到后面
-			for (int y = 0; y < arr.length - 1 - x; ++y) {
+			for (int y = 0; y < ln - 1 - x; ++y) {
 				if (arr[y] > arr[y + 1]) {
+					// 交换arr[y] 与 arr[y + 1]
 					arr[y] = arr[y] ^ arr[y + 1];
 					arr[y + 1] = arr[y] ^ arr[y + 1];
 					arr[y] = arr[y] ^ arr[y + 1];
 					flag = true;
 				}
 			}
+			// 如果整个内层循环都没有移动元素，则整体已排序完成
 			if (!flag) {
 				break;
 			}
 		}
 	}
-
 	@Test
 	public void testBubbleSort() {
 		bubbleSort(unsort);
@@ -284,8 +357,8 @@ public class SortAlgorithm {
 	 * @Desc: 选择排序
 	 */
 	public static void selectionSort(int[] arr) {
-		int min, minIdx;
-		for (int x = 0; x < arr.length - 1; ++x) {    // 每次循环只交换一次值，所以比冒泡快
+		int min, minIdx, ln = arr.length - 1;
+		for (int x = 0; x < ln; ++x) {    // 每次循环只交换一次值，所以比冒泡快
 			/*
 			 * 这个循环是找剩余元素最小值
 			 * 首先令每次循环的第一个元素为最小值
@@ -293,8 +366,8 @@ public class SortAlgorithm {
 			 */
 			min = arr[x];
 			minIdx = x;
-			// for (int y = x + 1; y < arr.length && arr[y] < min; ++y)
-			for (int y = x + 1; y < arr.length; ++y)
+			// for (int y = x + 1; y < ln && arr[y] < min; ++y)
+			for (int y = x + 1; y < ln; ++y)
 				if (arr[y] < min) {
 					minIdx = y;
 				}
@@ -309,7 +382,6 @@ public class SortAlgorithm {
 			}
 		}
 	}
-
 	@Test
 	public void testSelectionSort() {
 		selectionSort(unsort);
