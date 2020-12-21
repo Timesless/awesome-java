@@ -4,9 +4,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/28 13:17
- * @Desc: ..
+ * @Author yangzl
+ * @date 2019/12/28 13:17
+ * @desc  ..
  */
 public class ServerHandler extends ChannelInboundHandlerAdapter {
 	

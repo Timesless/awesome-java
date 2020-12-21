@@ -13,8 +13,8 @@ import java.util.Set;
 
 /**
  * @Author: yangzl
- * @Date: 2020/3/14 13:53
- * @Desc: .. 经典Reactor模式（Scalable I/O in Java） -> 单线程
+ * @date 2020/3/14 13:53
+ * @desc .. 经典Reactor模式（Scalable I/O in Java） -> 单线程
  * Reactor Pattern
  * 		<em>Reactor</em> responds to IO events by dispatching the appropriate handler
  * 		<em>Handlers</em> perform non-blocking actions 
@@ -34,7 +34,7 @@ public class ClassicReactor implements Runnable {
 	ServerSocketChannel serverChannel;
 	
 	public ClassicReactor() throws Exception {
-		// 1 Selector.open() 调用 SPI
+		// 1 Selector.open() => 也是调用SPI
 		// 2 SPI方式
 		this.selector = SelectorProvider.provider().openSelector();
 		// 创建并设置serverChannel
@@ -54,13 +54,19 @@ public class ClassicReactor implements Runnable {
 	public void run() {
 		try {
 			// 
-			while (!Thread.interrupted()) {
+			while (true) {
+				// 获取当前线程是否被中断，并且清除中断标志
+				final boolean interrupted = Thread.interrupted();
+				if (!interrupted) break;
 				// block until events happen
 				selector.select();
+				/*
+				 * 遍历所有发生的事件，只做分发，然后清除掉所有分发过事件的SelectionKey
+				 */
 				Set<SelectionKey> selectionKeys = selector.selectedKeys();
 				for (Iterator<SelectionKey> iter = selectionKeys.iterator(); iter.hasNext();) {
 					SelectionKey event = iter.next();
-					// 手动获取事件
+					// 分发事件
 					dispatch(event);
 				}
 				selectionKeys.clear();
@@ -71,7 +77,6 @@ public class ClassicReactor implements Runnable {
 	}
 
 	// Reactor 分发事件
-	// 其实是分发 连接事件
 	private void dispatch(SelectionKey event) {
 		Runnable handler = (Runnable) event.attachment();
 		// 单线程Reactor这里直接调用之前绑定对象的run
@@ -99,6 +104,9 @@ public class ClassicReactor implements Runnable {
 	}
 }
 
+/*
+ *  IOHandler I/O读写处理器
+ */
 class IOHandler implements Runnable {
 	SelectionKey sk;
 	SocketChannel client;

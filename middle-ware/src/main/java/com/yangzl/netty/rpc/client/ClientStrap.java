@@ -11,9 +11,9 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/28 12:46
- * @Desc: ..
+ * @Author yangzl
+ * @date 2019/12/28 12:46
+ * @desc ..
  */
 public class ClientStrap {
 	

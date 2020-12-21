@@ -10,9 +10,9 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/29 16:43
- * @Desc: ..
+ * @Author yangzl
+ * @date 2019/12/29 16:43
+ * @desc .. NIO 聊天程序客户端
  */
 public class ChatClient {
 

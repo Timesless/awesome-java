@@ -258,6 +258,13 @@ public class Contest38 {
 		System.out.println(maxRepeating("abcbca", "cb"));
 	}
 
+	/**
+	 * 2020/12/5 计算account最大值
+	 * 
+	 * 	[[1, 2, 3], [2, 3, 4], [8, 9]]
+	 * @param accounts source
+	 * @return int 17
+	 */
 	public int maximumWealth(int[][] accounts) {
 		int max = Integer.MIN_VALUE;
 		for (int[] tmp : accounts) {
@@ -268,11 +275,10 @@ public class Contest38 {
 	}
 
 	@Test
-	public void testMax() {
+	public void testMaximumWealth() {
 
 	}
-
-
+	
 	/*
 	 * 34. 在排序数组中查找元素的第一个和最后一个位置
 	 * 请设计 O(log n)来解决此问题
@@ -307,13 +313,45 @@ public class Contest38 {
 		return new int[]{left, right};
 	}
 	
-	
 	@Test
 	public void testBinarySearch() {
 		int[] nums = {1, 1};
-
 		final int[] ints = searchRange(nums, 2);
 		System.out.println(Arrays.toString(ints));
+	}
+	
+	/**
+	 * 2020/12/5 任务调度器
+	 * 
+	 * 给你一个用字符数组 tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。任务可以以任意顺序执行，并且每个任务都可以在 1 个单位时间内执行完。
+	 * 在任何一个单位时间，CPU 可以完成一个任务，或者处于待命状态。
+	 * 然而，两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间，因此至少有连续 n 个单位时间内 CPU 在执行不同的任务，或者在待命状态。
+	 * 你需要计算完成所有任务所需要的 最短时间 。
+	 * 
+	 * tasks = ["A","A","A","B","B","B"], n = 2
+	 * 输出：8
+	 *
+	 * @param tasks source
+	 * @param n CD
+	 * @return int 最少调度的时间
+	 */
+	public int leastInterval(char[] tasks, int n) {
+		// 桶计数
+		int[] cnt = new int[26];
+		int ln = tasks.length;
+		for (int i = 0; i < ln; i++) {
+			cnt[tasks[i] - 'A'] ++;
+		}
+		Arrays.sort(cnt);
+		// 获取最多任务
+		int maxCount = 1;
+		for (int i = 24; i >= 0 ; --i) {
+			if (cnt[i] != cnt[25]) {
+				break;
+			}
+			++ maxCount;
+		}
+		return Math.max(ln, (cnt[25] - 1) * (n + 1) + maxCount);
 	}
 
 }

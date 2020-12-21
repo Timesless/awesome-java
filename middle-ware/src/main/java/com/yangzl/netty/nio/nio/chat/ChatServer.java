@@ -36,6 +36,11 @@ public class ChatServer {
 		try {
 			SelectionKey key;
 			while (true) {
+				
+				/*
+				 * 阻塞一秒，没有连接则进行下一次处理
+				 * 阻塞的这一秒内其实可以做其它工作「如果有的话」
+				 */
 				if (selector.select(1000) <= 0) { continue; }
 				for (Iterator<SelectionKey> iter = selector.selectedKeys().iterator(); iter.hasNext();) {
 					 key = iter.next();

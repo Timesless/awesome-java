@@ -21,6 +21,32 @@ public class Maths {
 		return gcd(q, r);
 	}
 
+
+	/**
+	 * 2020/12/3 统计n - 1以内的质数
+	 * 				埃拉托斯特尼筛法
+	 *
+	 * @param n 大于0的自然数
+	 * @return int
+	 */
+	public static int countPrime(int n) {
+		if (n <= 2) {
+			return 0;
+		}
+		int rs = 0;
+		boolean[] primes = new boolean[n];
+		for (int i = 2; i < n; ++i) {
+			if (!primes[i]) {
+				++ rs;
+				// 划去2的倍数，3的倍数...
+				for (int j = 2; i * j < n; ++j) {
+					primes[i * j] = true;
+				}
+			}
+		}
+		return rs;
+	}
+
 	/**
 	 * 2020/12/1 左边界的二分查找
 	 * 

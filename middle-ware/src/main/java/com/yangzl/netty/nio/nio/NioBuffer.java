@@ -6,9 +6,12 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/28 22:19
- * @Desc: .. mark, position, limit, capacity
+ * @Author yangzl
+ * @date 2019/12/28 22:19
+ * @desc .. 
+ * 
+ * 	NIO Buffer核心概念
+ * 		mark, position, limit, capacity
  * 		flip 切换为读模式
  * 		reset position = mark	
  * 		rewind 重读
@@ -19,8 +22,8 @@ import java.nio.channels.FileChannel;
 public class NioBuffer {
 
 	/**
-	 * @Date: 2019/12/29
-	 * @Desc: 堆外内存
+	 * @date 2019/12/29
+	 * @desc 堆外内存
 	 */
 	public static void mappedByteBuffer() {
 		try {
@@ -36,8 +39,8 @@ public class NioBuffer {
 	}
 	
 	/**
-	 * @Date: 2019/12/29
-	 * @Desc: .. 分散：将channel数据依次写入到buffer数组
+	 * @date 2019/12/29
+	 * @desc .. 分散：将channel数据依次写入到buffer数组
 	 * 			聚合： 将buffer数组的数据依次写入到channel
 	 */
 	public static void scatterGather() {

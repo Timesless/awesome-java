@@ -8,9 +8,9 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/28 22:25
- * @Desc: .. IO multiplexing，通道以事件的方式注册到selector
+ * @Author yangzl
+ * @date 2019/12/28 22:25
+ * @desc .. IO multiplexing，通道以事件的方式注册到selector
  * 		Selector.open()	
  * 		int select(long timeout)：阻塞|超时阻塞 查询（select|epoll）
  * 			将有IO的SelectionKey加入Set<SelectionKey>	
@@ -20,8 +20,8 @@ public class NioSelector {
 	
 	private static int count = 0;
 	/**
-	 * @Date: 2019/12/29
-	 * @Desc: 不同事件的处理可作为一个handler
+	 * @date 2019/12/29
+	 * @desc 不同事件的处理可作为一个handler
 	 */
 	public static void startServer() {
 		try (ServerSocketChannel serverChannel = ServerSocketChannel.open()) {

@@ -66,7 +66,7 @@ public class WordSpliterator implements Spliterator<Character> {
 	/**
 	 * 2020/11/23 如何使用 可拆分迭代器呢，需要通过源自定义拆分为Stream
 	 * 
-	 * @param () .
+	 * @param () v
 	 * @return void
 	 */
 	public static void main(String[] args) {

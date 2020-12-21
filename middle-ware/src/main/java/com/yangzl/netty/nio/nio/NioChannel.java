@@ -9,9 +9,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/28 22:25
- * @Desc: .. 可注册到selector上，对应一个buffer
+ * @Author yangzl
+ * @date 2019/12/28 22:25
+ * @desc .. 可注册到selector上，对应一个buffer
  * 			FileChannle 阻塞
  * 			ServerSocketChannel、SocketChannel
  * 				ServerSocketChannelImpl, SocketChannelImpl	
@@ -27,8 +27,8 @@ import java.nio.file.StandardOpenOption;
 public class NioChannel {
 	
 	/**
-	 * @Date: 2019/12/28
-	 * @Desc:  将字符串写入文件
+	 * @date 2019/12/28
+	 * @desc  将字符串写入文件
 	 */
 	public static void str2File() {
 
@@ -38,6 +38,7 @@ public class NioChannel {
 			buffer.put("this is seventeen".getBytes());
 			// 切换为读
 			buffer.flip();
+			// Writes a sequence of bytes to this channel from the given buffer.
 			channel.write(buffer);
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -45,8 +46,8 @@ public class NioChannel {
 	}
 	
 	/**
-	 * @Date: 2019/12/28
-	 * @Desc: 将文件数据读入显示到console
+	 * @date 2019/12/28
+	 * @desc 将文件数据读入显示到console
 	 */
 	public static void file2Str() {
 		try (FileChannel channel = FileChannel.open(Paths.get("file.txt"), StandardOpenOption.READ)) {
@@ -66,8 +67,8 @@ public class NioChannel {
 	}
 	
 	/**
-	 * @Date: 2019/12/28
-	 * @Desc: 文件复制，将file.txt文件复制一份为file2.txt
+	 * @date 2019/12/28
+	 * @desc 文件复制，将file.txt文件复制一份为file2.txt
 	 */
 	public static void copyFile() {
 		try (FileChannel in = FileChannel.open(Paths.get("file.txt"), StandardOpenOption.READ);
@@ -86,8 +87,8 @@ public class NioChannel {
 	}
 	
 	/**
-	 * @Date: 2019/12/29
-	 * @Desc: transferTo 与 transferFrom 采用零拷贝（无须CPU拷贝，CPU配置DMA控制器去拷贝）实现
+	 * @date 2019/12/29
+	 * @desc transferTo 与 transferFrom 采用零拷贝（无须CPU拷贝，CPU配置DMA控制器去拷贝）实现
 	 */
 	public static void transfer() {
 		Path inPath = Paths.get("file.txt");
