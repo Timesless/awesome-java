@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.function.BiFunction;
-import java.util.stream.Collectors;
 
 /**
  * @Author: yangzl
@@ -52,6 +51,12 @@ public class Daily {
 	// 2020/4/3
 	// 字符串转整数。 脑瓜子嗡嗡的
 	// =======================================================================
+	/**
+	 * 2020/12/21 字符串转整数
+	 * 
+	 * @param str 源串
+	 * @return int
+	 */
 	public int myAtoi(String str) {
 		int ln;
 		if ((ln = str.length()) == 0) return 0;
@@ -72,7 +77,8 @@ public class Daily {
 			if (cln != 0 && (c < 48 || c > 57)) break;
 			// 当前builder为空，或者有一个符号位
 			if (cln == 0 || (cln == 1 && (builder.indexOf("-") >=0 || builder.indexOf("+") >= 0)))
-				if (c == 48)    // 0字符跳过
+				// 0字符跳过
+				if (c == 48)
 					continue;
 			// 符号 或者数字都可以拼接
 			if (c == '-' || c == '+' || (c > 47 && c < 58))
@@ -92,7 +98,8 @@ public class Daily {
 				long rs = Long.parseLong(builder.deleteCharAt(0).toString());
 				return rs > Integer.MAX_VALUE ? Integer.MIN_VALUE : -1 * (int) rs;
 			}
-		} else if (bln > 11) {  // 大整数
+		} else if (bln > 11) {
+			// 大整数
 			return builder.indexOf("-") >= 0 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
 		}
 		return 0;
@@ -227,8 +234,8 @@ public class Daily {
 
 	/**
 	 * 2020/5/28 DCP
-	 * @param orders
-	 * @return
+	 * @param orders 菜单
+	 * @return List
 	 */
 	public List<List<String>> displayTable(List<List<String>> orders) {
 		List<List<String>> rs = new ArrayList<>();
@@ -243,11 +250,11 @@ public class Daily {
 			tables.add(t);
 			map.merge(n + t, 1, Integer::sum);
 		}
-		List<String> collect = titles.stream().collect(Collectors.toList());
+		List<String> collect = new ArrayList<>(titles);
 		collect.sort(Comparator.naturalOrder());
 		collect.add(0, "Table");
 		rs.add(collect);
-		List<String> tabless = tables.stream().collect(Collectors.toList());
+		List<String> tabless = new ArrayList<>(tables);
 		tabless.sort(Comparator.comparingInt(Integer::valueOf));
 		for (int x = 0; x < tabless.size(); ++ x) {
 			List<String> list = new ArrayList<>();

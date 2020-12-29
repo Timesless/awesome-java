@@ -8,6 +8,8 @@ import java.util.function.DoubleBinaryOperator;
  * @desc .. 42 lambda
  */
 public enum  Operator {
+	
+	/** 加减乘除 */
 	PLUS ("+", (x, y) -> x + y),
 	MINUS ("-", (x, y) -> x - y),
 	TIMES ("*", (x, y) -> x * y),

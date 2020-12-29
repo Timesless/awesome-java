@@ -57,7 +57,8 @@ public class FunctionD {
 		Function<String, String> fun2 = String::toLowerCase;
 		System.out.println(fun1.apply("1222") == fun2.apply("1222"));
 
-		Function<String, String> identity1 = Function.identity();	// return t -> t
+		// return t -> t
+		Function<String, String> identity1 = Function.identity();
 		Function<String, String> identity2 = x -> x;
 	}
 	
@@ -71,6 +72,7 @@ public class FunctionD {
 		 */
 		// 721011081081113211911111410810033
 		"Hello word!".chars().forEach(System.out::print);
+		System.out.println();
 		
 		// 收集为string: strLen的键值对
 		List<String> list = getValues();
@@ -101,7 +103,7 @@ public class FunctionD {
 		
 	}
 	public int majorityElement(int[] nums) {
-		Map<Integer, Integer> res = new HashMap<>();
+		Map<Integer, Integer> res = new HashMap<>(16);
 		for(int tmp : nums) {
 			res.merge(tmp, 1, Integer::sum);
 		}

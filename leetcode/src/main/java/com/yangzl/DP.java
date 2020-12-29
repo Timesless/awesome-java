@@ -31,38 +31,52 @@ public class DP {
 	// 给定一个字符串s，找到其中最长的回文子序列。可以假设s的最大长度为1000。
 	// "bbbab" 输出:4 一个可能的最长回文子序列为 "bbbb"。
 	// =======================================================================
+	/**
+	 * 2020/12/21 最长回文子序列
+	 * 
+	 * @param s 字符串
+	 * @return int
+	 */
 	public int longestPalindromeSubseq(String s) {
 		int len = s.length();
-		if (len < 2) return len;
+		if (len < 2) {
+			return len;
+		}
 		// 状态：令dp[i][j]为字符串子数组[i...j]，最长回文子序列的长度
 		// 状态转移： 如果s[i-1] = s[j+1] -> dp[i-1][j+1] = dp[i][j] + 2;
 		// 如果s[i-1] != s[j + 1] -> dp[i-1][j+1] = max(dp[i-1][j], dp[i][j+1]);
 		// 初始化，当i = j即只有一个字符时，dp[i][i] = 1;
 		// 我们需要的最终结果在 dp[0][len-1]，或者在dp[len-1][0]，这里我们选择dp[0][len - 1];
 		int[][] dp = new int[len][len];
-		for (int i = 0; i < len; ++i)
+		for (int i = 0; i < len; ++i) {
 			dp[i][i] = 1;
+		}
 		// 从下到上，从左到右遍历
-		for (int i = len - 2; i >= 0; --i)
+		for (int i = len - 2; i >= 0; --i) {
 			for (int j = i + 1; j < len; ++j) {
-				if (s.charAt(i) == s.charAt(j))
+				if (s.charAt(i) == s.charAt(j)) {
 					// 这里要明确：递进方向是i在减少j在增加，所以上一步应该是i+1，j-1
 					dp[i][j] = dp[i+1][j-1] + 2;
-				else
+				} else {
 					dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1]);
+				}
 			}
+		}
 		return dp[0][len-1];
 	}
 	
-	/*
-	 * 博弈游戏dp通用模板
+	/**
+	 * 2020/12/21 博弈游戏dp通用模板
+	 * 
+	 * @param piles 石头
+	 * @return boolean
 	 */
 	public boolean stoneGame(int[] piles) {
 		/*
 		 * 状态：令dp[i][j][0]表示先手玩家，在选择石头子堆为[i...j]时获取的最高分数
 		 * 		令dp[i][j][1]表示后手玩家，在选择石头子堆为[i...j]时获取的最高分数
-		 * 	栗子 dp[0][N-1][0] 表示先手最后得分
-		 * 		 dp[0][N-1][0] 表示后手最后得分
+		 * 栗子 dp[0][N-1][0] 表示先手最后得分
+		 * 		dp[0][N-1][0] 表示后手最后得分
 		 * 
 		 * 初始化，当i = j时，表明只有一堆可选择
 		 * 		dp[i][i][0] = piles[0]
@@ -89,26 +103,36 @@ public class DP {
 			dp[i][i][0] = piles[i];
 			// dp[i][i][1] = 0;
 		}
-		for (int i = N - 2; i >= 0; --i)
+		for (int i = N - 2; i >= 0; --i) {
 			for (int j = i + 1; j < N; ++j) {
 				// 先手 -> 左边 | 右边
 				int left = piles[i] + dp[i+1][j][1], right = piles[j] + dp[i][j-1][1];
 				dp[i][j][0] = Math.max(left, right);
-				if (left > right)
+				if (left > right) {
 					dp[i][j][1] = dp[i+1][j][0];
-				else 
+				} else {
 					dp[i][j][1] = dp[i][j-1][0];
+				}
 			}
+		}
 		return dp[0][N-1][0] > dp[0][N-1][1];
 	}
 
-	/*
-	 * 递归解法
+	/**
+	 * 2020/12/21 正则表达式是否匹配，支持 . 与 *
+	 * 
+	 * @param s 原串
+	 * @param  p 子串
+	 * @return boolean
 	 */
 	public boolean isMatch(String s, String p) {
 		int sln = s.length(), pln = p.length();
-		if (sln == 0 && pln == 0) return true;
-		if (sln != 0 && pln == 0) return false;
+		if (sln == 0 && pln == 0) {
+			return true;
+		}
+		if (sln != 0 && pln == 0) {
+			return false;
+		}
 		boolean firstMatch = !s.isEmpty()
 				&& (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.');
 		// *号，匹配0个或者多个前面那一个元素
@@ -124,7 +148,7 @@ public class DP {
 	}
 	
 	
-	/*
+	/**
 	 * hard 887.鸡蛋掉落
 	 * 状态 -> 令 鸡蛋数为K，楼层为N时，存在楼层F使[0...F]之间鸡蛋都不会被摔碎
 	 * 状态转移 ->
@@ -135,21 +159,28 @@ public class DP {
 	 * 		当鸡蛋为1，只能线性扫描所有楼层
 	 */
 	public int superEggDrop(int K, int N) {
-		if (N == 1) return 1;
-		if (K == 1) return N;
+		if (N == 1) {
+			return 1;
+		}
+		if (K == 1) {
+			return N;
+		}
 		int[][] dp = new int[K + 1][N + 1];
 		// base case 1: 楼层为1时， 只需要扔一次可以确定F
-		for (int i = 1; i <= K; ++i)
+		for (int i = 1; i <= K; ++i) {
 			dp[i][1] = 1;
+		}
 		// base case 2: 鸡蛋为1时，每个楼层都需要测试才能知道具体F
-		for (int i = 1; i <= N; ++i)
+		for (int i = 1; i <= N; ++i) {
 			dp[1][i] = i;
+		}
 		
 		for (int i = 1; i <= K; ++i) {
 			for (int j = 1; j <= N; ++j) {
 				int min = N * N;
-				for (int x = 1; x <= j; ++x)
+				for (int x = 1; x <= j; ++x) {
 					min = Math.min(min, Math.max(dp[i-1][x-1], dp[i][j-x]) + 1);
+				}
 				dp[i][j] = min;
 			}
 			

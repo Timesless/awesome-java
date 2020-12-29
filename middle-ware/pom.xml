@@ -25,6 +25,13 @@
 			<artifactId>netty-all</artifactId>
 			<version>4.1.43.Final</version>
 		</dependency>
+
+		<!-- Java Concurrency Tools 高性能无锁队列 -->
+		<dependency>
+			<groupId>org.jctools</groupId>
+			<artifactId>jctools-core</artifactId>
+			<version>3.1.0</version>
+		</dependency>
 	</dependencies>
 	
 </project>

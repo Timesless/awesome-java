@@ -25,6 +25,7 @@ public class MemoryInspect {
 		MemoryInspect m = new MemoryInspect();
 		System.out.println(ClassLayout.parseInstance(m).toPrintable());
 		System.out.println("====================================================");
+		
 		/*
 		 * 对象头
 		 * 		MarkWord: 8B
@@ -40,6 +41,7 @@ public class MemoryInspect {
 		Object[] objs = new Object[3];
 		System.out.println(ClassLayout.parseInstance(objs).toPrintable());
 		System.out.println("====================================================");
+		
 		/*
 		 * 对象头
 		 * 		MarkWord：8B
@@ -55,6 +57,7 @@ public class MemoryInspect {
 		Blog[] blogs = new Blog[3];
 		System.out.println(ClassLayout.parseInstance(blogs).toPrintable());
 		System.out.println("====================================================");
+		
 		/*
 		 * 对象头
 		 * 		MarkWord：8
@@ -74,6 +77,8 @@ public class MemoryInspect {
 	public static class Blog {
 		int i;
 		int j;
+		String title;
+		String content;
 	}
 }
 

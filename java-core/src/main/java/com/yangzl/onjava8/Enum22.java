@@ -5,35 +5,35 @@ import java.util.EnumMap;
 import java.util.EnumSet;
 
 /**
- * @Author: yangzl
- * @Date: 2020/5/6 11:01
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/5/6 11:01
+ * @desc ..
  */
 public enum Enum22 {
 	
-	/*
+	/**
 	 * 1 枚举的枚举，用法 TODO
 	 */
 	FOOD(EI.Food.class), DRINK(EI.Drink.class);
 	
-	// 当作接口来使用
+	/** 当作接口来使用 */
 	EI[] eis;
 	Enum22(Class<? extends EI> clzz) { eis = clzz.getEnumConstants(); }
 	
-	/*
+	/**
 	 * 2 用接口管理枚举
 	 */
 	interface EI {
 		enum Food implements EI {
 			SALAD("沙拉") {
 				@Override
-				String getInfo() { return "我是".concat(desc); }
+				String getInfo() { return "我是" + desc; }
 				@Override
-				public String toString() { return "我是覆盖的".concat(desc); }
+				public String toString() { return "我是覆盖的" + desc; }
 			},
 			CHESS("奶酪") {
 				@Override
-				String getInfo() { return "我是".concat(desc); }
+				String getInfo() { return "我是" + desc; }
 			};
 
 			String desc;
@@ -64,7 +64,7 @@ public enum Enum22 {
 	
 	// TODO 5.实现状态机，多路分发
 	
-	/*
+	/**
 	 * EnumSet，EnumMap
 	 */
 	public static void main(String[] args) {
