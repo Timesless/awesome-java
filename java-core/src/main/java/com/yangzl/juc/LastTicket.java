@@ -11,7 +11,7 @@ package com.yangzl.juc;
  * 	
  */
 public class LastTicket {
-	// 无票出售，恰好作为标识位
+	/** 无票出售，恰好作为标识位 */
 	private int num = 0;
 	
 	public synchronized void incre() {
@@ -37,6 +37,7 @@ public class LastTicket {
 	
 	public synchronized void decre() {
 		try {
+			// 注意虚假唤醒
 			// if (num != 1) { this.wait(); }
 			while (num != 1) { this.wait(); }
 			num--;
@@ -48,8 +49,8 @@ public class LastTicket {
 	}
 
 	/**
-	 * @Date: 2020/1/4
-	 * @Desc:  程序的入口，与Ticket无关
+	 * @Date 2020/1/4
+	 * @Desc  程序的入口，与Ticket无关
 	 */
 	public static void main(String[] args) {
 		LastTicket lastTicket = new LastTicket();

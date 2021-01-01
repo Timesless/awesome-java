@@ -6,9 +6,9 @@ import java.util.concurrent.RecursiveTask;
 import java.util.stream.IntStream;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/5 13:55
- * @Desc: .. 分支合并框架
+ * @Author yangzl
+ * @Date 2020/1/5 13:55
+ * @Desc .. 分支合并框架
  * 
  * RecursiveTask 有返回值
  * RecursiveAction 无返回值
@@ -61,7 +61,7 @@ public class ForkJoinPoolD extends RecursiveTask<Integer> {
 	public static void main(String[] args) throws Exception {
 		System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism",
 				String.valueOf(Runtime.getRuntime().availableProcessors() << 1));
-		// new 时，直接传入 availableProcessors()，所以parallelism = 8
+		// new时，直接传入 availableProcessors()，所以parallelism = 8
 		ForkJoinPool newPool = new ForkJoinPool();
 		System.out.println(newPool);
 		ForkJoinPool pool = ForkJoinPool.commonPool();

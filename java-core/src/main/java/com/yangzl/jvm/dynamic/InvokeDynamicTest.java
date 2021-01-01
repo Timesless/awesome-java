@@ -14,7 +14,7 @@ import java.util.function.Supplier;
  * @date 2020/11/7 13:05
  * @desc
  * 
- * 	invokedynamic ==> 
+ * 	invokedynamic ==> 关注对象的行为而非对象的类型，不关注对象的继承关系
  * 		lambda本质是前端编译器将lambda编译为静态方法，并为每一个lambda生成BootstrapMethods
  * 		LambdaMetafactory.metafctory 通过 ASM字节码技术动态生成内部类，且实现了对应的函数式接口
  * 		使用 javac -encoding utf8 com/yangzl/jvm/InvokeDynamicTest.java
@@ -27,6 +27,10 @@ public class InvokeDynamicTest {
 		return a + b;
 	}
 	
+	/**
+	 * MethodHandle => 让Java可以将函数当作参数传递
+	 * 
+	 */
 	static void methodHandleTest() throws Throwable {
 		InvokeDynamicTest client = new InvokeDynamicTest();
 		MethodType mt = MethodType.methodType(String.class, String.class, String.class);

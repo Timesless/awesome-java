@@ -47,7 +47,10 @@ public class ThreadInterruptTest {
 					}
 					try { TimeUnit.MILLISECONDS.sleep(100); } catch(InterruptedException e) {
 						e.printStackTrace();
-						// 主动中断自己，在运行时能设置标志位为true
+						/*
+						 * 1. 主动中断自己，在运行时能设置标志位为true，这样下次循环就会跳出
+						 * 2. 使用try — catch 包裹，因为在sleep/join/wait期间被中断会抛出InterruptedException也可以正确结束
+						 */ 
 						thread.interrupt();
 					}
 				}

@@ -3,12 +3,23 @@ package com.yangzl.jvm;
 /**
  * @author yangzl
  * @date 2020/11/5 09:47
- * @desc JHSDB测试
+ * @desc JHSDB 启动请配置容量不然很卡
  * 		-Xmx10m -XX:+UseSerialGC -XX:-UseCompressedOops
  * 	由于jhsdb在JDK9才提供，JDK8及之前只能使用sa-jdi.jar启动 java -cp sa-jdi.jar sun.jvm.hotspot.HSDB
  * 	jhsdb hsdb --pid vmid
  * 
  * 	1. 查看虚方法表「vtable」、接口方法表「itable」
+ * 		attach to hotspot process
+ * 		tools => class browser
+ * 		tools => inspector 输入内存地址
+ * 		可以看到vtable长度，其中5个是从Object继承的
+ * 		public
+ * 			String toString()
+ * 			void finalize()
+ * 			native int hashCode()
+ * 			boolean equals(java.lang.Object)	
+ * 			native java.lang.Object clone()
+ * 		
  * 	2. 查看 staticObj instanceObj localObj在堆中的布局
  * 		staticObj引用「指针」随类型信息存放在「方法区」
  * 		instanceObj引用「指针」存放在堆
