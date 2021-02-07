@@ -54,7 +54,7 @@ public class ForkJoinAndThreadPool {
 		return count;
 	}
 	
-	/*
+	/**
 	 * fork join 栗子
 	 */
 	private class ForkJoinT extends RecursiveTask<Integer> {
@@ -85,7 +85,7 @@ public class ForkJoinAndThreadPool {
 		}
 	}
 	
-	/*
+	/**
 	 * 线程池 栗子
 	 */
 	private class ThreadPoolT implements Callable<Integer> {
@@ -107,7 +107,7 @@ public class ForkJoinAndThreadPool {
 
 	
 
-	/*
+	/**
 	 *  8 核线程池测试
 	 */
 	static int poolExec(int core, ForkJoinAndThreadPool client) {

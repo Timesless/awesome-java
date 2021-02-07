@@ -9,9 +9,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.stream.IntStream;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/5 00:06
- * @Desc: .. Interface ReadWriteLock
+ * @Author yangzl
+ * @Date 2020/1/5 00:06
+ * @Desc .. Interface ReadWriteLock
  *
  * 	ReentrantReadWriteLock 高16位表示读锁，低16位表示写锁
  *

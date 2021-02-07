@@ -4,9 +4,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/4 23:25
- * @Desc: .. 
+ * @Author yangzl
+ * @Date 2020/1/4 23:25
+ * @Desc ..
  */
 public class CountDownLatchD {
 	
@@ -15,7 +15,11 @@ public class CountDownLatchD {
 		closeDoor();
 	}
 
-	// join可以等待线程执行完毕
+	/**
+	 * 1. join
+	 * 2. CountDownLatch
+	 *
+	 */
 	private static void closeDoor() {
 		IntStream.rangeClosed(0, 5).forEach(
 				x -> {
@@ -33,8 +37,7 @@ public class CountDownLatchD {
 
 	/**
 	 * 2020/6/7 使用CounctDownLatch完成
-	 * @param
-	 * @return
+	 *
 	 */
 	private static void countDownLatchClose() {
 		CountDownLatch latch = new CountDownLatch(5);

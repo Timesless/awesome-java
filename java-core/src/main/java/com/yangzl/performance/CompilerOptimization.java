@@ -99,8 +99,6 @@ public class CompilerOptimization {
 	 * 			
 	 * 其一，可以注意到，HashMap是先用一个局部变量初始化的，而且只有完全初始化的最终值才会被赋值给instance变量
 	 *
-	 * @param () .
-	 * @return void
 	 */
 	public void doOperation() {
 		ConcurrentHashMap<String, Object> ins = this.instance;
@@ -120,9 +118,7 @@ public class CompilerOptimization {
 	
 	
 	/**
-	 * 				
-	 * @param () w
-	 * @return void
+	 *
 	 */
 	public void doFib() {
 		double l;
@@ -156,8 +152,6 @@ public class CompilerOptimization {
 	/**
 	 * 2020/11/29 op只在循环中引用，没有任何其它代码访问此对象，因此server编译器会去除同步
 	 * 
-	 * @param () 无参
-	 * @return void
 	 */
 	@Test
 	public void testFactorial() {
@@ -175,7 +169,6 @@ public class CompilerOptimization {
 	 * 2020/11/29
 	 * 
 	 * @param args 命令行参数
-	 * @return void
 	 */
 	public static void main(String[] args) {
 		CompilerOptimization client = new CompilerOptimization();
@@ -224,8 +217,6 @@ public class CompilerOptimization {
 	 * 		
 	 * 		所以双重检测锁的单例，需要volatile关键字定义	
 	 * 
-	 * @param () .
-	 * @return void
 	 */
 	@Test
 	public void testOptimization() {

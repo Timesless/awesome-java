@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @Author yangzl
- * @Date: 2020/5/26 19:54
- * @Desc: 使用IEEE严格浮点运算模式，标记方法或类
+ * @Date 2020/5/26 19:54
+ * @Desc 使用IEEE严格浮点运算模式，标记方法或类
  *  整数被0除将会产生一个异常，而浮点数被0除将会得到无穷大或NaN
  *  StrictMath确保在所有平台运算得到相同结果
  */
@@ -22,7 +22,7 @@ public strictfp class Day1 {
     @Test
     public void test1() {
 
-        /**
+        /*
          * 码点和代码单元
          *  码点：Unicode为字符分配的编号，一个字符只占一个码点
          *  代码单元：针对编码方式而言，指编码方式中对一个字符编码以后占的最小存储单元
@@ -53,8 +53,6 @@ public strictfp class Day1 {
 
     /**
      * 2020/6/14 8个基本类型包装类，及String常量池测试
-     * @param
-     * @return
      */
     @Test
     public void testConstantPool() {

@@ -30,8 +30,8 @@ public class ForkJoinPoolD extends RecursiveTask<Integer> {
 	}
 	
 	/**
-	 * @Date: 2020/2/10
-	 * @Desc:  1. 定义任务如何拆分
+	 * @Date 2020/2/10
+	 * @Desc  1. 定义任务如何拆分
 	 * 			2. 定义不能拆分时的计算逻辑
 	 */
 	@Override

@@ -3,17 +3,18 @@ package com.yangzl.juc;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/5 11:25
- * @Desc: ..
+ * @Author yangzl
+ * @Date 2020/1/5 11:25
+ * @Desc ..
  */
 public class ExecutorServiceD {
 	
 	/**
-	 * @Date: 2020/8/24
-	 * @Desc: 
+	 * @Date 2020/8/24
+	 * @Desc
 	 * Executor，只提供Runnable接口的任务
 	 * ExecutorService：提供Runnable + Callable
 	 * SecheduledExecutorService：可调度式执行器
@@ -37,12 +38,12 @@ public class ExecutorServiceD {
 	/**
 	 * 2020/11/29 无界队列时，max core 无用，永远只是core szie
 	 * 
-	 * @param 
-	 * @return void
 	 */
 	@Test
 	public void testUnbundedQ() {
-		ThreadPoolExecutor p = new ThreadPoolExecutor(4, 8, 8, TimeUnit.MINUTES, new LinkedBlockingQueue<>());
+		AtomicInteger order = new AtomicInteger(0);
+		ThreadFactory factory = r -> new Thread(r, "==pool- " + order.getAndIncrement() + "==");
+		ThreadPoolExecutor p = new ThreadPoolExecutor(4, 8, 8, TimeUnit.MINUTES, new LinkedBlockingQueue<>(), factory);
 		Runnable r = () -> {
 			try { TimeUnit.SECONDS.sleep(4); } catch(InterruptedException e) { e.printStackTrace(); }
 			System.out.println(Thread.currentThread().getName());

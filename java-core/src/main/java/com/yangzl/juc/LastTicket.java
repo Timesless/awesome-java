@@ -1,9 +1,9 @@
 package com.yangzl.juc;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/4 20:20
- * @Desc: .. 在高内聚低耦合前提下
+ * @Author yangzl
+ * @Date 2020/1/4 20:20
+ * @Desc .. 在高内聚低耦合前提下
  * 				1. 线程操作资源类
  * 				2. 判断标识位（in a loop） 执行 唤醒
  * 				3. 防止虚假唤醒

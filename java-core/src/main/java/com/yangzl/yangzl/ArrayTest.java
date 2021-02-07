@@ -25,9 +25,6 @@ public class ArrayTest {
 	
 	/**
 	 * 2020/12/5 测试理解的 i2f d2l 指令, 精度丢失情况，符合预期
-	 * 
-	 * @param () v
-	 * @return void
 	 */
 	@Test
 	public void testFD() {

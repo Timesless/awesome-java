@@ -5,16 +5,16 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/4 20:51
- * @Desc: .. 
+ * @Author yangzl
+ * @Date 2020/1/4 20:51
+ * @Desc ..
  * 		Interface Lock
  * 	ReentrantLock, ReentrantReadWriteLock.ReadLock, ReentrantLockReadWriteLock.WriteLock
  * 		非公平可重入递归锁
  */
 public class ConditionD {
 
-	// 标识位
+	/** 标识位 */
 	private int flag = 1;
 	private final Lock lock = new ReentrantLock();
 	private final Condition five = lock.newCondition();

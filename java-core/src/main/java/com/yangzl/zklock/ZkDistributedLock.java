@@ -5,15 +5,15 @@ import org.I0Itec.zkclient.IZkDataListener;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @Author: yangzl
- * @Date: 2020/5/31 22:48
- * @Desc: .. zk实现分布式锁
+ * @Author yangzl
+ * @Date 2020/5/31 22:48
+ * @Desc .. zk实现分布式锁
  */
 public class ZkDistributedLock extends AbstractZkLock {
 
 	/**
-	 * @Date: 2020/5/31
-	 * @Desc: 父类提供模板，子类提供实现
+	 * @Date 2020/5/31
+	 * @Desc 父类提供模板，子类提供实现
 	 */
 	@Override
 	public boolean tryLock() {

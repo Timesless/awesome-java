@@ -15,8 +15,6 @@ public class PerformanceD {
 	 * 
 	 * if > 三目运算 > Math.max
 	 *
-	 * @param () v
-	 * @return void
 	 */
 	@Test
 	public void testPerformance() {

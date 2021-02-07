@@ -12,9 +12,9 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /**
- * @Author: yangzl
- * @Date: 2020/3/3 11:38
- * @Desc: .. java.util.Function有43个接口
+ * @Author yangzl
+ * @Date 2020/3/3 11:38
+ * @Desc .. java.util.Function有43个接口
  *  函数式编程
  */
 public class FunctionD {
