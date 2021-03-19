@@ -5,7 +5,7 @@ import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
 
 /**
- * @Author yangzl
+ * @author yangzl
  * @Date 2020/1/10 15:50
  * @Desc ..
  */

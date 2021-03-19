@@ -48,4 +48,6 @@ public class ArrayTest {
 		double d2 = l2;
 		System.out.println(d2);
 	}
+
+
 }

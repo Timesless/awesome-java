@@ -1,12 +1,11 @@
 package com.yangzl.algorithm;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * @author yangzl
@@ -60,9 +59,9 @@ public class StringCalculator {
 	private static final Pattern PATTERN = Pattern.compile("\\d+");
 
 	public StringCalculator() {}
-	public StringCalculator(String infix) {
+	/*public StringCalculator(String infix) {
 		this.expression = infix;
-	}
+	}*/
 
 	/**
 	 * 2020/11/27 计算this.suffix表达式的值
@@ -81,19 +80,19 @@ public class StringCalculator {
 	 * @return int
 	 */
 	public int calculate(String expression) {
-		if (!validateExp(expression)) {
-			throw new RuntimeException("表达式不合法...");
-		}
 		List<String> suffixOp = this.infix2Suffix(expression);
 		return calculateWithSuffix(suffixOp);
 	}
 
-	/*
+	/**
 	 * 中缀转后缀
 	 * (3+4)*5-6
 	 * 运算符栈
 	 * 操作数栈
 	 * 4种情况：(, ), 运算符，操作数
+	 *
+	 * @param infix 中缀表达式
+	 * @return operand stack
 	 */
 	public List<String> infix2Suffix(String infix) {
 		int x = 0, len = infix.length(), count;
@@ -104,26 +103,33 @@ public class StringCalculator {
 			// ....注意每次循环都需要将count置为1，因为在获取数字时如果改变了count，那么count永远是其他值
 			count = 1;
 			char tmp = infix.charAt(x);
+			if (tmp == 32) {
+				++ x;
+				continue;
+			}
 			// 1 括号直接入运算符栈
 			if (tmp == '(') {
 				operator.push('(');
-			} else if (tmp == ')') {  // 2
+			} else if (tmp == ')') {
+				// 2
 				// 右括号，会出栈运算符栈，直到遇见左括号，并且丢弃该对括号
 				while (operator.peek() != '(') {
-					operand.add(operator.pop().toString());
+					operand.add(String.valueOf(operator.pop()));
 				}
 				operator.pop();
-			} else if (isOperator(tmp)) {    // 3 栈顶如果是运算符那么比较优先级，有可能是括号
+			} else if (isOperator(tmp)) {
+				// 3 栈顶如果是运算符那么比较优先级，有可能是括号
 				Character top = operator.peek();
 				if (!operator.isEmpty() && isOperator(top)) {
 					comparePriority(operator, operand, tmp, top);
-				} else {    //将当前运算符压入
+				} else {
+					//将当前运算符压入
 					operator.push(tmp);
 				}
 			} else {    // 4
 				count = getNumber(x, infix);
-				String number = infix.substring(x, x + count);
-				operand.add(number);
+				int number = Integer.parseInt(infix.substring(x, x + count));
+				operand.add(String.valueOf(number));
 			}
 			x += count;
 		}
@@ -138,13 +144,43 @@ public class StringCalculator {
 	}
 
 
-	// ================================================================================
+	//. ================================================================================
 	// divide
 	// ================================================================================
 
-	private boolean validateExp(String expression) {
-		// TODO
-		return StringUtils.isEmpty(expression);
+
+	/**
+	 * 2020/11/27
+	 *
+	 * 	 比较运算符栈和当前读到的运算符的优先级
+	 * 	 栈中运算符优先级 >= 当前运算符优先级时，将运算符栈顶元素出栈，加入到操作数栈中，将当前运算符压入运算符栈
+	 * 	 栈中运算符优先级 < 当前运算符优先级时，将当前运算符压入运算符栈
+	 *
+	 * 	 比较该运算符与栈顶运算符优先级，栈中运算符表示被挂起的意思
+	 *
+	 * @param operator 符号栈
+	 * @param  operand 操作数栈
+	 * @param  tmp 当前运算符
+	 * @param  top 栈顶元素
+	 */
+	private void comparePriority(Deque<Character> operator, List<String> operand, char tmp, char top) {
+
+		int stackTopPriority = getPriority(top);
+		int curInfixPriority = getPriority(tmp);
+		// 栈中运算符优先级 >= 当前运算符优先级时
+		if (stackTopPriority >= curInfixPriority) {
+			// operand.add(String.valueOf(top))
+			// 所有 挂起的操作符「 >= curInfixCharPriority」都应该加到 operand 中
+			int sz = operator.size();
+			for (int i = 0; i < sz; ++i) {
+				char front = operator.peek();
+				if (getPriority(front) < curInfixPriority) {
+					break;
+				}
+				operand.add(String.valueOf(operator.pop()));
+			}
+		}
+		operator.push(tmp);
 	}
 
 	/**
@@ -161,7 +197,7 @@ public class StringCalculator {
 		for (; x < size; ++x) {
 			tmp = suffix.get(x);
 			if (PATTERN.matcher(tmp).matches()) {
-				operand.push(Integer.valueOf(tmp));
+				operand.push(Integer.parseInt(tmp));
 			} else {
 				/*
 				 * 如果不是数字，那么就是操作符
@@ -202,45 +238,18 @@ public class StringCalculator {
 		return 0;
 	}
 
-
 	/**
-	 * 2020/11/27
-	 * 
-	 * 	 比较运算符栈和当前读到的运算符的优先级
-	 * 	 栈中运算符优先级 >= 当前运算符优先级时，将运算符栈顶元素出栈，加入到操作数栈中，将当前运算符压入运算符栈
-	 * 	 栈中运算符优先级 >= 当前运算符优先级时，将当前读到的运算符加入到操作数栈中<注意，这里是list>
-	 *          
-	 * @param operator 符号栈
-	 * @param  operand 操作数栈
-	 * @param  tmp 当前运算符
-	 * @param  top 栈顶元素
-	 * @return void
-	 */
-	private void comparePriority(Deque<Character> operator, List<String> operand, char tmp, char top) {
-		// 比较该运算符与栈顶运算符优先级，栈中运算符表示被挂起的意思
-		int stackTopPriority = getPriority(top);
-		int curInfixPriority = getPriority(tmp);
-		// 栈中运算符优先级 >= 当前运算符优先级时
-		if (stackTopPriority >= curInfixPriority) {
-			operand.add(String.valueOf(operator.pop()));
-			operator.push(tmp);
-		} else {
-			operand.add(String.valueOf(tmp));
-		}
-	}
-
-	/*
 	 * 判断是否是运算符
 	 */
 	private boolean isOperator(char op) {
 		return op == '+' || op == '-' || op == '*' || op == '/';
 	}
 
-	/*
+	/**
 	 * 定义运算符优先级
+	 * +- = 1, * / = 2
 	 */
 	private int getPriority(char op) {
-		// +-为1， */为2
 		int AM = 1;
 		int MD = 2;
 		switch (op) {
@@ -270,10 +279,10 @@ public class StringCalculator {
 		while (idx < len) {
 			tmp = infix.charAt(idx);
 			// 判断是否是数字
-			if (tmp >= 48 && tmp <= 57)
-				++count;
-			else
+			if (tmp < 48 || tmp > 57) {
 				break;
+			}
+			++count;
 			idx++;
 		}
 		return count;
@@ -283,8 +292,16 @@ public class StringCalculator {
 
 	public static void main(String[] args) {
 		String expression = "(3+4)*5-6";
-		StringCalculator sufix = new StringCalculator(expression);
+		//StringCalculator sufix = new StringCalculator(expression);
 		// 中缀转后缀，计算后缀的值
-		System.out.printf("%s = %d", expression, sufix.calculate());
+		//System.out.printf("%s = %d", expression, sufix.calculate());
+	}
+
+	@Test
+	public void testString2Suffix() {
+		StringCalculator calculator = new StringCalculator();
+		List<String> ops = calculator.infix2Suffix("1*2-3/4+5*6-7*8+9/10");
+		System.out.println(ops);
+		System.out.println(calculateWithSuffix(ops));
 	}
 }

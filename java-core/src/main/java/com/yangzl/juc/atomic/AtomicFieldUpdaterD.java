@@ -38,9 +38,7 @@ public class AtomicFieldUpdaterD {
 			int fi = i;
 			new Thread(() -> {
 				intUpdater.incrementAndGet(client);
-				
 				longUpdater.incrementAndGet(client);
-
 				refUpdater.getAndAccumulate(client, 2, Integer::sum);
 
 				latch.countDown();
