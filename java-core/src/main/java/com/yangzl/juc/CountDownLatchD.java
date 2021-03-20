@@ -4,22 +4,26 @@ import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
 
 /**
- * @Author yangzl
- * @Date 2020/1/4 23:25
- * @Desc ..
+ * @author yangzl
+ * @date 2020/1/4 23:25
+ * @desc CountDownLatch「闭锁」
+ *
+ * 		所有人离开后班长才能关门
  */
 public class CountDownLatchD {
-	
+
+	/**
+	 * 1. Thread.join()
+	 * 2. CountDownLatch
+	 *
+	 * @param args args
+	 */
 	public static void main(String[] args) {
-		// countDownLatchClose();
+		countDownLatchClose();
+		System.out.println();
 		closeDoor();
 	}
 
-	/**
-	 * 1. join
-	 * 2. CountDownLatch
-	 *
-	 */
 	private static void closeDoor() {
 		IntStream.rangeClosed(0, 5).forEach(
 				x -> {

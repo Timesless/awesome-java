@@ -8,7 +8,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author yangzl
  * @date 2020/1/5 19:32
- * @desc ..	volatile 可见性，禁止指令重排。不保证原子性
+ * @desc volatile
+ * 		1. 保证可见性
+ * 			可见性测试
+ * 		2. 禁止指令重排
+ * 			DCL（双重检测锁单例）
+ * 		3. 不保证原子性
+ * 			不保证原子性测试
+ * 			非原子性解决测试
  */
 public class VolatileD {
 

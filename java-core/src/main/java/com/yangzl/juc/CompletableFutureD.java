@@ -20,7 +20,9 @@ public class CompletableFutureD {
 			// if (true) { throw new RuntimeException("rep"); }
 			return 200;
 		}).whenComplete((result, throwable) -> {
-			if (null != throwable) { System.out.println("结果" + result); }
+			if (null != throwable) {
+				System.out.println("结果" + result);
+			}
 		}).exceptionally(throwable -> {
 			throwable.printStackTrace();
 			return 404;

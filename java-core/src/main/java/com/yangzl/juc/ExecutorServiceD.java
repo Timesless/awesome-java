@@ -13,8 +13,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ExecutorServiceD {
 	
 	/**
-	 * @Date 2020/8/24
-	 * @Desc
+	 * @date 2020/8/24
+	 * @desc
 	 * Executor，只提供Runnable接口的任务
 	 * ExecutorService：提供Runnable + Callable
 	 * SecheduledExecutorService：可调度式执行器
@@ -26,18 +26,17 @@ public class ExecutorServiceD {
 				processor << 1,
 				60L,
 				TimeUnit.SECONDS,
-				new ArrayBlockingQueue<Runnable>(20));
+				new ArrayBlockingQueue<>(20));
 
 		// 只提供Runnable
 		Executor executor = new ThreadPoolExecutor(processor, processor << 1,
 				60L,
 				TimeUnit.SECONDS,
-				new ArrayBlockingQueue<Runnable>(20));
+				new ArrayBlockingQueue<>(20));
 	}
 	
 	/**
 	 * 2020/11/29 无界队列时，max core 无用，永远只是core szie
-	 * 
 	 */
 	@Test
 	public void testUnbundedQ() {
