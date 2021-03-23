@@ -1,0 +1,21 @@
+server:
+  servlet:
+    context-path: /rdlock
+  port: 6001
+
+
+spring:
+  application:
+    name: lock
+
+
+  redis:
+    host: 192.168.0.104
+    password:
+    # 莴苣
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 4
+        min-idle: 1
+        max-wait: -1
