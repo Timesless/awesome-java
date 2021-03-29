@@ -15,13 +15,11 @@
 	
 	
 	<dependencies>
-		
 		<!-- zk 客户端 zkClient，建议更换 curator -->
 		<dependency>
 			<groupId>com.101tec</groupId>
 			<artifactId>zkclient</artifactId>
 			<version>0.10</version>
-
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -39,6 +37,11 @@
 			<groupId>org.openjdk.jol</groupId>
 			<artifactId>jol-core</artifactId>
 			<version>0.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
 		</dependency>
 	</dependencies>
 	

@@ -17,6 +17,7 @@
     <module>utility</module>
     <module>sgg-zzyy</module>
     <module>sgg-shk</module>
+    <module>yangzl-spring</module>
   </modules>
 
   <name>awesome-java</name>
@@ -31,18 +32,13 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.5.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>5.2.4.RELEASE</version>
+      <version>5.7.1</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.12</version>
-      <scope>provided</scope>
+      <scope>compile</scope>
     </dependency>
 
     <!-- slf4j + logback -->
@@ -62,13 +58,26 @@
       <version>1.7.25</version>
     </dependency>
 
-    <!-- 算法4 lib -->
-    <dependency>
-      <groupId>edu.princeton.cs</groupId>
-      <artifactId>algs4</artifactId>
-      <version>4.0</version>
-    </dependency>
   </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- spring -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>5.2.4.RELEASE</version>
+      </dependency>
+
+      <!-- 算法4 lib -->
+      <dependency>
+        <groupId>edu.princeton.cs</groupId>
+        <artifactId>algs4</artifactId>
+        <version>4.0</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
 
 
 </project>

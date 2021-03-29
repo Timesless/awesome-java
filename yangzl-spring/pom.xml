@@ -10,11 +10,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>sgg-zzyy</artifactId>
-  <name>sgg-zzyy</name>
-  <description>sgg - 周阳</description>
-
-  <dependencies>
-  </dependencies>
+  <artifactId>yangzl-spring</artifactId>
+  <name>yangzl-spring</name>
 
 </project>
