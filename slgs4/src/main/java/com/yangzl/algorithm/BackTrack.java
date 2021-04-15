@@ -5,9 +5,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @Author yangzl
- * @Date 2020/2/21 14:20
- * @Desc .. 回溯模板
+ * @author yangzl
+ * @date 2020/2/21 14:20
+ * @desc .. 回溯算法模板
  * 	rs = [];
  * 	def backtrack(路径，选择列表，条件)
  * 	    if 满足条件
@@ -73,8 +73,8 @@ public class BackTrack {
 	// =======================================================================
 	final String[] letters = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 	/**
-	 * @Date: 2020/2/18
-	 * @Desc: 组合9键的字母
+	 * @Date 2020/2/18
+	 * @Desc 组合9键的字母
 	 */
 	public List<String> letterCombinations(String digits) {
 		List<String> rs = new ArrayList<>();
@@ -130,7 +130,7 @@ public class BackTrack {
 	// =======================================================================
 	public List<List<Integer>> combine(int n, int k) {
 		// 复用result
-		if (n < 1 || k < 1 || n < k) return result;
+		if (k < 1 || n < k) return result;
 		
 		combineBT(n, k, 1, new ArrayDeque<>(k));
 		return result;
@@ -250,8 +250,9 @@ public class BackTrack {
 					existBackTrace(row, col - 1, rows, cols, board, visited, word, nextIdx) ||
 					existBackTrace(row - 1, col, rows, cols, board, visited, word, nextIdx) );
 			// 回溯状态
-			if (!flag)
+			if (!flag) {
 				visited[cur] = false;
+			}
 			return flag;
 		}
 		return false;

@@ -3,23 +3,24 @@ package com.yangzl.datastructure;
 import org.omg.CORBA.Object;
 
 /**
- * @Author: yangzl
- * @Date: 2019/10/26 12:55
- * @Desc: 数组实现栈
+ * @Author yangzl
+ * @Date 2019/10/26 12:55
+ * @Desc 数组实现栈
  */
 public class ArrayStack<E> {
 
-	// 栈中数据个数，栈顶指针
+	/** 栈中数据个数，栈顶指针 */
 	private int size, top = -1;
+	/** 存放具体元素的引用 */
 	private final E[] ele;
 	
 	/**
-	 * @Date: 2020/2/11
-	 * @Desc:  new Object强转
+	 * @date 2020/2/11
+	 * @desc new Object强转
 	 */
 	public ArrayStack(int size) { this.ele = (E[]) new Object[size]; }
 	
-	/*
+	/**
 	 * 可以不声明size，使用top来判断
 	 * isFull top == ele.length - 1;
 	 * isEmpty top == -1

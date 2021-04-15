@@ -1,16 +1,16 @@
 package com.yangzl.datastructure;
 
 /**
- * @Author: yangzl
- * @Date: 2019/10/26 12:55
- * @Desc: 带头节点单链表实现栈，链表是动态数据结构不用判断isFull
+ * @Author yangzl
+ * @Date 2019/10/26 12:55
+ * @Desc 带头节点单链表实现栈，链表是动态数据结构不用判断isFull
  */
 public class LinkedStack<E> {
 	private int size;
 	private final Node<E> head;
 	public LinkedStack() { this.head = new Node(-1); }
 
-	/*
+	/**
 	 * 静态内部类，完全可以独立存在，形式上的“内部”，神似外部类
 	 */
 	private static class Node<E> {

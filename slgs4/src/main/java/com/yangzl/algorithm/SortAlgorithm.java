@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/7 23:12
- * @Desc: .. 数据结构与算法分析描述的几种排序，需掌握
+ * @author yangzl
+ * @date 2019/12/7 23:12
+ * @desc .. 数据结构与算法分析描述的几种排序，需掌握
  */
 public class SortAlgorithm {
 
@@ -20,12 +20,10 @@ public class SortAlgorithm {
 	
 	/**
 	 * 2020/11/26 基数排序， 空间复杂度： 10 * O(n)，时间复杂度 maxLength * O(n)
-	 * 			可以考虑用List代理数组存放索引
-	 * <p>
+	 * 			可以考虑用List代替数组存放索引
 	 * 要解决负数排序的话，只需要偏移10即可
 	 *
 	 * @param nums source
-	 * @return void
 	 */
 	public static void radixSort(int[] nums) {
 		// getMaxLength
@@ -51,10 +49,9 @@ public class SortAlgorithm {
 		}
 	}
 	/**
-	 * 2020/12/2 基数排序
+	 * 2020/12/2 基数排序，实现负数的排序
 	 * 
 	 * @param nums source
-	 * @return void
 	 */
 	public static void radixSort2(int[] nums) {
 		int digit = getDiget(nums), ln = nums.length;
@@ -81,7 +78,7 @@ public class SortAlgorithm {
 		System.arraycopy(arr, 0, nums, 0, ln);
 	}
 	/**
-	 * 2020/12/2 计算数组类最大数值的位数
+	 * 2020/12/2 计算数组类最大数值的位数，比如 1358 返回 4，999 返回 3
 	 * 
 	 * @param nums source
 	 * @return int 数值的位数
@@ -111,10 +108,11 @@ public class SortAlgorithm {
 	
 	
 	/**
-	 * 2020/12/2 快排
+	 * 2020/12/2 快排 快速排序实现
+	 * 		快排的优化：
+	 * 			随机化快排	
 	 * 
 	 * @param nums source
-	 * @return void
 	 */
 	public static void quickSort(int[] nums) {
 		quickSort(nums, 0, nums.length - 1);
@@ -126,7 +124,7 @@ public class SortAlgorithm {
 		}
 		/*
 		 * partion 分区
-		 * 选择一个基准值（随机化快排需随机选择一个值）
+		 * 选择一个基准值「随机化快排需随机选择一个值」
 		 */
 		int pivot = nums[l];
 		while (l < r) {
@@ -149,8 +147,8 @@ public class SortAlgorithm {
 	}
 
 	/**
-	 * @Date: 2020/3/6
-	 * @Desc: 非正式快排实现
+	 * @date 2020/3/6
+	 * @desc 非正式快排实现
 	 */
 	public static void quickSort(List<Integer> list) {
 		int sz = list.size();
@@ -163,10 +161,11 @@ public class SortAlgorithm {
 			for (Integer tmp : list) {
 				if (tmp < pivot)
 					smaller.add(tmp);
-				else if (tmp == pivot)
+				else if (tmp == pivot) {
 					same.add(tmp);
-				else
+				} else {
 					larger.add(tmp);
+				}
 			}
 			quickSort(smaller);
 			quickSort(larger);
@@ -187,8 +186,11 @@ public class SortAlgorithm {
 	}
 
 	/**
-	 * @Date: 2020/3/31
-	 * @Desc: 归并排序
+	 * @date 2020/3/31
+	 * @desc 归并排序
+	 * 		主要分为两大步骤：
+	 * 			1. 递归分解
+	 * 			2. merge
 	 */
 	public static void mergeSort(int[] nums) {
 		mergeSort(nums, 0, nums.length - 1);
@@ -202,6 +204,14 @@ public class SortAlgorithm {
 		// 合并
 		merge(nums, left, mid, right);
 	}
+
+	/**
+	 * 合并
+	 * @param nums 要合并的数组
+	 * @param L 左指针
+	 * @param M 中间指针
+	 * @param R 右指针
+	 */
 	private static void merge(int[] nums, int L, int M, int R) {
 		int[] tmp = new int[R - L + 1];
 		// 左右指针，tmp数组指针
@@ -229,8 +239,8 @@ public class SortAlgorithm {
 	}
 
 	/**
-	 * @Date: 2019/12/7 简单插入排序
-	 * @Desc: 掌握
+	 * @date 2019/12/7 简单插入排序
+	 * @desc 掌握
 	 */
 	public static void insertionSort_1(int[] arr) {
 		int x = 1, y, tmp;
@@ -243,7 +253,11 @@ public class SortAlgorithm {
 		}
 	}
 
-	// 在极端情况下，需要移动很多次数据 5 4 3 2
+	/**
+	 * 普通的插入排序，在极端情况下，时间复杂度退化为 O(n2)。比如用例：5 4 3 2 1 时间复杂度
+	 *
+	 * @param arr arr
+	 */
 	public static void insertionSort_2(int[] arr) {
 		// 第一个元素有序
 		int cur, count;
@@ -278,7 +292,11 @@ public class SortAlgorithm {
 		insertionSort_3(unsort);
 	}
 
-	// 尚硅谷实现
+	/**
+	 * 希尔排序「尚硅谷实现」
+	 *
+	 * @param arr arr
+	 */
 	public static void shellSort_1(int[] arr) {
 		int step = arr.length >> 1;
 		int tmp;
@@ -300,8 +318,8 @@ public class SortAlgorithm {
 	}
 
 	/**
-	 * @Date: 2019/12/7 希尔排序
-	 * @Desc: 数据结构与算法实现
+	 * @date 2019/12/7 希尔排序
+	 * @desc 数据结构与算法实现
 	 */
 	public static void shellSort_2(int[] arr) {
 		int step, x, y, tmp, ln;
@@ -324,8 +342,8 @@ public class SortAlgorithm {
 	}
 
 	/**
-	 * @Date: 2020/3/6 冒泡排序
-	 * @Desc:
+	 * @date 2020/3/6 冒泡排序
+	 * @desc
 	 */
 	public static void bubbleSort(int[] arr) {
 		boolean flag = false;
@@ -353,12 +371,13 @@ public class SortAlgorithm {
 	}
 
 	/**
-	 * @Date: 2020/3/6
-	 * @Desc: 选择排序
+	 * @date 2020/3/6
+	 * @desc 选择排序
 	 */
 	public static void selectionSort(int[] arr) {
 		int min, minIdx, ln = arr.length - 1;
-		for (int x = 0; x < ln; ++x) {    // 每次循环只交换一次值，所以比冒泡快
+		// 每次循环只交换一次值，所以比冒泡快
+		for (int x = 0; x < ln; ++x) {
 			/*
 			 * 这个循环是找剩余元素最小值
 			 * 首先令每次循环的第一个元素为最小值

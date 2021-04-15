@@ -1,9 +1,9 @@
 package com.yangzl.datastructure;
 
 /**
- * @Author: yangzl
- * @Date: 2020/2/11 21:11
- * @Desc: .. 链表实现映射
+ * @Author yangzl
+ * @Date 2020/2/11 21:11
+ * @Desc .. 链表实现映射
  * 	当要找到前一个元素时使用dummyHead，当要找到当前元素时使用dummyHead.next
  */
 public class LinkedMap<K, V> implements Map<K, V> {

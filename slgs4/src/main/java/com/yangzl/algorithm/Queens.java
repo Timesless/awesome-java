@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Author: yangzl
- * @Date: 2019/10/26 17:25
- * @Desc: ..
+ * @Author yangzl
+ * @Date 2019/10/26 17:25
+ * @Desc ..
  * 解八皇后。Tips：JVM在编译时会解八皇后
  * 使用一维数组代替本该需要的二维数组。
  * int[] ary = {0, 4, 7, 5, 2, 1, 6, 3}
@@ -40,7 +40,7 @@ public class Queens {
 		return this.rs;
 	}
 	
-	/*
+	/**
 	 * 放置第idx个queen，每次放置需校验，如果idx == size时，说明已放置所有的queen，即为一种解法
 	 */
 	private void putQueen(int idx) {
@@ -66,7 +66,7 @@ public class Queens {
 		}
 	}
 
-	/*
+	/**
 	 * 校验当前queen和之前摆放的所有queen是否冲突
 	 * 行是不可能冲突的，因为我们每次都会在下一行放置queen
 	 * 不冲突返回true
@@ -92,7 +92,8 @@ public class Queens {
 	public static void main(String[] args) {
 		Queens queen = new Queens(6);
 		List<List<Integer>> rs = queen.queens();
-		for (List<Integer> tmp : rs)
+		for (List<Integer> tmp : rs) {
 			System.out.println(tmp);
+		}
 	}
 }

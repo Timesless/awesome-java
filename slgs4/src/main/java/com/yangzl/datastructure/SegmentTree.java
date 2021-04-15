@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.function.BinaryOperator;
 
 /**
- * @Author: yangzl
- * @Date: 2020/2/13 12:10
- * @Desc: .. 线段树，区域内检索和更新
+ * @Author yangzl
+ * @Date 2020/2/13 12:10
+ * @Desc .. 线段树，区域内检索和更新
  *  用于解决多种范围查询问题，在对数时间内从数组中找到最小值、最大值、总和、最大公约数、最小公倍数等。
  */
 public class SegmentTree<E> {
@@ -28,15 +28,15 @@ public class SegmentTree<E> {
 	}
 	
 	/**
-	 * @Date: 2020/2/13
-	 * @Desc: 查询区间rl..queryR
+	 * @date 2020/2/13
+	 * @desc 查询区间rl..queryR
 	 */
 	public E queryRange(int queryL, int queryR) {
 		return queryRange(0, 0, ele.length - 1, queryL, queryR);
 	}
 	/**
-	 * @Date: 2020/2/13
-	 * @Desc: treeIdx区间树的索引，在数组下标left...right，查询区间rl..rangeR
+	 * @date 2020/2/13
+	 * @desc treeIdx区间树的索引，在数组下标left...right，查询区间rl..rangeR
 	 */
 	private E queryRange(int treeIdx, int left, int right, int rangeL, int rangeR) {
 		if (left == rangeL && right == rangeR) { return tree[treeIdx]; }
@@ -60,8 +60,8 @@ public class SegmentTree<E> {
 	public String toString() { return Arrays.toString(tree); }
 
 	/**
-	 * @Date: 2020/2/13
-	 * @Desc: 在treeIdx位置，构建线段树
+	 * @date 2020/2/13
+	 * @desc 在treeIdx位置，构建线段树
 	 */
 	private void buildSegmentTree(int treeIdx, int lt, int rt) {
 		if (lt == rt) {

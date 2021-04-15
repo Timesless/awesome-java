@@ -3,9 +3,9 @@ package com.yangzl.datastructure;
 import org.junit.jupiter.api.Test;
 
 /**
- * @Author: yangzl
- * @Date: 2019/10/21 19:56
- * @Desc:
+ * @Author yangzl
+ * @date 2019/10/21 19:56
+ * @desc
  * 稀疏数组：列数：固定为3，行数：数据有效数据个数 + 1
  * 第一行固定：原二维数组rows, cols, counts<元素个数>
  * 第二行开始依次存储每个元素的row, col, val
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  */
 public class SparseArray {
 	
-	/*
+	/**
 	 * 对外提供转换为稀疏数组的函数
 	 */
 	public int[][] sparseArray() {
@@ -21,7 +21,7 @@ public class SparseArray {
 		return toSparseArray(ary);
 	}
 	
-	/*
+	/**
 	 * 对外提供稀疏数组转换为原数组
 	 */
 	public int[][] resetArray(int[][] sparse) {
@@ -39,7 +39,7 @@ public class SparseArray {
 		return result;
 	}
 
-	/*
+	/**
 	 * 随机值初始化数组
 	 */
 	private int[][] initAry() {
@@ -54,7 +54,7 @@ public class SparseArray {
 		return ary;
 	}
 
-	/*
+	/**
 	 * 将二维数组转换为稀疏数组
 	 */
 	private int[][] toSparseArray(int[][] old) {
@@ -81,7 +81,7 @@ public class SparseArray {
 		return sparse;
 	}
 
-	/*
+	/**
 	 * 统计原数组有效数据个数
 	 */
 	private int getAryCount(int[][] old) {
@@ -93,7 +93,7 @@ public class SparseArray {
 		return count;
 	}
 	
-	/*
+	/**
 	 * 打印当前数组
 	 */
 	private void printAry(int[][] ary) {

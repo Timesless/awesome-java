@@ -18,6 +18,7 @@
     <module>sgg-zzyy</module>
     <module>sgg-shk</module>
     <module>yangzl-spring</module>
+    <module>yangzl-dubbo</module>
   </modules>
 
   <name>awesome-java</name>

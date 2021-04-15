@@ -1,9 +1,9 @@
 package com.yangzl.datastructure;
 
 /**
- * @Author: yangzl
- * @Date: 2020/2/11 21:51
- * @Desc: .. 二叉查找映射
+ * @author yangzl
+ * @date 2020/2/11 21:51
+ * @desc .. 二叉查找映射
  */
 public class BSTMap<K extends Comparable<? super K>, V> implements Map<K, V> {
 
@@ -29,7 +29,12 @@ public class BSTMap<K extends Comparable<? super K>, V> implements Map<K, V> {
 	@Override
 	public boolean contains(K k) { return getNode(root, k) != null; }
 
-	// 添加k，v
+	/**
+	 * 添加键值对「k，v」
+	 *
+	 * @param k key
+	 * @param v value
+	 */
 	@Override
 	public void add(K k, V v) { root = add(root, k, v); }
 

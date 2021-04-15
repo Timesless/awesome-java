@@ -3,9 +3,10 @@ package com.yangzl.datastructure;
 import java.util.Arrays;
 
 /**
- * @Author: yangzl
- * @Date: 2020/2/12 12:47
- * @Desc: .. 二叉最小堆实现优先最小队列，出队O1，入队最差OlogN；可以实现排序
+ * @Author yangzl
+ * @Date 2020/2/12 12:47
+ * @Desc 	优先级队列 对应 JDK 标准库 PriorityQueue
+ * 	二叉最小堆实现优先最小队列，出队O1，入队最差OlogN；可以实现排序
  * 	标准库中PriorityQueue也是最小堆实现
  * 	实现1000000元素，选出最小的100个元素
  * 	实现d堆
@@ -14,12 +15,14 @@ import java.util.Arrays;
 public class PriorityHeap<E extends Comparable<? super E>> {
 
 	private int size;
-	// 完全二叉树以数组实现
+	/** 完全二叉树以数组存储 */
 	private E[] heap;
+
 	// private final Comparator<? super E> comparator;
+
 	public PriorityHeap() { this(10); }
 
-	/*
+	/**
 	 * 	2020年6月7日
 	 * 	Doug Lea的源码，都使用Object[]，用到元素时再执行强转
 	 */
@@ -34,8 +37,8 @@ public class PriorityHeap<E extends Comparable<? super E>> {
 	}
 	
 	/**
-	 * @Date: 2020/2/12
-	 * @Desc: 入队
+	 * @date 2020/2/12
+	 * @desc 入队
 	 */
 	public void offer(E e) {
 		if (size == heap.length) 
@@ -59,8 +62,8 @@ public class PriorityHeap<E extends Comparable<? super E>> {
 	// ====================================================================
 	
 	/**
-	 * @Date: 2020/2/12
-	 * @Desc: 上滤
+	 * @date 2020/2/12
+	 * @desc 上滤
 	 */
 	private void percolateUp(int hole) {
 		E e = heap[hole];
@@ -76,8 +79,8 @@ public class PriorityHeap<E extends Comparable<? super E>> {
 	}
 	
 	/**
-	 * @Date: 2020/2/12
-	 * @Desc: 下滤
+	 * @date 2020/2/12
+	 * @desc 下滤
 	 */
 	private void percolateDown(int hole) {
 		E e = heap[hole];
@@ -103,8 +106,8 @@ public class PriorityHeap<E extends Comparable<? super E>> {
 	}
 	
 	/**
-	 * @Date: 2020/2/12
-	 * @Desc: 获取parent,left,right索引的封装
+	 * @date 2020/2/12
+	 * @desc 获取parent,left,right索引的封装
 	 */
 	private int parent(int idx) { return idx - 1 >>> 1; }
 	private int left(int idx) { return (idx << 1) + 1; }

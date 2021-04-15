@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Date: 2020/2/15
- * @Desc:  前缀树，字典树。
+ * @author yangzl
+ * @date 2020/2/15
+ * @Desc  前缀树，字典树。 Trie 念 try
  */
 public class Trie {
     /**
-     * @Date: 2020/2/14
-     * @Desc: 这个节点类，真的是太沙雕了
+     * @date 2020/2/14
+     * @desc 这个节点类，真的是太沙雕了
      */
     static class Node {
         boolean isWord;

@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 /**
- * @Author: yangzl
- * @Date: 2020/2/19 20:46
- * @Desc: .. 动态规划： 求一个问题的最优解（通常是最大最小值）
+ * @author yangzl
+ * @date 2020/2/19 20:46
+ * @desc .. 动态规划： 求一个问题的最优解（通常是最大最小值）
  * 
  * 	1. 重叠子问题
  * 		原问题可分解为若干子问题，且子问题之间有重叠的更小的子问题

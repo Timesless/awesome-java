@@ -1,13 +1,15 @@
 package com.yangzl.datastructure;
 
 /**
- * @Author: yangzl
- * @Date: 2020/2/15 20:51
- * @Desc: .. 左倾红黑树 == 2-3树
+ * @Author yangzl
+ * @Date 2020/2/15 20:51
+ * @Desc .. 左倾红黑树 == 2-3树
  * MaxHeight = 2logN，当所有节点都是3节点，那么会多logN的红节点
- * ..右倾红黑树
- * ..删除例程
- * ..伸展树（刚被访问的数据很可能再被访问）：find顺便向上压缩高度
+ *
+ * 	TODO
+ * 		1. 右倾红黑树
+ * 		2. 删除例程
+ * 		3. 伸展树（刚被访问的数据很可能再被访问）：find顺便向上压缩高度
  */
 public class LLRBTree<K extends Comparable<? super K>,V> {
 	private static final boolean RED = true;
@@ -31,8 +33,8 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	
 	public int size() { return this.size; }
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc: 
+	 * @date 2020/2/15
+	 * @desc
 	 */
 	public void add(K k, V v) {
 		root = add0(root, k, v);
@@ -50,14 +52,15 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 		else if (cmpResult > 0)
 			node.right = add0(node.right, k, v);
 		else
-			node.v = v;	//cover
+			//cover old val
+			node.v = v;
 		// 回溯维护黑节点的平衡
 		return balanceBlack(node);
 	}
 
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc: 所有步骤如下：维持黑节点平衡
+	 * @date 2020/2/15
+	 * @desc 所有步骤如下：维持黑节点平衡
 	 *  BLACK 	BLACK    BLACK	  BLACK         RED
 	 *   /	 	/         /	   	   / \          / \
 	 * RED ==> RED  ==> RED ==>  RED RED ==> BLACK BLACK
@@ -82,8 +85,8 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	private boolean isRed(Node<K,V> node) { return null == node ? BLACK : node.color; }
 	
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc:  右旋转，不维持红黑树性质
+	 * @date 2020/2/15
+	 * @desc 右旋转，不维持红黑树性质
 	 *         BLACK         RED                BLACK
 	 *          /           /  \     change     /  \
 	 *        RED    =>   RED  BLACK  ====>    RED  RED
@@ -101,8 +104,8 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	}
 
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc: 左旋转，不维持红黑树性质
+	 * @date 2020/2/15
+	 * @desc 左旋转，不维持红黑树性质
 	 *    k1
 	 *      \
 	 *       k2
@@ -118,8 +121,8 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	}
 	
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc: 颜色翻转
+	 * @date 2020/2/15
+	 * @desc 颜色翻转
 	 */
 	private void flipColor(Node<K,V> node) {
 		node.left.color = node.right.color = BLACK;

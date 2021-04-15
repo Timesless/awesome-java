@@ -1,9 +1,9 @@
 package com.yangzl.algorithm;
 
 /**
- * @Author: yangzl
- * @Date: 2019/10/26 21:14
- * @Desc: ..	递归 + 回溯解迷宫
+ * @Author yangzl
+ * @Date 2019/10/26 21:14
+ * @Desc ..	递归 + 回溯解迷宫
  * 使用一个矩阵来表示迷宫，0表示还未走过的路径，1表示路障，2表示通路，3表示走过的路径但无解
  */
 public class Maze {
@@ -20,7 +20,7 @@ public class Maze {
 		matrix = new int[rows][cols];
 	}
 	
-	/*
+	/**
 	 * 初始化迷宫，四周为墙壁并生成固定的2个路障
 	 */
 	private void initMaze() {

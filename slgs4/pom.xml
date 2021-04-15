@@ -14,5 +14,12 @@
 	<name>slgs4</name>
 	
 	<description>算法4相关代码实现</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+	</dependencies>
 	
 </project>
