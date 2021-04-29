@@ -6,9 +6,8 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @Author yangzl
- * @Date 2020/1/5 11:25
- * @Desc ..
+ * @author yangzl
+ * @date 2020/1/5 11:25
  */
 public class ExecutorServiceD {
 	

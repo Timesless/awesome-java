@@ -6,15 +6,15 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * @Author: yangzl
- * @Date: 2020/4/8 14:39
- * @Desc: .. 广度优先 BFS 借助队列
+ * @author yangzl
+ * @date 2020/4/8 14:39
+ *  .. 广度优先 BFS 借助队列
  */
 public class BFS {
 
 	/**
-	 * @Date: 2020/3/5 橘子腐烂
-	 * @Desc: 多源广度优先
+	 * @date 2020/3/5 橘子腐烂
+	 *  多源广度优先
 	 */
 	public int orangesRotting(int[][] grid) {
 		Deque<Integer> queue = new ArrayDeque<>();

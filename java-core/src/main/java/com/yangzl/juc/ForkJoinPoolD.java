@@ -6,9 +6,9 @@ import java.util.concurrent.RecursiveTask;
 import java.util.stream.IntStream;
 
 /**
- * @Author yangzl
- * @Date 2020/1/5 13:55
- * @Desc .. 分支合并框架
+ * @author yangzl
+ * @date 2020/1/5 13:55
+ * 分支合并框架
  * 
  * RecursiveTask 有返回值
  * RecursiveAction 无返回值
@@ -30,9 +30,9 @@ public class ForkJoinPoolD extends RecursiveTask<Integer> {
 	}
 	
 	/**
-	 * @Date 2020/2/10
-	 * @Desc  1. 定义任务如何拆分
-	 * 			2. 定义不能拆分时的计算逻辑
+	 * @date 2020/2/10
+	 *  1. 定义任务如何拆分
+	 * 	2. 定义不能拆分时的计算逻辑
 	 */
 	@Override
 	protected Integer compute() {

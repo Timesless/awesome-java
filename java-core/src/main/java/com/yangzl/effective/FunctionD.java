@@ -12,9 +12,10 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /**
- * @Author yangzl
- * @Date 2020/3/3 11:38
- * @Desc .. java.util.Function有43个接口
+ * @author yangzl
+ * @date 2020/3/3 11:38
+ *
+ *  java.util.Function有43个接口
  *  函数式编程
  */
 public class FunctionD {
@@ -81,7 +82,7 @@ public class FunctionD {
 		System.out.println(map);
 		/*
 		 * 该方法违反了可伸缩参数列表模式
-		 * 下游收集器 Collectors.counting();
+		 * 下游收集器 Collectors.counting()
 		 */
 		Map<String, Long> collect = list.stream()
 				.collect(Collectors.groupingBy(String::toLowerCase, HashMap::new, Collectors.counting()));

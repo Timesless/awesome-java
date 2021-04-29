@@ -3,9 +3,9 @@ package com.yangzl.effective;
 import java.util.function.DoubleBinaryOperator;
 
 /**
- * @Author yangzl
+ * @author yangzl
  * @date 2020/3/3 10:51
- * @desc .. 42 lambda
+ * 42 lambda
  */
 public enum  Operator {
 	

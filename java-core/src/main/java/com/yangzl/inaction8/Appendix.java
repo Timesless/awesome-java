@@ -66,7 +66,7 @@ public class Appendix {
 	// =====================================================================================
 	// A.1.2 类型注解
 	// =====================================================================================
-	/*
+	/**
 	 * 从Java8 开始，注解能应用在任何类型，包括：
 	 * 	new、类型转换、instanceof检查、泛型类型参数、implements、throws子句
 	 */
@@ -80,6 +80,7 @@ public class Appendix {
 	// =====================================================================================
 	// A.2 通用目标类型推断
 	// =====================================================================================
+
 	@Test
 	public void testGenericDetected() {
 		List<String> list = Collections.emptyList();
@@ -89,6 +90,7 @@ public class Appendix {
 	// =====================================================================================
 	// B 类库更新
 	// =====================================================================================
+
 	@Test
 	public void testLibUp() {
 		Map<String, Integer> map = new HashMap<>(4);
@@ -107,6 +109,7 @@ public class Appendix {
 	// B.1.3 Comparator
 	// =====================================================================================
 	// Comparator接口现在同时包含默认方法和静态方法，就不再像Collections提供为工具类了
+
 	@Test
 	public void testComparator() {
 		Comparator<String> sCmp = Comparator.naturalOrder();
@@ -123,6 +126,7 @@ public class Appendix {
 	// =====================================================================================
 	// java.util.concurrent.atomic
 	// Adder Accumulator
+
 	@Test
 	public void testAtomic() {
 		AtomicInteger integer = new AtomicInteger();
@@ -147,6 +151,7 @@ public class Appendix {
 	// =====================================================================================
 	// B.2.2 ConcurrentHashMap
 	// =====================================================================================
+
 	@Test
 	public void testConcurrentHashMap() {
 		ConcurrentHashMap<String, Integer> concurrent = new ConcurrentHashMap<>(0x100);
@@ -186,6 +191,7 @@ public class Appendix {
 	// =====================================================================================
 	// B.2.3 Arrays
 	// =====================================================================================
+
 	@Test
 	public void testArrays() {
 		int[] arr = new int[10];
@@ -203,6 +209,7 @@ public class Appendix {
 	// =====================================================================================
 	// B.5 Files
 	// =====================================================================================
+
 	@Test
 	public void testFiles() {
 		try (Stream<Path> walk = Files.walk(Paths.get("d:/test"))) {

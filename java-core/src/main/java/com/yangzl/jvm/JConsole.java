@@ -29,7 +29,6 @@ public class JConsole {
 	 * 创建等待线程使用JConsole观察
 	 * 
 	 * @param monitor 监视器对象
-	 * @return void
 	 */
 	static void createLock(final Object monitor) {
 		new Thread(() -> {
@@ -46,8 +45,6 @@ public class JConsole {
 	/**
 	 * 创建死锁
 	 * 由于Integer.valueOf缓存「-128, 127」所以多个线程加的锁是同一个对象
-	 * 
-	 * @return void
 	 */
 	static void createDead(int a, int b) {
 		synchronized (Integer.valueOf(a)) {

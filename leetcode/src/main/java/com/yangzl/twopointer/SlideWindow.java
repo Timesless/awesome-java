@@ -10,9 +10,10 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * @Author: yangzl
- * @Date: 2020/3/6 14:29
- * @Desc: .. 双指针 => 滑动窗口
+ * @author yangzl
+ * @date 2020/3/6 14:29
+ *
+ *  双指针 => 滑动窗口
  */
 public class SlideWindow {
 
@@ -21,6 +22,7 @@ public class SlideWindow {
 	// 序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。
 	// 输入：target = 15 输出：[[1,2,3,4,5],[4,5,6],[7,8]]	1 <= target <= 10^5
 	// =================================================================================
+
 	public int[][] findContinuousSequence(int target) {
 		int[] sum = new int[target + 1];
 		for (int i = 1; i <= target; ++i)
@@ -63,6 +65,7 @@ public class SlideWindow {
 	// 合并有序数组，A数组中有足够空间容纳B数组所有数
 	// TODO 从A[]尾部放置大的数
 	// =================================================================================
+
 	public void merge(int[] A, int m, int[] B, int n) {
 		int[] sorted = new int[A.length];
 		int i, j, count;
@@ -86,9 +89,6 @@ public class SlideWindow {
 	
 	/**
 	 * 2020/10/15 字节春招
-	 * 
-	 * @param 
-	 * @return 
 	 */
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);

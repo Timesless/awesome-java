@@ -5,15 +5,15 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 /**
- * @Author: yangzl
- * @Date: 2020/3/31 14:38
- * @Desc: .. 位运算
+ * @author yangzl
+ * @date 2020/3/31 14:38
+ *  .. 位运算
  */
 public class Bit {
 	
 	/**
-	 * @Date: 2020/3/31
-	 * @Desc:  位运算实现加法
+	 * @date 2020/3/31
+	 *   位运算实现加法
 	 */
 	public int bitAdd(int a, int b) {
 		while (b != 0) {
@@ -32,8 +32,8 @@ public class Bit {
 
 
 	/**
-	 * @Date: 2020/4/4
-	 * @Desc: 交换数字转换为二进制后的奇偶数位的数值
+	 * @date 2020/4/4
+	 *  交换数字转换为二进制后的奇偶数位的数值
 	 */
 	public int exchangeBits(int num) {
 		String bs = Integer.toBinaryString(num);

@@ -3,9 +3,9 @@ package com.yangzl.zklock;
 import java.util.stream.IntStream;
 
 /**
- * @Author yangzl
- * @Date 2020/5/31 23:08
- * @Desc .. 测试代码
+ * @author yangzl
+ * @date 2020/5/31 23:08
+ *  测试代码
  */
 public class Client {
 

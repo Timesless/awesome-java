@@ -30,9 +30,6 @@ public class StreamD {
 	
 	/**
 	 * 2020/11/23 性能测试
-	 * 
-	 * @param () .
-	 * @return void
 	 */
 	@Test
 	public void testParallelPerfomance() {

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
  * @date 2020/11/15 00:09
  * @desc Spring循环依赖 测试bean
  */
-
 @Component
 public class A {
     

@@ -4,9 +4,9 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * @Author: yangzl
- * @Date: 2020/4/30 13:53
- * @Desc: .. 
+ * @author yangzl
+ * @date 2020/4/30 13:53
+ *
  * 1. A LeetCode a day keeps unemployment away
  * 2. A LeetCode a day keeps confidence away.
  * 3. 一杯茶，一包烟，一道力扣做一天。一根笔，一双手，一个 Bug 敲一宿。

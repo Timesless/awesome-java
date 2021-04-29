@@ -7,7 +7,6 @@ import java.util.EnumSet;
 /**
  * @author yangzl
  * @date 2020/5/6 11:01
- * @desc ..
  */
 public enum Enum22 {
 	

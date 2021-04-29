@@ -5,9 +5,10 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * @Author yangzl
- * @Date: 2020/6/22 20:57
- * @Desc: JDK动态代理， -Dfile.encoding == System.getPropertites().put("file.encoding", "")
+ * @author yangzl
+ * @date 2020/6/22 20:57
+ *
+ *  JDK动态代理， -Dfile.encoding == System.setProperty("file.encoding", "")
  */
 public interface IDao {
 
@@ -23,7 +24,7 @@ class IDaoImpl implements IDao {
 
 class DynamicProxy implements InvocationHandler {
 
-    // 目标对象
+    /** 目标对象 */
     private final Object target;
     public DynamicProxy(Object target) { this.target = target; }
 

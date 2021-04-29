@@ -3,9 +3,10 @@ package com.yangzl.volume;
 import org.junit.jupiter.api.Test;
 
 /**
- * @Author yangzl
- * @Date 2020/5/26 19:54
- * @Desc 使用IEEE严格浮点运算模式，标记方法或类
+ * @author yangzl
+ * @date 2020/5/26 19:54
+ *
+ *  使用IEEE严格浮点运算模式，标记方法或类
  *  整数被0除将会产生一个异常，而浮点数被0除将会得到无穷大或NaN
  *  StrictMath确保在所有平台运算得到相同结果
  */

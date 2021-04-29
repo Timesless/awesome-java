@@ -1,14 +1,13 @@
 package com.yangzl.yangzl;
 
-import lombok.*;
-import lombok.extern.java.Log;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 /**
  * @author yangzl
  * @date 2021/3/12
- * @desc
  */
 @Slf4j
 public class CopyTest {

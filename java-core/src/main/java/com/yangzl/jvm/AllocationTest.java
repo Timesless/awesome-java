@@ -32,7 +32,6 @@ public class AllocationTest {
 	 * 这里运行结果恰好相反，new generation：6M，old generation 4M
 	 * 
 	 * @param () v
-	 * @return void
 	 */
 	public static void allocation() {
 		byte[] a1, a2, a3, a4;
@@ -48,7 +47,6 @@ public class AllocationTest {
 	 * 	-XX:PretenureSizeThreshold=3m 只对serial和ParaNew新生代收集器有效
 	 * 
 	 * @param () v
-	 * @return void
 	 */
 	public static void blobAllocation() {
 		byte[] a1;
@@ -63,7 +61,6 @@ public class AllocationTest {
 	 * 注释a2 new = 4234K，old=4873K，a1,a3进入old，所以new相同
 	 * 
 	 * @param () v
-	 * @return void
 	 */
 	public static void dynamicJudge() {
 		byte[] a1, a2, a3, a4;
@@ -79,9 +76,6 @@ public class AllocationTest {
 	
 	/** 
 	 * 分配担保：老年代连续空间 > 新生代对象总大小 或者 历次晋升老年代对象的平均大小则Minor GC否则Full GC
-	 * 
-	 * @param 
-	 * @return void
 	 */
 	public static void allocationPromotion() {
 		byte[] a1, a2, a3, a4, a5, a6, a7;

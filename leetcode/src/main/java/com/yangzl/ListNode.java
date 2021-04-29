@@ -1,8 +1,10 @@
 package com.yangzl;
 
 /**
- * @Date: 2020/4/30
- * @Desc: LeetCode链表类
+ * @author yangzl
+ * @date 2020/4/30
+ *
+ * LeetCode链表类
  */
 public class ListNode {
 	int val;

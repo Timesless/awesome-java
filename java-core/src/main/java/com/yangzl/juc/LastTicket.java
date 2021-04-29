@@ -1,9 +1,9 @@
 package com.yangzl.juc;
 
 /**
- * @Author yangzl
- * @Date 2020/1/4 20:20
- * @Desc .. 在高内聚低耦合前提下
+ * @author yangzl
+ * @date 2020/1/4 20:20
+ *  在高内聚低耦合前提下
  * 				1. 线程操作资源类
  * 				2. 判断标识位（in a loop） 执行 唤醒
  * 				3. 防止虚假唤醒
@@ -49,8 +49,8 @@ public class LastTicket {
 	}
 
 	/**
-	 * @Date 2020/1/4
-	 * @Desc  程序的入口，与Ticket无关
+	 * @date 2020/1/4
+	 * @desc  程序的入口，与Ticket无关
 	 */
 	public static void main(String[] args) {
 		LastTicket lastTicket = new LastTicket();

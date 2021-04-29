@@ -6,15 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author: yangzl
- * @Date: 2020/4/12 00:23
- * @Desc: .. 递归
+ * @author yangzl
+ * @date 2020/4/12 00:23
+ *   递归
  */
 public class RecursiveD {
 
 	// =======================================================================
 	// 生成杨辉三角
 	// =======================================================================
+
 	List<List<Integer>> rs;
 	int len;
 	public List<List<Integer>> generate(int numRows) {
@@ -42,6 +43,7 @@ public class RecursiveD {
 	// =======================================================================
 	//  获取杨辉三角第 rowIndex 行
 	// =======================================================================
+
 	public List<Integer> getRow(int rowIndex) {
 		if (rowIndex == 0) return new ArrayList<Integer>(){{add(1);}};
 		if (rowIndex == 1) return new ArrayList<Integer>(){{add(1);add(1);}};

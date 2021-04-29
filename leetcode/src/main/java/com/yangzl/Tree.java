@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 
 /**
- * @Author: yangzl
- * @Date: 2020/3/31 13:50
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/3/31 13:50
+ * @desc ..
  */
 
 public class Tree {
 
-	/*
+	/**
 	 * Leetcode 二叉树节点类
 	 */
 	public static class TreeNode {
@@ -36,12 +36,14 @@ public class Tree {
 	}
 	
 	/**
-	 * @Date: 2020/3/31
-	 * @Desc: N叉树前序遍历 -> 迭代
+	 * @date 2020/3/31
+	 *  N叉树前序遍历 -> 迭代
 	 */
 	public List<Integer> nPreorderIter(Node root) {
+		if (root == null) {
+			return Collections.emptyList();
+		};
 		List<Integer> rs = new ArrayList<>();
-		if (root == null) return rs;
 		Deque<Node> stack = new LinkedList<>();
 		stack.push(root);
 		while (!stack.isEmpty()) {
@@ -49,15 +51,16 @@ public class Tree {
 			rs.add(cur.val);
 			// 以二叉树为例，先压入右子树，再压入左子树，这样才会先访问左子树
 			Collections.reverse(cur.children);
-			for (Node tmp : cur.children)
+			for (Node tmp : cur.children) {
 				stack.push(tmp);
+			}
 		}
 		return rs;
 	}
 	
 	/**
-	 * @Date: 2020/3/31
-	 * @Desc: N叉树前序遍历 -> 递归
+	 * @date 2020/3/31
+	 *  N叉树前序遍历 -> 递归
 	 */
 	public List<Integer> nPreorderRecursive(Node root) {
 		List<Integer> rs = new ArrayList<>();
@@ -73,8 +76,8 @@ public class Tree {
 	}
 	
 	/**
-	 * @Date: 2020/3/31
-	 * @Desc: N叉树后序遍历 -> 迭代
+	 * @date 2020/3/31
+	 *  N叉树后序遍历 -> 迭代
 	 */
 	public List<Integer> nPostorderIter(Node root) {
 		LinkedList<Integer> rs = new LinkedList<>();
@@ -94,8 +97,8 @@ public class Tree {
 
 	
 	/**
-	 * @Date: 2020/4/3
-	 * @Desc:  之字形层序遍历
+	 * @date 2020/4/3
+	 *   之字形层序遍历
 	 */
 	List<List<Integer>> rs = new ArrayList<>();
 	public List<List<Integer>> levelOrder(TreeNode root) {
@@ -130,8 +133,8 @@ public class Tree {
 	}
 
 	/**
-	 * @Date: 2020/4/4
-	 * @Desc: N叉树的高度
+	 * @date 2020/4/4
+	 *  N叉树的高度
 	 */
 	public int maxDepth(Node root) {
 		if (root == null) return 0;

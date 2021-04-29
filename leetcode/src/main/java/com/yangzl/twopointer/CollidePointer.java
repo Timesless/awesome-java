@@ -2,15 +2,17 @@ package com.yangzl.twopointer;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @Author: yangzl
- * @Date: 2020/3/6 14:35
- * @Desc: .. 双指针 => 对撞指针
+ * @author yangzl
+ * @date 2020/3/6 14:35
+ * 
+ *  双指针 => 对撞指针
  */
 public class CollidePointer {
 	// 判断一个数是否是两个数的平方和
@@ -28,7 +30,7 @@ public class CollidePointer {
 		return false;
 	}
 
-	// 反转元音字母
+	/** 反转元音字母 */
 	public static String reverseVowels(String s) {
 		if (s.length() == 1) return s;
 		Set<Character> set = Stream.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
@@ -49,7 +51,7 @@ public class CollidePointer {
 				++p1;
 			}
 		}
-		return c.toString();
+		return Arrays.toString(c);
 	}
 	@Test
 	public void testReverseVowels() {
@@ -58,8 +60,8 @@ public class CollidePointer {
 
 	
 	/**
-	 * @Date: 2020/2/16 是否是回文字符串
-	 * @Desc:  东拼西凑
+	 * @date 2020/2/16 是否是回文字符串
+	 * 东拼西凑
 	 **/
 	public boolean isPalindrome(String s) {
 		int i = 0, j = s.length() - 1;
@@ -95,6 +97,7 @@ public class CollidePointer {
 	// =======================================================================
 	// 11. 盛最多水的容器，给定数组，数组每一个元素与 x 轴共同构成的容器可以容纳最多的水。
 	// =======================================================================
+
 	public int maxArea(int[] height) {
 		int len = height.length;
 		if (len < 2) return 0;

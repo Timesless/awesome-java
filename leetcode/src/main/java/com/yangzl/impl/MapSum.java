@@ -4,8 +4,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * @Date: 2020/2/14
- * @Desc: 
+ * @author yangzl
+ * @date 2020/2/14
+ *
  * insert(" apple ", 3), 输出: Null
  * 输入: sum("ap"), 输出: 3
  * 输入: insert("app", 2), 输出: Null
@@ -15,7 +16,7 @@ import java.util.TreeMap;
  **/
 public class MapSum {
     
-    // 节点类
+    /** 节点类 */
     private static class Node {
         int val;
         Map<Character, Node> next;
@@ -40,8 +41,9 @@ public class MapSum {
         Node p = root;
         for (int i = 0; i < prefix.length(); ++i) {
             char c = prefix.charAt(i);
-            if (p.next.get(c) == null)
-                return 0;
+            if (p.next.get(c) == null) {
+				return 0;
+			}
             p = p.next.get(c);
         }
         return sum(p);
@@ -49,9 +51,9 @@ public class MapSum {
 
     private int sum(Node node) {
         int result = node.val;
-        // 
-        for (Character c : node.next.keySet()) 
-            result += sum(node.next.get(c));
+        for (Character c : node.next.keySet()) {
+			result += sum(node.next.get(c));
+		}
         return result;
     }
 }

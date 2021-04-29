@@ -10,15 +10,16 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
- * @Author: yangzl
- * @Date: 2020/2/13 11:11
- * @Desc: .. 队列相关问题
+ * @author yangzl
+ * @date 2020/2/13 11:11
+ *
+ * 队列相关问题
  */
 public class QueueD {
 
 	/**
-	 * @Date: 2020/2/12
-	 * @Desc: 347.前k个高频元素（优先队列，标准库中为最小堆实现）
+	 * @date 2020/2/12
+	 *  347.前k个高频元素（优先队列，标准库中为最小堆实现）
 	 */
 	public static List<Integer> topKFrequent(int[] nums, int k) {
 		Map<Integer, Integer> map = new TreeMap<>();
@@ -43,7 +44,6 @@ public class QueueD {
 		int[] nums = { 1 };
 		System.out.println(topKFrequent(nums, 1));
 	}
-	
-	
+
 	
 }

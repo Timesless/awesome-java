@@ -13,7 +13,6 @@ import java.util.zip.GZIPOutputStream;
  * @date 2020/11/29 21:41
  * @desc 序列化与反序列化 调优
  */
-
 public class SerialExternal {
 
 	/**
@@ -35,7 +34,6 @@ public class SerialExternal {
 		 * 2020/11/29 序列化
 		 *
 		 * @param out 对象输出流
-		 * @return void
 		 */
 		private void writeObject(ObjectOutputStream out) throws IOException {
 			if (zipOop == null) {
@@ -48,7 +46,6 @@ public class SerialExternal {
 		 * 2020/11/29 反序列化
 		 *
 		 * @param in 对象输入流
-		 * @return void
 		 */
 		private void readObject(ObjectInputStream in) throws Exception {
 			in.defaultReadObject();
@@ -68,9 +65,6 @@ public class SerialExternal {
 		 * 处理流：
 		 * 缓冲流一般用于提升性能
 		 * BufferedInputStream, BufferedRader / BufferedOutputStream, BufferedWriter
-		 *
-		 * @param () v
-		 * @return void
 		 */
 		private void zipPrice() {
 
@@ -86,9 +80,6 @@ public class SerialExternal {
 
 		/**
 		 * 2020/11/29 解压后反序列化
-		 *
-		 * @param () v
-		 * @return void
 		 */
 		private void unzipPrice() {
 			
@@ -122,7 +113,7 @@ public class SerialExternal {
 		System.out.printf("序列化30000 耗时：%d \n", System.currentTimeMillis() - t1);
 	}
 
-	// unserial
+	/** unserial */
 	private static Object unserial() {
 		try (FileInputStream in = new FileInputStream("d:/oop.out"); 
 			 final ObjectInputStream oopIn = new ObjectInputStream(in)){

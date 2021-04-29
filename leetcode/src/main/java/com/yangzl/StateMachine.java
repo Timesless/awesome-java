@@ -3,9 +3,9 @@ package com.yangzl;
 import org.junit.jupiter.api.Test;
 
 /**
- * @Author: yangzl
- * @Date: 2020/4/19 22:33
- * @Desc: .. 状态机
+ * @author yangzl
+ * @date 2020/4/19 22:33
+ * @desc .. 状态机
  */
 public class StateMachine {
 
@@ -18,6 +18,7 @@ public class StateMachine {
 	// 输入: [7,1,5,3,6,4] 输出: 5
 	// 输入: [7,6,4,3,1] 输出: 0
 	// =======================================================================
+
 	public int maxProfit(int[] prices) {
 		int n = prices.length;
 		if (n < 2) return 0;
@@ -46,6 +47,7 @@ public class StateMachine {
 	// 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
 	// 输入: [7,1,5,3,6,4] 输出: 7
 	// =======================================================================
+
 	public int maxProfit2(int[] prices) {
 		int n = prices.length;
 		if (n < 2) return 0;
@@ -71,6 +73,7 @@ public class StateMachine {
 	// 返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。
 	// 输入: prices = [1, 3, 2, 8, 4, 9], fee = 2 输出: 8
 	// =======================================================================
+
 	public int maxProfit3(int[] prices, int fee) {
 		int n = prices.length;
 		if (n < 2) return 0;
@@ -93,6 +96,7 @@ public class StateMachine {
 	// 卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。
 	// 输入: [1,2,3,0,2] 输出: 3 解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]
 	// =======================================================================
+
 	public int maxProfit4(int[] prices) {
 		int n = prices.length;
 		if (n < 2) return 0;
@@ -129,6 +133,7 @@ public class StateMachine {
 	// 输入: [2,4,1], k = 2 输出: 2
 	// 解释: 在第 1 天 (股票价格 = 2) 的时候买入，在第 2 天 (股票价格 = 4) 的时候卖出，这笔交易所能获得利润 = 4-2 = 2 。
 	// =======================================================================
+
 	public int maxProfit6(int k, int[] prices) {
 		int n = prices.length;
 		if (n < 2 || k < 1) return 0;
@@ -155,13 +160,14 @@ public class StateMachine {
 			// dp[0][i][0] = 0;
 			dp[0][i][1] = -prices[0];
 		}
-		for (int i = 1; i < n; ++i)
+		for (int i = 1; i < n; ++i) {
 			for (int j = k; j >= 1; --j) {
 				// 当天（i）未持有股票，前一天未持有今天ret，前一天持有今天sell
 				dp[i][j][0] = Math.max(dp[i-1][j][0], dp[i-1][j][1] + prices[i]);
 				// 当前持有股票，买股票需要消耗一次交易(在卖股票的时候-1同样可以)
 				dp[i][j][1] = Math.max(dp[i-1][j][1], dp[i-1][j-1][0] - prices[i]);
 			}
+		}
 		return dp[n-1][k][0];
 	}
 	@Test

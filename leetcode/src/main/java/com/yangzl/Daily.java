@@ -6,15 +6,16 @@ import java.util.*;
 import java.util.function.BiFunction;
 
 /**
- * @Author: yangzl
- * @Date: 2020/3/31 17:05
- * @Desc: .. 不适合归类的测试
+ * @author yangzl
+ * @date 2020/3/31 17:05
+ * 
+ *  .. 不适合归类的测试
  */
 public class Daily {
 	
 	/**
-	 * @Date: 2020/3/31
-	 * @Desc: 归并排序
+	 * @date 2020/3/31
+	 *  归并排序
 	 */
 	public void mergeSort(int[] nums, int left, int right) {
 		if (left == right) return;
@@ -106,8 +107,8 @@ public class Daily {
 	}
 	
 	/**
-	 * @Date: 2020/4/3
-	 * @Desc:  位运算实现 / 
+	 * @date 2020/4/3
+	 *   位运算实现 / 
 	 */
 	public int devide(int a, int b) {
 		int divisor = Math.abs(a), dividend = Math.abs(b);
@@ -130,6 +131,7 @@ public class Daily {
 	// =======================================================================
 	// 
 	// =======================================================================
+
 	List<List<Integer>> res = new ArrayList<>();
 	public List<List<Integer>> findSolution(BiFunction<Integer, Integer, Integer> customfunction, int z) {
 		if (z == 0) return res;
@@ -155,8 +157,8 @@ public class Daily {
 	
 
 	/**
-	 * @Date: 2020/4/4
-	 * @Desc:  42 Hard. 接雨水
+	 * @date 2020/4/4
+	 *   42 Hard. 接雨水
 	 */
 	public int trap(int[] height) {
 		if (height.length == 0) return 0;
@@ -188,6 +190,7 @@ public class Daily {
 	// =======================================================================
 	// 
 	// =======================================================================
+
 	public int minCount(int[] coins) {
 		int rs = 0;
 		for (int i = 0; i < coins.length; ++ i) 

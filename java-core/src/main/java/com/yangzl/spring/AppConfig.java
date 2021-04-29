@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
  * @date 2020/11/15 10:11
  * @desc
  */
-
 @Configuration
 public class AppConfig {
 

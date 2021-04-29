@@ -3,9 +3,10 @@ package com.yangzl;
 import org.junit.jupiter.api.Test;
 
 /**
- * @Author: yangzl
- * @Date: 2020/4/8 14:38
- * @Desc: .. 广度优先
+ * @author yangzl
+ * @date 2020/4/8 14:38
+ *
+ * 广度优先
  */
 public class DFS {
 
@@ -20,6 +21,7 @@ public class DFS {
 	// 递归式调用边界判断时机 & 非递归式调用的边界判断时机
 	
 	// =======================================================================
+
 	int count, k;
 	boolean[][] visited;
 	// 4个方向

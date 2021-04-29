@@ -6,15 +6,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @Author: yangzl
- * @Date: 2020/4/26 09:39
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/4/26 09:39
  */
 public class Contest {
 
 	// =======================================================================
 	// 188.1
 	// =======================================================================
+
 	public List<String> buildArray(int[] target, int n) {
 		
 		List<String> rs = new ArrayList<>();
@@ -32,6 +32,7 @@ public class Contest {
 	// =======================================================================
 	// 188.2
 	// =======================================================================
+
 	public int countTriplets(int[] arr) {
 		if (arr.length < 2) return 0;
 		int ln = arr.length, count = 0;
@@ -60,6 +61,7 @@ public class Contest {
 	// =======================================================================
 	// 186 正确括号的最大层数
 	// =======================================================================
+
 	public int maxDepth(String s) {
 		int deepth = 0, maxDeepth = 0;
 		Deque<Character> stack = new LinkedList<>();

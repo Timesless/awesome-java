@@ -31,7 +31,7 @@ public class FalseSharing extends Thread {
 	}
 	
 	private static final DataHolder dataHolder = new DataHolder();
-	/*
+	/**
 	 * 请考虑DataHolder，每个属性都保存在相邻的位置
 	 * 假设 l1 0xF20, 那么 l2 0xF28
 	 * 当程序要操作l2时，会有一个大的内存（cache line，缓存行：一般同内存模组传输数据64K）载入CPU的某个核上

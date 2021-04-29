@@ -5,9 +5,10 @@ import org.I0Itec.zkclient.ZkClient;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @Author yangzl
- * @Date 2020/5/31 22:38
- * @Desc .. 模板设计模式
+ * @author yangzl
+ * @date 2020/5/31 22:38
+ *
+ * 模板设计模式
  */
 public abstract class AbstractZkLock implements ZkLock {
 	

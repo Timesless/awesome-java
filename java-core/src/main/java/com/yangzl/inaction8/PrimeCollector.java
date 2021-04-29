@@ -143,14 +143,14 @@ public class PrimeCollector implements
 		return IntStream.rangeClosed(2, n).boxed().collect(sup, accumulator, combiner);
 	}
 
-	/*
+	/**
 	 * 4 * 1000000 => min = 270
 	 */
 	public Map<Boolean, List<Integer>> partionPrime(int n) {
 		return IntStream.rangeClosed(2, n).boxed().collect(new PrimeCollector());
 	}
 
-	/*
+	/**
 	 * 未优化的isPrime
 	 * 4 * 1000000 => min = 320
 	 */
@@ -185,7 +185,7 @@ public class PrimeCollector implements
 	// test
 	// ======================================================
 
-	// 收集测试
+	/** 收集测试 */
 	@Test
 	public void testCollect() {
 		Map<Boolean, List<Integer>> rs = IntStream.rangeClosed(2, 50)
@@ -194,7 +194,7 @@ public class PrimeCollector implements
 				50, rs.get(Boolean.TRUE), rs.get(Boolean.FALSE));
 	}
 	
-	// 性能测试
+	/** 性能测试 */
 	@Test
 	public void testCollectPerformance() {
 		long min = 0x7fffffff;

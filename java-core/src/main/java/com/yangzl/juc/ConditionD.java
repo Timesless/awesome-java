@@ -5,9 +5,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @Author yangzl
- * @Date 2020/1/4 20:51
- * @Desc ..
+ * @author yangzl
+ * @date 2020/1/4 20:51
+ *
  * 		Interface Lock
  * 	ReentrantLock, ReentrantReadWriteLock.ReadLock, ReentrantLockReadWriteLock.WriteLock
  * 		非公平可重入递归锁

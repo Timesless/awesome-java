@@ -5,15 +5,17 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 /**
- * @Author: yangzl
- * @Date: 2020/4/10 23:56
- * @Desc: .. 矩阵相关问题
+ * @author yangzl
+ * @date 2020/4/10 23:56
+ *
+ * 矩阵相关问题
  */
 public class Matrix {
 
 	// =======================================================================
 	// 顺时针旋转矩阵90°
 	// =======================================================================
+
 	public void rotateMatrix(int[][] matrix) {
 		int m;
 		if ((m = matrix.length)== 0) return;
@@ -36,8 +38,9 @@ public class Matrix {
 	public void testRotateMatrix() {
 		int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 		rotateMatrix(matrix);
-		for (int[] tmp : matrix)
+		for (int[] tmp : matrix) {
 			System.out.println(Arrays.toString(tmp));
+		}
 	}
 
 

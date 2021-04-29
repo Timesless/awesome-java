@@ -7,9 +7,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * @Author: yangzl
- * @Date: 2020/4/12 01:07
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/4/12 01:07
  */
 public class ListNodeD {
 
@@ -193,6 +192,7 @@ public class ListNodeD {
 	// 输入：(7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
 	// 输出：7 -> 8 -> 0 -> 7
 	// ================================================================
+
 	public ListNode addTwoNumbers(ListNode list1, ListNode list2) {
 		ListNode pl = reverseList2(list1), pr = reverseList2(list2);
 		ListNode dummyHead = new ListNode(-1), cur = dummyHead;

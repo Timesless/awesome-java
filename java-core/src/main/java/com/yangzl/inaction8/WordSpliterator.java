@@ -18,7 +18,7 @@ import java.util.stream.StreamSupport;
 
 public class WordSpliterator implements Spliterator<Character> {
 	
-	// 要拆分的串
+	/** 要拆分的串 */
 	private final String target;
 	private int current = 0;
 	
@@ -67,7 +67,6 @@ public class WordSpliterator implements Spliterator<Character> {
 	 * 2020/11/23 如何使用 可拆分迭代器呢，需要通过源自定义拆分为Stream
 	 * 
 	 * @param () v
-	 * @return void
 	 */
 	public static void main(String[] args) {
 		// 神曲 地狱篇 第一句话
