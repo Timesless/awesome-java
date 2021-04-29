@@ -7,9 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Author: yangzl
- * @Date: 2019/11/17 15:46
- * @Desc: ..	哈夫曼树： 又称最优二叉树， 树的带权路径长度最小（所有叶子节点带权路径长度总和最小）
+ * @author yangzl
+ * @date 2019/11/17 15:46
+ * 
+ * 	哈夫曼树： 又称最优二叉树， 树的带权路径长度最小（所有叶子节点带权路径长度总和最小）
  * 			用于构建Huffman编码。
  */
 public class HuffmanTree {
@@ -34,8 +35,8 @@ public class HuffmanTree {
 	}
 	
 	/**
-	 * @Date: 2019/11/17
-	 * @Desc: 前序遍历
+	 * @date 2019/11/17
+	 * @desc 前序遍历
 	 */
 	public static void createHuffman(char[] arr) {
 		List<Node> list = getNodeList(arr);
@@ -50,8 +51,8 @@ public class HuffmanTree {
 	}
 
 	/**
-	 * @Date: 2019/11/17
-	 * @Desc: 将数组的元素构建为huffmanTree，返回哈夫曼树的根节点
+	 * @date 2019/11/17
+	 * @desc 将数组的元素构建为huffmanTree，返回哈夫曼树的根节点
 	 */
 	public static Node huffmanTree(List<Node> list) {
 		
@@ -84,7 +85,7 @@ public class HuffmanTree {
 	}
 
 
-	// entrypoint
+	/** 测试 */
 	public static void main(String[] args) {
 		char[] arr = "i like like buzz fizz clazz foo bar champion".toCharArray();
 		HuffmanTree.createHuffman(arr);

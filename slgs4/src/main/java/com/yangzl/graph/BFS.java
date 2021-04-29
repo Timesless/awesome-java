@@ -35,7 +35,6 @@ public class BFS {
 	 * 2020/10/8 
 	 * 
 	 * @param vertexNum 图的节点数
-	 * @return 
 	 */
 	public void BFS(int vertexNum) {
 		// 可能存在多个连通分量
@@ -75,7 +74,7 @@ public class BFS {
 	 * 		  4		5	 6
 	 * @param v1 源顶点
 	 * @param v2 目标顶点   
-	 * @return void
+	 * @return list
 	 */
 	public List<Integer> singleSourcePath(int v1, int v2) {
 		
@@ -111,7 +110,6 @@ public class BFS {
 	 * 
 	 * TODO
 	 * @param vertexNum 图顶点个数
-	 * @return void
 	 */
 	public void BFScount(int vertexNum) {
 		
@@ -134,7 +132,6 @@ public class BFS {
 	 * 
 	 * TODO
 	 * @param vertexNum 顶点个数
-	 * @return void
 	 */
 	public void loopDetected(int vertexNum) {
 		
@@ -151,7 +148,7 @@ public class BFS {
 		rs = new ArrayList<>(vertexNum);
 	}
 	
-	// 图的广度优先遍历 测试
+	/** 图的广度优先遍历 测试 */
 	@Test
 	public void testBFS() {
 		beforeTest(DFS.MULTI);
@@ -159,7 +156,7 @@ public class BFS {
 		System.out.println(rs);
 	}
 	
-	// 单源路径 广度优先遍历 测试
+	/** 单源路径 广度优先遍历 测试 */
 	@Test
 	public void testSingleSourcePath() {
 		beforeTest(DFS.MULTI);

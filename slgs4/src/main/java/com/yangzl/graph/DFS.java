@@ -180,7 +180,6 @@ public class DFS {
 	 *  判断当前节点的邻接节点是否在list中，即可知道是否有环
 	 * 
 	 * @param vertexNum 顶点的个数
-	 * @return void
 	 */
 	public void cycleDetected(int vertexNum) {
 		for (int v = 0; v < vertexNum; ++v) {
@@ -230,7 +229,7 @@ public class DFS {
 	 * 	4	2
 	 * 		5
 	 * 	6
-	 * @param vertexNum
+	 * @param vertexNum n
 	 * @return boolean
 	 */
 	public boolean binaryGraph(int vertexNum) {
@@ -270,7 +269,7 @@ public class DFS {
 		rs = new ArrayList<>(vertexNum);
 	}
 	
-	// 单连通分量图的深度优先遍历
+	/** 单连通分量图的深度优先遍历 */
 	@Test
 	public void testDFS() {
 		beforeTest(GRAPH);
@@ -278,7 +277,7 @@ public class DFS {
 		System.out.println(rs);
 	}
 
-	// 深度优先遍历求无向图的连通分量，连通分量的个数
+	/** 深度优先遍历求无向图的连通分量，连通分量的个数 */
 	@Test
 	public void testDFSMulti() {
 		// 多连通分量的图
@@ -288,20 +287,20 @@ public class DFS {
 		System.out.printf("连通分量的个数为: %d", rs.size());
 	}
 	
-	// 测试单源路径
+	/** 测试单源路径 */
 	@Test
 	public void testSingleSourcePath() {
 		beforeTest(MULTI);
 		System.out.println(singleSourcePath(0, 3));
 	}
-	// 测试递归无法终止
+	/** 测试递归无法终止 */
 	@Test
 	public void testSingleSourceNoReturn() {
 		beforeTest(MULTI);
 		singleSourcePathNoReturn(0, 3);
 	}
 	
-	// 检测图的环测试
+	/** 检测图的环测试 */
 	@Test
 	public void testCycleDetection() {
 		beforeTest(MULTI);
@@ -309,7 +308,7 @@ public class DFS {
 		System.out.println(rs);
 	}
 	
-	// 二分图检测测试
+	/** 二分图检测测试 */
 	@Test
 	public void testBinaryGraph() {
 		beforeTest(GRAPH);

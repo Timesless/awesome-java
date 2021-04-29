@@ -22,7 +22,7 @@ import java.util.stream.IntStream;
  */
 public class GraphMatrix extends AbstractGraph {
 	
-	// 矩阵
+	/** 邻接矩阵实现图 */
 	private int[][] matrix;
 	
 	// 构造函数

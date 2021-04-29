@@ -1,9 +1,9 @@
 package com.yangzl.datastructure;
 
 /**
- * @Author yangzl
- * @Date 2019/10/26 12:55
- * @Desc 带头节点单链表实现栈，链表是动态数据结构不用判断isFull
+ * @author yangzl
+ * @date 2019/10/26 12:55
+ * @desc 带头节点单链表实现栈，链表是动态数据结构不用判断isFull
  */
 public class LinkedStack<E> {
 	private int size;
@@ -23,9 +23,9 @@ public class LinkedStack<E> {
 		}
 	}
 	
-	// 是否为空
+	/** 是否为空 */
 	public boolean isEmpty() { return this.size == 0; }
-	// 存储元素个数
+	/** 存储元素个数 */
 	public int size() { return this.size; }
 	
 	// 应采用头插法，这样不需要反向遍历
@@ -34,7 +34,7 @@ public class LinkedStack<E> {
 		++size;
 	}
 	
-	// 弹出栈顶节点
+	/** 弹出栈顶节点 */
 	public E pop() {
 		if (isEmpty()) { throw new IndexOutOfBoundsException("栈空"); }
 		E res = head.next.val;
@@ -43,7 +43,7 @@ public class LinkedStack<E> {
 		return res;
 	}
 	
-	// 查看栈顶节点的值
+	/** 查看栈顶节点的值 */
 	public E peek() {
 		if (isEmpty()) { throw new IndexOutOfBoundsException("栈空"); }
 		return head.next.val;

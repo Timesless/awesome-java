@@ -7,9 +7,9 @@ import java.util.Arrays;
 import java.util.Queue;
 
 /**
- * @Author yangzl
- * @Date 2020/3/29 11:57
- * @Desc .. 广度优先搜索
+ * @author yangzl
+ * @date 2020/3/29 11:57
+ * @desc .. 广度优先搜索
  */
 public class BFS {
 

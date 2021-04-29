@@ -30,7 +30,7 @@ import java.util.TreeSet;
  */
 public class GraphTable extends AbstractGraph {
 	
-	// 邻接表
+	/** 邻接表实现图 */
 	private TreeSet<Integer>[] table;
 	
 	public GraphTable(String graphText) {

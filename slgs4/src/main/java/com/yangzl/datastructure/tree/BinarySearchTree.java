@@ -1,9 +1,9 @@
 package com.yangzl.datastructure.tree;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/3 20:09
- * @Desc: .. 二叉搜索树 | 二叉排序树，正式版本可作为参考
+ * @author yangzl
+ * @date 2019/12/3 20:09
+ * @desc .. 二叉搜索树 | 二叉排序树，正式版本可作为参考
  */
 public class BinarySearchTree {
 	
@@ -20,8 +20,8 @@ public class BinarySearchTree {
 	}
 	
 	/**
-	 * @Date: 2019/12/3 前中后序遍历
-	 * @Desc: 
+	 * @date 2019/12/3 前中后序遍历
+	 * @desc
 	 */
 	public void preOrder() {
 		if (null == root) { return; }
@@ -36,8 +36,8 @@ public class BinarySearchTree {
 		postOrder(this.root);
 	}
 	/**
-	 * @Date: 2019/12/3 重载提供实现
-	 * @Desc:  这里直接使用的node.val就没有使用Node类的toString()
+	 * @date 2019/12/3 重载提供实现
+	 * @desc 这里直接使用的node.val就没有使用Node类的toString()
 	 */
 	private void preOrder(Node node) {
 		System.out.print(node.val + " ");
@@ -56,8 +56,8 @@ public class BinarySearchTree {
 	}
 	
 	/**
-	 * @Date: 2019/12/3 添加节点
-	 * @Desc: 
+	 * @date 2019/12/3 添加节点
+	 * @desc
 	 */
 	public void add(int val) { root = add(val, root); }
 	// 重载提供实现

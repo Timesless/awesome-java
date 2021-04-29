@@ -1,9 +1,9 @@
 package com.yangzl.datastructure.linked;
 
 /**
- * @Author: yangzl
- * @Date: 2019/10/22 19:53
- * @Desc:
+ * @author yangzl
+ * @date 2019/10/22 19:53
+ *
  * 	带头节点的单链表
  * 	由于head节点始终标识单链表开始，所以head节点不变，需定义临时节点来遍历链表
  *  2种实现方式size，一种通过size获取到元素总数，一种每次都遍历整个链表取值， 下列方法使用2种混合实现。
@@ -49,7 +49,7 @@ public class SingleLinkedList {
 	
 	// 从尾节点删除
 	public void remove() { this.remove(size - 1); }
-	/*
+	/**
 	 * 索引删除
 	 * 注：这里未实现通过元素删除，因为这里数据类型和index类型都是int
 	 */
@@ -88,7 +88,7 @@ public class SingleLinkedList {
 		return second.val;
 	}
 	
-	/*
+	/**
 	 * 反转当前链表
 	 * head -> 1 -> 2 -> 3
 	 * reverseHead采用头插 -> 3 -> 2 -> 1
@@ -147,7 +147,7 @@ public class SingleLinkedList {
 		return sb.append("]").toString();
 	}
 	
-	/*
+	/**
 	 * 合并两个有序链表为有序链表
 	 */
 	public static SingleLinkedList merge2List(SingleLinkedList list1, SingleLinkedList list2) {

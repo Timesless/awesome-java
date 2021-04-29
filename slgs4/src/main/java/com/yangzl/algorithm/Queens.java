@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Author yangzl
- * @Date 2019/10/26 17:25
- * @Desc ..
+ * @author yangzl
+ * @date 2019/10/26 17:25
+ *
  * 解八皇后。Tips：JVM在编译时会解八皇后
  * 使用一维数组代替本该需要的二维数组。
  * int[] ary = {0, 4, 7, 5, 2, 1, 6, 3}

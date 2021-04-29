@@ -3,15 +3,15 @@ package com.yangzl.datastructure.tree;
 import org.junit.jupiter.api.Test;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/3 22:20
- * @Desc: ..
+ * @Author yangzl
+ * @date 2019/12/3 22:20
+ * @desc ..
  */
 public class AvlTest {
 
 	/**
-	 * @Date: 2019/12/3
-	 * @Desc: 左旋测试
+	 * @date 2019/12/3
+	 * @desc 左旋测试
 	 */
 	@Test
 	public void leftRotate() {
@@ -23,8 +23,8 @@ public class AvlTest {
 	}
 	
 	/**
-	 * @Date: 2019/12/3
-	 * @Desc: 右旋测试
+	 * @date 2019/12/3
+	 * @desc 右旋测试
 	 */
 	@Test
 	public void rightRotate() {
@@ -36,8 +36,8 @@ public class AvlTest {
 	}
 	
 	/**
-	 * @Date: 2019/12/3
-	 * @Desc: 左右双旋，注意左旋是指当前节点即k3的左子树即k1左旋，右旋是当前节点的树右旋
+	 * @date 2019/12/3
+	 * @desc 左右双旋，注意左旋是指当前节点即k3的左子树即k1左旋，右旋是当前节点的树右旋
 	 */
 	@Test
 	public void leftRightRotate() {
@@ -49,8 +49,8 @@ public class AvlTest {
 	}
 
 	/**
-	 * @Date: 2019/12/3
-	 * @Desc: 右左双旋，注意右旋是指当前节点即k3的右子树即k2左旋，左旋是当前节点的树左旋
+	 * @date 2019/12/3
+	 * @desc 右左双旋，注意右旋是指当前节点即k3的右子树即k2左旋，左旋是当前节点的树左旋
 	 */
 	@Test
 	public void rightLeftRotate() {

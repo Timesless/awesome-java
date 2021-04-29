@@ -5,13 +5,12 @@ import java.util.Collection;
 /**
  * @author yangzl
  * @date 2020/10/7 17:35
- * @desc
  */
 public abstract class AbstractGraph implements Graph {
 
-	// 顶点
+	/** 顶点 */
 	protected int V;
-	// 边
+	/** 边 */
 	protected int E;
 
 	@Override
@@ -20,6 +19,13 @@ public abstract class AbstractGraph implements Graph {
 	@Override
 	public int E() { return E; }
 
+	/**
+	 * 两个顶点之间是否存在边「是否相连」
+	 *
+	 * @param v1 v1
+	 * @param v2 v2
+	 * @return bool
+	 */
 	public abstract boolean hasEdge(int v1, int v2);
 
 	public abstract Collection<Integer> adj(int v);

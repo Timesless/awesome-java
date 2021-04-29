@@ -3,9 +3,9 @@ package com.yangzl.datastructure.linked;
 import java.util.stream.IntStream;
 
 /**
- * @Author: yangzl
- * @Date: 2019/11/9 16:42
- * @Desc: .. 单向环形链表
+ * @author yangzl
+ * @date 2019/11/9 16:42
+ * @desc .. 单向环形链表
  * 		需要一个指向第一个节点的指针，类似于单链表的head节点
  * 		遍历：辅助指针，当tmp.next = first时遍历结束
  * 		解决约瑟夫问题：	
@@ -25,7 +25,7 @@ public class CircleSingleLinkedList {
 	int size;
 	public CircleSingleLinkedList() { this.first = new Node(-1); }
 
-	/*
+	/**
 	 * 数数并出圈，这里未rangeCheck(start, step)
 	 * start：第几个开始
 	 * step： 步长 > 1
@@ -56,12 +56,12 @@ public class CircleSingleLinkedList {
 		}
 	}
 
-	/* 初始化约瑟夫环 */
+	/** 初始化约瑟夫环 */
 	public void initialJosepfu(int num) {
 		IntStream.rangeClosed(1, num).forEach(this::add);
 	}
 	
-	/* 添加，第一个元素要把被first引用 */
+	/** 添加，第一个元素要把被first引用 */
 	private void add(int val) {
 		Node node = new Node(val);
 		if(null == first.next) {
@@ -90,7 +90,7 @@ public class CircleSingleLinkedList {
 		return sb.toString();
 	}
 
-	// 测试
+	/** 测试 */
 	public static void main(String[] args) {
 		CircleSingleLinkedList list = new CircleSingleLinkedList();
 		list.initialJosepfu(5);

@@ -1,9 +1,9 @@
 package com.yangzl.datastructure;
 
 /**
- * @Author yangzl
- * @Date 2020/2/11 21:11
- * @Desc .. 链表实现映射
+ * @author yangzl
+ * @date 2020/2/11 21:11
+ * @desc .. 链表实现映射
  * 	当要找到前一个元素时使用dummyHead，当要找到当前元素时使用dummyHead.next
  */
 public class LinkedMap<K, V> implements Map<K, V> {
@@ -71,8 +71,13 @@ public class LinkedMap<K, V> implements Map<K, V> {
 		Node<K, V> res = getNode(k);
 		return res == null ? null : res.v;
 	}
-	
-	// 获取k对应的节点
+
+	/**
+	 * 获取k对应的节点
+	 *
+	 * @param k k
+	 * @return Node
+	 */
 	private Node<K, V> getNode(K k) {
 		Node<K, V> p = dummyHead.next;
 		while (p != null)  {

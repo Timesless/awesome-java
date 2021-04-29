@@ -1,9 +1,9 @@
 package com.yangzl.datastructure;
 
 /**
- * @Author yangzl
- * @Date 2020/2/15 20:51
- * @Desc .. 左倾红黑树 == 2-3树
+ * @author yangzl
+ * @date 2020/2/15 20:51
+ * @desc .. 左倾红黑树 == 2-3树
  * MaxHeight = 2logN，当所有节点都是3节点，那么会多logN的红节点
  *
  * 	TODO

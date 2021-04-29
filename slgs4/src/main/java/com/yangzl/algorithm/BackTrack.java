@@ -29,6 +29,7 @@ public class BackTrack {
 	// =======================================================================
 	// 131 分割回文串
 	// =======================================================================
+
 	List<List<String>> rs = new ArrayList<>();
 	public List<List<String>> partitionPalindrome(String s) {
 		int n  = s.length();
@@ -60,7 +61,7 @@ public class BackTrack {
 			}
 		}
 	}
-	// 双指针
+	/** 双指针 */
 	private boolean isPalindrome(String s, int start, int end) {
 		while (start < end) 
 			if (s.charAt(start++) != s.charAt(end--))
@@ -71,10 +72,11 @@ public class BackTrack {
 	// =======================================================================
 	// 17 电话号码字符串组合
 	// =======================================================================
+
 	final String[] letters = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 	/**
-	 * @Date 2020/2/18
-	 * @Desc 组合9键的字母
+	 * @date 2020/2/18
+	 * @desc 组合9键的字母
 	 */
 	public List<String> letterCombinations(String digits) {
 		List<String> rs = new ArrayList<>();
@@ -97,13 +99,14 @@ public class BackTrack {
 	// =======================================================================
 	// 46 全排列 给定一个没有重复数字的序列，返回其所有可能的全排列。
 	// =======================================================================
+
 	List<List<Integer>> result = new ArrayList<>();
 	public List<List<Integer>> permute(int[] nums) {
 		boolean[] used = new boolean[nums.length];
 		permuteBT(0, nums, used,  new ArrayDeque<>(nums.length));
 		return result;
 	}
-	/*
+	/**
 	 * 处理到idx索引位置
 	 * 区分 idx 和 具体执行时的i
 	 */
@@ -128,6 +131,7 @@ public class BackTrack {
 	// =======================================================================
 	// 77 组合 给定两个整数n和k，返回 1...n 中所有可能的k 个数的组合。即Cnk
 	// =======================================================================
+
 	public List<List<Integer>> combine(int n, int k) {
 		// 复用result
 		if (k < 1 || n < k) return result;
@@ -168,7 +172,7 @@ public class BackTrack {
 	// 78 子集 不包含重复元素的整数数组nums，返回该数组所有可能的子集
 	// [1,2] 输出 [[],[1],[2],[1,2]]
 	// =======================================================================
-	/*
+	/**
 	 * 每个数选或不选，构成满二叉树
 	 */
 	public List<List<Integer>> subsets(int[] nums) {
@@ -193,6 +197,7 @@ public class BackTrack {
 	// 90 子集2 给定一个可能包含重复元素的整数数组nums，返回该数组所有可能的子集，子集不重复
 	// [1,2,2] 输出[[2],[1],[1,2,2],[2,2],[1,2],[]]
 	// =======================================================================
+
 	public List<List<Integer>> subsetsWithDup(int[] nums) {
 		rs.add(new ArrayList<>());
 		if (nums.length == 0) return result;
@@ -225,6 +230,7 @@ public class BackTrack {
 	// 12 矩阵中是否存在一条包含某字符串所有字符的路径。从矩阵中的任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。
 	// 如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子
 	// =====================================================================
+
 	public boolean exist(char[][] board, String word) {
 		if (word.length() == 0) return false;
 		int rows = board.length, cols = board[0].length;
@@ -235,7 +241,7 @@ public class BackTrack {
 					return true;
 		return false;
 	}
-	// 字符串处理到idx索引处
+	/** 字符串处理到idx索引处 */
 	private boolean existBackTrace(int row, int col, int rows, int cols,
 								   char[][] board, boolean[] visited, String word, int idx) {
 		// 前面所有的都已匹配，返回true

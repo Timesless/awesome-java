@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author yangzl
  * @date 2020/2/15
- * @Desc  前缀树，字典树。 Trie 念 try
+ * @desc  前缀树，字典树。 Trie 念 try
  */
 public class Trie {
     /**

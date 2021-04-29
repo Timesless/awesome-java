@@ -1,9 +1,9 @@
 package com.yangzl.datastructure.linked;
 
 /**
- * @Author: yangzl
- * @Date: 2019/10/27 15:22
- * @Desc: ..	双向链表
+ * @author yangzl
+ * @date 2019/10/27 15:22
+ * @desc ..	双向链表
  * 
  * 		可实现自我删除，找到要删除的节点 tmp
  * 			Node prev = tmp.prev;	// 因为有头节点，所以这里可直接 tmp.prev.next = tmp.next

@@ -38,19 +38,43 @@ import java.util.Collection;
 
 // 无向无权图
 public interface Graph {
-	
-	// 两个顶点是否联通
+
+	/**
+	 * 两个顶点是否联通
+	 *
+	 * @param v1 v1
+	 * @param v2 2
+	 * @return bool
+	 */
 	boolean hasEdge(int v1, int v2);
-	
-	// 顶点的相邻边
+
+	/**
+	 *  顶点的相邻边
+	 *
+	 * @param v v
+	 * @return list
+	 */
 	Collection<Integer> adj(int v);
-	
-	// 返回该顶点的度
+
+	/**
+	 * 返回该顶点的度
+	 *
+	 * @param v v
+	 * @return int
+	 */
 	int degree(int v);
-	
-	// 返回图多少顶点
+
+	/**
+	 * 返回图多少顶点
+	 *
+	 * @return int
+	 */
 	int V();
-	
-	// 返回图有多少边
+
+	/**
+	 * 返回图有多少边
+	 *
+	 * @return int
+	 */
 	int E();
 }

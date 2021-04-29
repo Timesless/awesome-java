@@ -3,9 +3,9 @@ package com.yangzl.datastructure;
 import org.omg.CORBA.Object;
 
 /**
- * @Author yangzl
- * @Date 2019/10/26 12:55
- * @Desc 数组实现栈
+ * @author yangzl
+ * @date 2019/10/26 12:55
+ * @desc 数组实现栈
  */
 public class ArrayStack<E> {
 
@@ -27,22 +27,34 @@ public class ArrayStack<E> {
 	 */
 	public boolean isFull() { return size == ele.length; }
 	public boolean isEmpty() { return size == 0; }
-	
-	// 入栈
+
+	/**
+	 * 入栈
+	 *
+	 * @param val v
+	 */
 	public void push(E val) {
 		if(isFull()) { throw new IndexOutOfBoundsException("栈满"); }
 		ele[++top] = val;
 		size++;
 	}
-	
-	// 出栈
+
+	/**
+	 * 出栈
+	 *
+	 * @return e
+	 */
 	public E pop() {
 		if(isEmpty()) { throw new IndexOutOfBoundsException("空栈"); }
 		size--;
 		return ele[top--];
 	}
-	
-	// 查看栈顶元素
+
+	/**
+	 * 查看栈顶元素
+	 *
+	 * @return e
+	 */
 	private E peek() { return ele[top]; }
 
 	@Override

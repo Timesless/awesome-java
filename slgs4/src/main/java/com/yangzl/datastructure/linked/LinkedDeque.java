@@ -1,9 +1,9 @@
 package com.yangzl.datastructure.linked;
 
 /**
- * @Author: yangzl
- * @Date: 2020/2/11 13:51
- * @Desc: .. 切勿犯“完美主义”的错误
+ * @author yangzl
+ * @date 2020/2/11 13:51
+ * @desc .. 切勿犯“完美主义”的错误
  * 
  * 		TODO
  */

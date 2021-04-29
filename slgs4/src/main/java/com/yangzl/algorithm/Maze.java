@@ -1,15 +1,15 @@
 package com.yangzl.algorithm;
 
 /**
- * @Author yangzl
- * @Date 2019/10/26 21:14
- * @Desc ..	递归 + 回溯解迷宫
+ * @author yangzl
+ * @date 2019/10/26 21:14
+ * @desc ..	递归 + 回溯解迷宫
  * 使用一个矩阵来表示迷宫，0表示还未走过的路径，1表示路障，2表示通路，3表示走过的路径但无解
  */
 public class Maze {
 	private final int rows, cols;
 	private final int[][] matrix;
-	/*
+	/**
 	 * 0还未走过 1路障 2通路 3该路径走不通
 	 */
 	static final char YET = 0, ROAD_BLOCK = 1, ACCESS = 2, DEATH = 3;
@@ -35,7 +35,7 @@ public class Maze {
 		print();
 	}
 	
-	/*
+	/**
 	 * 解迷宫
 	 * 坐标，从哪开始
 	 * 需要定义规则： 下，右，上，左
@@ -62,7 +62,7 @@ public class Maze {
 		return false;
 	}
 	
-	/*
+	/**
 	 * 打印当前迷宫
 	 */
 	private void print() {

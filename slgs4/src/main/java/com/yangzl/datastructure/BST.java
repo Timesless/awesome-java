@@ -42,8 +42,8 @@ public class BST<E extends Comparable<? super E>> {
 	public int size() { return this.size; }
 	public boolean isEmpty() { return this.size == 0; }
 	/**
-	 * @Date 2019/12/3 前中后序遍历，是DFS
-	 * @Desc 以下的判断可以在递归的例程进行判断，这样就无须判断多次
+	 * @date 2019/12/3 前中后序遍历，是DFS
+	 * @desc 以下的判断可以在递归的例程进行判断，这样就无须判断多次
 	 * 		对每个节点有三次机会进行访问，所以前中后遍历只是选择某次机会进行访问
 	 */
 	public void preOrder() {
@@ -80,8 +80,8 @@ public class BST<E extends Comparable<? super E>> {
 	}
 	
 	/**
-	 * @Date 2020/2/11
-	 * @Desc 中序遍历非递归实现
+	 * @date 2020/2/11
+	 * @desc 中序遍历非递归实现
 	 */
 	public void inOrderNR() {
 		if (null == root)
@@ -100,8 +100,8 @@ public class BST<E extends Comparable<? super E>> {
 	}
 	
 	/**
-	 * @Date 2020/2/11
-	 * @Desc  广度优先遍历，借助队列实现
+	 * @date 2020/2/11
+	 * @desc  广度优先遍历，借助队列实现
 	 */
 	public void BFS() {
 		Queue<Node<E>> queue = new ArrayDeque<>(this.size);
@@ -117,14 +117,14 @@ public class BST<E extends Comparable<? super E>> {
 	}
 
 	/**
-	 * @Date 2019/12/3 添加节点
-	 * @Desc 重载提供实现
+	 * @date 2019/12/3 添加节点
+	 * @desc 重载提供实现
 	 */
 	public void add(E val) { root = this.add(val, root); }
 	
 	/**
-	 * @Date 2020/2/11
-	 * @Desc 是否包含元素
+	 * @date 2020/2/11
+	 * @desc 是否包含元素
 	 */
 	public boolean contains(E e) { return this.contains(root, e); }
 	
@@ -138,8 +138,8 @@ public class BST<E extends Comparable<? super E>> {
 	}
 	
 	/**
-	 * @Date 2020/2/11 删除节点
-	 * @Desc 只有一个子树时，用子树替代删除节点
+	 * @date 2020/2/11 删除节点
+	 * @desc 只有一个子树时，用子树替代删除节点
 	 * 		左右子树都存在时，用左子树的最大节点或右子树的最小节点代替删除节点
 	 */
 	public void remove(E e) { root = remove(root, e); }
@@ -149,8 +149,8 @@ public class BST<E extends Comparable<? super E>> {
 	// ======================================================================
 
 	/**
-	 * @Date 2019/12/3 重载提供实现
-	 * @Desc 这样判断可节约栈帧
+	 * @date 2019/12/3 重载提供实现
+	 * @desc 这样判断可节约栈帧
 	 */
 	private void preOrder(Node<E> node) {
 		System.out.print(node.val + " ");
@@ -199,7 +199,7 @@ public class BST<E extends Comparable<? super E>> {
 	}
 
 	/**
-	 * @Date 2020/2/11
+	 * @date 2020/2/11
 	 * 当前节点作为根节点上最小值的节点
 	 */
 	private Node<E> minimun(Node<E> node) {
