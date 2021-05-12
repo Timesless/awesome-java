@@ -7,7 +7,6 @@ import java.util.*;
 /**
  * @author yangzl
  * @date 2020/3/31 13:50
- * @desc ..
  */
 
 public class Tree {
@@ -22,7 +21,7 @@ public class Tree {
 		public TreeNode(int _val) { this.val = _val; }
 	}
 
-	// N叉树节点类
+	/** N叉树节点类 */
 	private static class Node {
 		int val;
 		List<Node> children;
@@ -95,7 +94,6 @@ public class Tree {
 		return rs;
 	}
 
-	
 	/**
 	 * @date 2020/4/3
 	 *   之字形层序遍历
@@ -229,6 +227,4 @@ public class Tree {
 		}
 		return rs;
 	}
-
-
 }

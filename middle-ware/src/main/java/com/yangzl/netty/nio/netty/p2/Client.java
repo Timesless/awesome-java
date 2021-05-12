@@ -14,9 +14,8 @@ import io.netty.handler.codec.string.StringEncoder;
 import java.util.Scanner;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/1 17:22
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/1/1 17:22
  */
 public class Client {
 

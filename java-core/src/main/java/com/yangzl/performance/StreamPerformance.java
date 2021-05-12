@@ -10,7 +10,8 @@ import java.util.Objects;
 /**
  * @author yangzl
  * @date 2020/12/2 22:39
- * @desc Stream API 性能测试
+ *
+ * Stream API 性能测试
  */
 public class StreamPerformance {
 	

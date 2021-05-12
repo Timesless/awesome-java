@@ -11,8 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author yangzl
  * @date 2021/3/19
- * @desc
- * 			CAS ==> compare and swap
+ *
+ * 		CAS ==> compare and swap
  * 		「OS 提供的指令」
  * 			1. COMPARE AND SWAP
  * 			2. TEST AND SWAP

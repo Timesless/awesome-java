@@ -7,8 +7,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2021/3/14
- * @desc	Q：方法中定义的局部变量是否线程安全？
- * 		A：取决于 局部变量 是否发生逃逸
+ *
+ * Q：方法中定义的局部变量是否线程安全？
+ * A：取决于 局部变量 是否发生逃逸
  */
 public class LocalVariableThreadSafe {
 

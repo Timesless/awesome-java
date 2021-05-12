@@ -6,7 +6,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2020/1/4 23:47
- * @desc 信号量
+ *
+ * 信号量
  * 			1. 资源互斥
  * 			2. 控制并发线程数「做限流，同时 10w 请求只放入 1000，最后这 1000 再抢 100 台手机」
  * 	注意在 finally 块中释放 permits

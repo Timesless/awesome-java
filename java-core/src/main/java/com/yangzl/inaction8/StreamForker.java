@@ -18,12 +18,20 @@ import java.util.stream.StreamSupport;
 /**
  * @author yangzl
  * @date 2020/11/25 00:32
- * @desc 可同时获取多个结果的流
+ *
+ * 可同时获取多个结果的流
  */
 
 public class StreamForker<T> {
 	
 	interface Results {
+		/**
+		 * 异步回调获取结果
+		 *
+		 * @param key key
+		 * @param <R> 泛型参数
+		 * @return R
+		 */
 		<R> R get(Object key);
 	}
 	

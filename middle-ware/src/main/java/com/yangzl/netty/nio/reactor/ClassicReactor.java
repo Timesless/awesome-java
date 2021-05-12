@@ -12,9 +12,10 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * @Author: yangzl
+ * @author yangzl
  * @date 2020/3/14 13:53
- * @desc .. 经典Reactor模式（Scalable I/O in Java） -> 单线程
+ *
+ * 经典Reactor模式（Scalable I/O in Java） -> 单线程
  * Reactor Pattern
  * 		<em>Reactor</em> responds to IO events by dispatching the appropriate handler
  * 		<em>Handlers</em> perform non-blocking actions 
@@ -104,7 +105,7 @@ public class ClassicReactor implements Runnable {
 	}
 }
 
-/*
+/**
  *  IOHandler I/O读写处理器
  */
 class IOHandler implements Runnable {
@@ -129,7 +130,7 @@ class IOHandler implements Runnable {
 		// TODO 为什么这里注册0呢?，根本没有0事件
 		sk = client.register(selector, 1);
 		/*
-		 * try fisrt read now
+		 * try first read now
 		 * 将自己绑定到当前SelectionKey
 		 */
 		sk.attach(this);

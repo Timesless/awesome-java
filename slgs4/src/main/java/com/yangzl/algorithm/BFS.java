@@ -9,7 +9,8 @@ import java.util.Queue;
 /**
  * @author yangzl
  * @date 2020/3/29 11:57
- * @desc .. 广度优先搜索
+ *
+ * 广度优先搜索
  */
 public class BFS {
 
@@ -20,6 +21,7 @@ public class BFS {
 	// 请返回该海洋区域到离它最远的陆地区域的距离。如果我们的地图上只有陆地或者海洋，返回 -1
 	//我们这里说的距离是『曼哈顿距离』（ Manhattan Distance）：(x0, y0) 和 (x1, y1) 这两个区域之间的距离是 |x0 - x1| + |y0 - y1| 。
 	// =======================================================================
+
 	public int maxDistance(int[][] grid) {
 
 		// 多源广度优先

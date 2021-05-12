@@ -6,12 +6,13 @@ import java.util.List;
 /**
  * @author yangzl
  * @date 2020/2/15
- * @desc  前缀树，字典树。 Trie 念 try
+ * 
+ * 前缀树，字典树。 Trie 念 try
  */
 public class Trie {
     /**
      * @date 2020/2/14
-     * @desc 这个节点类，真的是太沙雕了
+     * 这个节点类，真的是太沙雕了
      */
     static class Node {
         boolean isWord;

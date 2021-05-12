@@ -8,7 +8,8 @@ import java.util.concurrent.locks.Lock;
 /**
  * @author yangzl
  * @date 2020/6/7 11:41
- * @desc Java并发编程之美：基于AQS实现非重入锁
+ *
+ * Java并发编程之美：基于AQS实现非重入锁
  *
  *  AQS是一个FIFO双向队列，通过head，tail记录队首队尾元素，队列元素类型Node
  *  Node中thread存放进入AQS队列的线程
@@ -30,10 +31,10 @@ import java.util.concurrent.locks.Lock;
  */
 public class NonReentrantLock implements Lock {
 
-    // 创建嵌套类对象
+    /** 聚合了一个锁对象, 委托该对象实现加解锁 */
     private final Sync sync = new Sync();
 
-    // 对外提供的接口
+    /** 对外提供的接口 */
     @Override
     public void lock() {
         sync.acquire(1);

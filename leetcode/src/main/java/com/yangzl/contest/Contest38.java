@@ -10,7 +10,8 @@ import java.util.stream.Collectors;
 /**
  * @author yangzl
  * @date 2020/10/31 22:23
- * @desc
+ *
+ * leetcode 双周赛第 38 场
  */
 public class Contest38 {
 
@@ -279,7 +280,7 @@ public class Contest38 {
 
 	}
 	
-	/*
+	/**
 	 * 34. 在排序数组中查找元素的第一个和最后一个位置
 	 * 请设计 O(log n)来解决此问题
 	 * nums = [5,7,7,8,8,10], target = 8

@@ -6,7 +6,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2020/12/26 15:37
- * @desc Netty时间轮调度算法
+ *
+ * Netty时间轮调度算法
  * 
  * 	「tips：如果只是无限循环cpu负载过高，使用时间轮若任务在tickDuration以内完成那么Thread可以sleep」
  * 

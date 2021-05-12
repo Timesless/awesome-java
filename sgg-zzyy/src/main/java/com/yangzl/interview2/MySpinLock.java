@@ -9,7 +9,6 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * @author yangzl
  * @date 2021/3/20
- * @desc
  * 		实现一个自旋锁
  */
 @Slf4j

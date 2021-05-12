@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 /**
  * @author yangzl
  * @date 2020/12/22 23:28
- * @desc BTrace测试
- * 
+ *
+ * BTrace测试
  * 	BTrace可以动态修改程序，是因为它基于Instrument，它是JVMTI「Java Vitrual Machine Tool Interface」的重要组件
  * 		提供一套代理「Agent」机制，使第三方程序可以代理的方式访问和修改JVM内部的数据，如Alibaba的「Arthas」
  */

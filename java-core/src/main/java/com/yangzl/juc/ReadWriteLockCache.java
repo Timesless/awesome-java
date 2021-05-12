@@ -13,7 +13,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * @author yangzl
  * @date 2020/1/5 00:06
- * @desc Interface ReadWriteLock
+ *
+ * Interface ReadWriteLock
  * 		实现一个线程安全的读写分离缓存
  *
  * 	ReentrantReadWriteLock 高16位表示读锁，低16位表示写锁
@@ -53,9 +54,10 @@ public class ReadWriteLockCache {
 	 * @return obj
 	 */
 	private Object get(String k) {
-		Object rs = null;
-		readLock.lock();
+		Object rs;
 		String threadName = Thread.currentThread().getName();
+		final Lock lock = this.readLock;
+		lock.lock();
 		try {
 			log.info("{} 读取数据", threadName);
 			rs = map.get(k);

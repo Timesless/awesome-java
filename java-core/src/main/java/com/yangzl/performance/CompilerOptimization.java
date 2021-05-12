@@ -10,7 +10,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2020/11/29 14:10
- * @desc 编译器的优化
+ *
+ * 编译器的优化
  * 		 fibnacci 的结果从未被使用，智能的编译器最终执行的代码只有时间的计算 0ms
  * 			实际上，将局部变量l的定义改为实例变量（并用关键字volatile声明）就能测试这个方法的性能了
  * 		这里并没有预热，等server编译器编译之后应该会优化
@@ -86,7 +87,6 @@ import java.util.concurrent.TimeUnit;
  * 		2. 事实上，根本不需要分配对象，只需要这个对象的个别字段
  * 	
  */
-
 public class CompilerOptimization {
 	
 	private double answer;

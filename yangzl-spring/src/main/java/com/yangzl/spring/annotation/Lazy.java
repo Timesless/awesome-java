@@ -8,7 +8,8 @@ import java.lang.annotation.Target;
 /**
  * @author yangzl
  * @date 2021/3/29
- * @desc
+ *
+ * 标注了该注解的 bean 是 lazy bean
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})

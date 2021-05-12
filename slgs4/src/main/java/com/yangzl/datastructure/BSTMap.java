@@ -3,7 +3,8 @@ package com.yangzl.datastructure;
 /**
  * @author yangzl
  * @date 2020/2/11 21:51
- * @desc .. 二叉查找映射
+ *
+ * 二叉查找映射
  */
 public class BSTMap<K extends Comparable<? super K>, V> implements Map<K, V> {
 

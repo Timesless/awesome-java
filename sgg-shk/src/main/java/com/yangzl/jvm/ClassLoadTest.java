@@ -10,7 +10,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2021/3/12
- * @desc	JVM 类加载
+ *
+ * JVM 类加载
  *
  * 所有被 JVM 识别的字节码文件都以魔数「0xcafebabe」开头
  * 主要包含 4 种验证：文件格式、元数据、字节码、符号引用

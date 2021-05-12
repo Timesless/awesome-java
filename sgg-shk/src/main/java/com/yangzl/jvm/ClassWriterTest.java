@@ -6,7 +6,8 @@ import jdk.internal.org.objectweb.asm.Opcodes;
 /**
  * @author yangzl
  * @date 2021/3/14
- * @desc	测试 Java8 元空间类 OOM
+ *
+ * 测试 Java8 元空间类 OOM
  *
  * -XX:MetaspaceSize=10m -XX:MaxMetaspaceSize=10m
  */

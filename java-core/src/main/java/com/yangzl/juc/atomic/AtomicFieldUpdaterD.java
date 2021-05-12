@@ -8,14 +8,14 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 /**
  * @author yangzl
  * @date 2020/12/28 16:49
- * @desc 字段原子更新器，当字段为基本类型变量时使用
+ *
+ * 字段原子更新器，当字段为基本类型变量时使用
  * 
  * 		AtomicIntegerFieldUpdater
  * 		AtomicLongFieldUpdater
  * 		AtomicReferenceFieldUpdater	
  * 	
  */
-
 public class AtomicFieldUpdaterD {
 	
 	private static final AtomicIntegerFieldUpdater<AtomicFieldUpdaterD> intUpdater =

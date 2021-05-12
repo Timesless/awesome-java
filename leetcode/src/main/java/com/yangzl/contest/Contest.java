@@ -96,24 +96,20 @@ public class Contest {
 		int idx = 0, ln = s.length();
 		StringBuilder builder = new StringBuilder(ln);
 		while (idx < ln) {
-			Iterator<Map.Entry<Character, Integer>> asc = map.entrySet().iterator();
-			while (asc.hasNext()) {
-				Map.Entry<Character, Integer> ascNext = asc.next();
+			for (Map.Entry<Character, Integer> ascNext : map.entrySet()) {
 				Integer ascValue = ascNext.getValue();
 				if (ascValue > 0) {
 					builder.append(ascNext.getKey());
 					ascNext.setValue(ascValue - 1);
-					idx ++;
-				} 
+					idx++;
+				}
 			}
-			Iterator<Map.Entry<Character, Integer>> desc = map.descendingMap().entrySet().iterator();
-			while (desc.hasNext()) {
-				Map.Entry<Character, Integer> descNext = desc.next();
+			for (Map.Entry<Character, Integer> descNext : map.descendingMap().entrySet()) {
 				Integer descValue = descNext.getValue();
 				if (descValue > 0) {
 					builder.append(descNext.getKey());
 					descNext.setValue(descValue - 1);
-					idx ++;
+					idx++;
 				}
 			}
 		}

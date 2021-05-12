@@ -8,7 +8,8 @@ import java.lang.annotation.Target;
 /**
  * @author yangzl
  * @date 2021/3/29
- * @desc
+ *
+ * 模拟 spring Component 注解实现
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

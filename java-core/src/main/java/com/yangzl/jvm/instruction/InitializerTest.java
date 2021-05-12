@@ -3,8 +3,8 @@ package com.yangzl.jvm.instruction;
 /**
  * @author yangzl
  * @date 2020/12/30 20:14
- * @desc
- * 			对象的创建字节码指令
+ *
+ * 对象的创建字节码指令
  * 		new「JVM层面，分配内存空间初始化0值」
  * 		dup「dup的本质是<init>无返回值，会消耗一个引用」
  * 		invokespecial「<init>()，用户层面构造函数调用」
@@ -20,7 +20,6 @@ package com.yangzl.jvm.instruction;
  * 		3. 访问类的静态字段或对静态字段赋值「final字段除外，static final为常量」
  * 		4. 初始化类的某个子类	
  */
-
 public class InitializerTest {
 	
 	/** 实例变量 */

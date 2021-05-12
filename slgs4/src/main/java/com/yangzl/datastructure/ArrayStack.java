@@ -5,7 +5,8 @@ import org.omg.CORBA.Object;
 /**
  * @author yangzl
  * @date 2019/10/26 12:55
- * @desc 数组实现栈
+ * 
+ * 数组实现栈
  */
 public class ArrayStack<E> {
 
@@ -16,7 +17,7 @@ public class ArrayStack<E> {
 	
 	/**
 	 * @date 2020/2/11
-	 * @desc new Object强转
+	 *  new Object强转
 	 */
 	public ArrayStack(int size) { this.ele = (E[]) new Object[size]; }
 	

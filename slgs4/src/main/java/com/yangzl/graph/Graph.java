@@ -5,8 +5,7 @@ import java.util.Collection;
 /**
  * @author yangzl
  * @date 2020/10/7 15:12
- * @desc
- * 
+ *
  * 	顶点 Vertex
  *		顶点的度（响铃的边数）
  *			出度
@@ -33,10 +32,11 @@ import java.util.Collection;
  * 		邻接表
  * 			LinkedList
  * 			TreeSet
- * 			HashSet	
+ * 			HashSet
+ *
+ * 	无向无权图
  */
 
-// 无向无权图
 public interface Graph {
 
 	/**

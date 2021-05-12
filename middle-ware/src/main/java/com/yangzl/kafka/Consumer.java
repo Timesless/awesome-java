@@ -11,9 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author: yangzl
- * @Date: 2020/8/24 15:14
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/8/24 15:14
+ *
+ * 消费者端
  */
 public class Consumer {
 	

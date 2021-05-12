@@ -11,7 +11,8 @@ import java.util.zip.GZIPOutputStream;
 /**
  * @author yangzl
  * @date 2020/11/29 21:41
- * @desc 序列化与反序列化 调优
+ *
+ * 序列化与反序列化 调优
  */
 public class SerialExternal {
 
@@ -94,7 +95,7 @@ public class SerialExternal {
 		}
 	}
 
-	// 序列化测试
+	/** 序列化测试 */
 	private static void serial() {
 		long t1 = System.currentTimeMillis();
 		try (FileOutputStream out = new FileOutputStream("d:/oop.out");
@@ -113,7 +114,7 @@ public class SerialExternal {
 		System.out.printf("序列化30000 耗时：%d \n", System.currentTimeMillis() - t1);
 	}
 
-	/** unserial */
+	/** un serial */
 	private static Object unserial() {
 		try (FileInputStream in = new FileInputStream("d:/oop.out"); 
 			 final ObjectInputStream oopIn = new ObjectInputStream(in)){

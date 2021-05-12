@@ -5,7 +5,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2020/12/28 13:51
- * @desc 线程中断测试
+ *
+ * 线程中断测试
  * 
  * 	由于子线程在sleep()「阻塞状态，即时被中断也无法设置自己的中断标志位为true」
  * 	在main线程中断子线程，子线程由于不在运行状态而无法设置自己的中断标志中断位，在被catch之后继续执行while循环

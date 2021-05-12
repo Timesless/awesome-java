@@ -52,7 +52,8 @@ public class HuffmanTree {
 
 	/**
 	 * @date 2019/11/17
-	 * @desc 将数组的元素构建为huffmanTree，返回哈夫曼树的根节点
+	 *
+	 * 将数组的元素构建为huffmanTree，返回哈夫曼树的根节点
 	 */
 	public static Node huffmanTree(List<Node> list) {
 		

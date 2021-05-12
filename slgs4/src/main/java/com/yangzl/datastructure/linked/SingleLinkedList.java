@@ -19,11 +19,11 @@ public class SingleLinkedList {
 		}
 	}
 
-	// 数据有效个数
+	/** 数据有效个数 */
 	private int size;
-	// 头节点不存储数据
+	/** 头节点不存储数据 */
 	private final Node head;
-	// 构造器
+	/** 构造器 */
 	public SingleLinkedList() { this.head = new Node(-1); }
 	
 	// 添加到尾节点
@@ -47,8 +47,9 @@ public class SingleLinkedList {
 		size++;
 	}
 	
-	// 从尾节点删除
+	/** 从尾节点删除 */
 	public void remove() { this.remove(size - 1); }
+
 	/**
 	 * 索引删除
 	 * 注：这里未实现通过元素删除，因为这里数据类型和index类型都是int

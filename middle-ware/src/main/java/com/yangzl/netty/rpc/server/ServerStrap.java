@@ -9,9 +9,10 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 /**
- * @Author yangzl
+ * @author yangzl
  * @date 2019/12/27 23:24
- * @desc .. child 为worker设置属性
+ *
+ * child 为worker设置属性
  */
 public class ServerStrap {
 

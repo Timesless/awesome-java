@@ -3,9 +3,10 @@ package com.yangzl.datastructure.tree;
 import org.junit.jupiter.api.Test;
 
 /**
- * @Author yangzl
+ * @author yangzl
  * @date 2019/12/3 22:20
- * @desc ..
+ *
+ * 平衡二叉树 测试
  */
 public class AvlTest {
 

@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 /**
  * @author yangzl
  * @date 2021/3/20
- * @desc 生产者消费者模型
+ *
+ * 生产者消费者模型
  * 			1. synchronized / wait / notify
  * 			2. lock / await / signal
  * 			3. BlockingQueue / volatile / AtomicInteger

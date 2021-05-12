@@ -3,8 +3,8 @@ package com.yangzl.jvm;
 /**
  * @author yangzl
  * @date 2020/12/22 11:42
- * @desc 测试对象分配
- * 
+ *
+ * 测试对象分配
  * 	概念上：对象都在堆分配，也有可能并不分配对象，只使用对象的属性（标量）在栈上分配
  * 
  * 	1. 多数情况下，对象分配在新生代的Eden区，当Eden区没有足够空间分配时，虚拟机将发起一次Minor GC
@@ -21,7 +21,6 @@ package com.yangzl.jvm;
  * 	3. 动态对象年龄判断「Survivor中年龄相同对象的totalSize > totalSurvivor / 2，则大于等于该年龄的对象进入old generation」
  * 	4. 分配担保「老年代连续空间大于新生代对象总大小或历次晋升老年代对象平均大小就进行Minor GC，否则Full GC」
  */
-
 public class AllocationTest {
 	
 	private static final int _1MB = 1024 * 1024;

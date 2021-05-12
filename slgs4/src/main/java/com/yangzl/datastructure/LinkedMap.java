@@ -3,7 +3,8 @@ package com.yangzl.datastructure;
 /**
  * @author yangzl
  * @date 2020/2/11 21:11
- * @desc .. 链表实现映射
+ *
+ * 链表实现映射
  * 	当要找到前一个元素时使用dummyHead，当要找到当前元素时使用dummyHead.next
  */
 public class LinkedMap<K, V> implements Map<K, V> {

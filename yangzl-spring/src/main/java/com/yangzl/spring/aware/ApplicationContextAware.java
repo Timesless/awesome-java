@@ -5,7 +5,8 @@ import com.yangzl.spring.ApplicationContext;
 /**
  * @author yangzl
  * @date 2021/3/29
- * @desc
+ *
+ * 模拟 spring 各种 aware 接口
  */
 public interface ApplicationContextAware {
 

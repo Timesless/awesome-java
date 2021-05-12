@@ -6,10 +6,9 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
- * @Author yangzl
+ * @author yangzl
  * @date 2019/12/28 22:19
- * @desc .. 
- * 
+ *
  * 	NIO Buffer核心概念
  * 		mark, position, limit, capacity
  * 		flip 切换为读模式
@@ -23,7 +22,7 @@ public class NioBuffer {
 
 	/**
 	 * @date 2019/12/29
-	 * @desc 堆外内存
+	 * 堆外内存
 	 */
 	public static void mappedByteBuffer() {
 		try {
@@ -40,8 +39,8 @@ public class NioBuffer {
 	
 	/**
 	 * @date 2019/12/29
-	 * @desc .. 分散：将channel数据依次写入到buffer数组
-	 * 			聚合： 将buffer数组的数据依次写入到channel
+	 *  分散：将channel数据依次写入到buffer数组
+	 * 	聚合： 将buffer数组的数据依次写入到channel
 	 */
 	public static void scatterGather() {
 		

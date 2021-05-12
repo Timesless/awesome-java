@@ -10,7 +10,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2021/3/20
- * @desc Callable 基本认识
+ *
+ * Callable 基本认识
  *
  * 		Runnable
  * 		Future

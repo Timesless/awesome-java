@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2020/11/18 13:33
- * @desc 
  * 
  * 	JVM在做GC之前要等所有的应用线程进入到安全点后VM线程才能分派GC任务
  * 	为了避免程序长时间无法进入safepoint，所以
@@ -40,7 +39,6 @@ import java.util.concurrent.TimeUnit;
  *
  *  所有线程都走到安全点，然后再判断是否需要GC？？ 难道周志明老师这里的话应该是这么理解的
  */
-
 public class SafepointTest {
 	private static final Logger logger = LoggerFactory.getLogger(SafepointTest.class);
 

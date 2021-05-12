@@ -5,7 +5,8 @@ import java.util.*;
 /**
  * @author yangzl
  * @date 2020/11/15 10:31
- * @desc leetcode 235 京东联名周赛
+ *
+ * leetcode 周赛 235 京东联名周赛
  */
 
 public class OrderedStream {

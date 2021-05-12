@@ -6,7 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author yangzl
  * @date 2021/3/22
- * @desc 节点1 server.port = 6001
+ *
+ * 节点1 server.port = 6001
  * nginx 包含配置 d:/yangzl/nginx/*.conf
  * localhost:2048/rdlock/bus/1001
  */

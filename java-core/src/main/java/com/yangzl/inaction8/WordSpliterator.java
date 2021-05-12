@@ -10,12 +10,12 @@ import java.util.stream.StreamSupport;
 /**
  * @author yangzl
  * @date 2020/11/23 23:10
- * @desc 为了并行执行而设计的可拆分迭代器，spiltable iterator
+ *
+ * 为了并行执行而设计的可拆分迭代器，spiltable iterator
  * 
  * 		调用 tryAdvance 等同于 iterator
  * 		调用 trySplit 返回一个 Spliterator
  */
-
 public class WordSpliterator implements Spliterator<Character> {
 	
 	/** 要拆分的串 */

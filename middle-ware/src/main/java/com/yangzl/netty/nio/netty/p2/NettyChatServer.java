@@ -12,9 +12,8 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/1 16:58
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/1/1 16:58
  */
 public class NettyChatServer {
 

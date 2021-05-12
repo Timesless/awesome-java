@@ -8,9 +8,9 @@ import java.lang.annotation.Target;
 /**
  * @author yangzl
  * @date 2021/3/28
- * @desc
+ *
+ * scope 注解
  */
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})
 public @interface Scope {

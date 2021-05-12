@@ -4,9 +4,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/1 17:31
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/1/1 17:31
  */
 public class ChatClientHandler extends SimpleChannelInboundHandler<String> {
 	@Override

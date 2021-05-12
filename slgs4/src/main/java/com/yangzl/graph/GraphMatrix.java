@@ -13,7 +13,8 @@ import java.util.stream.IntStream;
 /**
  * @author yangzl
  * @date 2020/10/7 15:32
- * @desc 邻接矩阵
+ *
+ * 邻接矩阵
  * 		空间复杂度：O(V ^ 2)
  * 		时间复杂度：
  * 			建立图O(E)
@@ -25,7 +26,7 @@ public class GraphMatrix extends AbstractGraph {
 	/** 邻接矩阵实现图 */
 	private int[][] matrix;
 	
-	// 构造函数
+	/** constructor */
 	public GraphMatrix() {
 		try {
 			List<String> lines = Files.readAllLines(Paths.get("graph.txt"));
@@ -50,14 +51,14 @@ public class GraphMatrix extends AbstractGraph {
 	}
 	
 	
-	// 两个顶点是否存在边
+	/** 两个顶点是否存在边 */
 	@Override
 	public boolean hasEdge(int v1, int v2) {
 		vertexCheck(v1, v2);
 		return matrix[v1][v2] == 1;
 	}
 	
-	// 返回顶点相邻的顶点
+	/** 返回顶点相邻的顶点 */
 	@Override
 	public Collection<Integer> adj(int v) {
 		vertexCheck(v);
@@ -67,13 +68,12 @@ public class GraphMatrix extends AbstractGraph {
 				.collect(Collectors.toList());
 	}
 	
-	// 返回顶点的度
+	/** 返回顶点的度 */
 	@Override
 	public int degree(int v) {
 		return adj(v).size();
 	}
 
-	// toString()
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder(0xff);
@@ -89,7 +89,7 @@ public class GraphMatrix extends AbstractGraph {
 	
 	// ======================================================
 	
-	// 自环边、平行边检测
+	/** 自环边、平行边检测 */
 	private void edgeCheck(int v1, int v2) {
 		// 有权图时，平行边可以选择权重小的
 		if (matrix[v1][v2] == 1)
@@ -97,7 +97,7 @@ public class GraphMatrix extends AbstractGraph {
 		if (v1 == v2)
 			throw new IllegalArgumentException("Self loop edge does not allow here");
 	}
-	// 顶点合法性检测
+	/** 顶点合法性检测 */
 	private void vertexCheck(int v1, int v2) {
 		vertexCheck(v1);
 		vertexCheck(v2);
@@ -106,8 +106,7 @@ public class GraphMatrix extends AbstractGraph {
 		if (v < 0 || v > V)
 			throw new IllegalArgumentException("Vertex is invalid");
 	}
-	
-	
+
 	@Test
 	public void testMatrix() {
 		System.out.println(new GraphMatrix());

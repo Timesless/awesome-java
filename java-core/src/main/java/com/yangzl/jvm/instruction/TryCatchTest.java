@@ -6,11 +6,11 @@ import java.io.IOException;
 /**
  * @author yangzl
  * @date 2020/12/30 19:13
- * @desc 字节码角度解析
+ *
+ * 字节码角度解析
  * 			try - catch - finally 
  * 			try - with - resources
  */
-
 public class TryCatchTest {
 	
 	private void handle() {}

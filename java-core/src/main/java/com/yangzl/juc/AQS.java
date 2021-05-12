@@ -7,7 +7,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author yangzl
  * @date 2020/11/14 12:40
- * @desc AbstractQueuedSynchronizer 详解
+ *
+ * AbstractQueuedSynchronizer 详解
  * 
  * AQS debug 源码
  * 第一个抢占的线程走 if 逻辑获取到锁，执行逻辑
@@ -19,7 +20,6 @@ import java.util.concurrent.locks.ReentrantLock;
  *    	acquire(1);
  *    }
  */
-
 public class AQS {
 	
 	final ReentrantLock lock = new ReentrantLock();

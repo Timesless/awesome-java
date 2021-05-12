@@ -3,7 +3,8 @@ package com.yangzl.datastructure;
 /**
  * @author yangzl
  * @date 2019/10/26 12:55
- * @desc 带头节点单链表实现栈，链表是动态数据结构不用判断isFull
+ *
+ * 带头节点单链表实现栈，链表是动态数据结构不用判断isFull
  */
 public class LinkedStack<E> {
 	private int size;

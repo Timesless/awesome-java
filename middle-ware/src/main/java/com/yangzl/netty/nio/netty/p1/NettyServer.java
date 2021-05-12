@@ -10,9 +10,10 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/31 23:59
- * @Desc: ..  child系列参数为worker线程组设置属性
+ * @author yangzl
+ * @date 2019/12/31 23:59
+ *
+ * child系列参数为worker线程组设置属性
  */
 public class NettyServer {
 	

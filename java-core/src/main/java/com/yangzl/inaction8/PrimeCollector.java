@@ -15,7 +15,8 @@ import java.util.stream.IntStream;
 /**
  * @author yangzl
  * @date 2020/11/23 19:17
- * @desc 质数分区器
+ *
+ * 质数分区器
  * 
  * Java 8 In Action => 创建自己的收集器
  * 		将前n个自然数按是否质数分区

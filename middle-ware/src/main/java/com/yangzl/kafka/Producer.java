@@ -10,9 +10,10 @@ import java.util.Properties;
 import java.util.stream.IntStream;
 
 /**
- * @Author: yangzl
- * @Date: 2020/8/24 15:13
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/8/24 15:13
+ *
+ * 生产者端
  */
 public class Producer {
 
@@ -21,8 +22,6 @@ public class Producer {
 
 	/**
 	 * 2020/9/17 基本测试 
-	 * @param 
-	 * @return 
 	 */
 	@Test
 	public void test1() {
@@ -42,8 +41,6 @@ public class Producer {
 	
 	/**
 	 * 2020/9/17 ProducerConfig与ConsumerConfig
-	 * @param 
-	 * @return 
 	 */
 	@Test
 	public void test2() {
@@ -55,8 +52,6 @@ public class Producer {
 	
 	/**
 	 * 2020/9/17 生产者一些重要参数说明 
-	 * @param 
-	 * @return 
 	 */
 	@Test
 	public void test3() {

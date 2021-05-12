@@ -10,7 +10,8 @@ import java.util.stream.Stream;
 /**
  * @author yangzl
  * @date 2020/11/23 21:51
- * @desc 并行流
+ *
+ * 并行流
  * 
  * 第七章 => 并行数据处理与性能
  * 

@@ -9,7 +9,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2021/3/20
- * @desc 引用
+ *
+ * 引用
  * 		Reference 强引用
  * 		SoftReference 软引用
  * 		WeakReference 弱引用
@@ -18,7 +19,6 @@ import java.util.concurrent.TimeUnit;
  *
  * 	软引用 / 弱引用的应用场景
  * 	注意使用匿名对象
- *
  */
 public class Ref {
 

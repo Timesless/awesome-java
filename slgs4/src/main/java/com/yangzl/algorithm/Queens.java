@@ -17,8 +17,10 @@ import java.util.stream.Collectors;
 public class Queens {
 
 	int[] ary;
-	private int count;    // 92
-	private int loopTimes;    // 15720
+	/**  92 */
+	private int count;
+	/** 15720 */
+	private int loopTimes;
 	private final int size;
 	private final List<List<Integer>> rs;
 

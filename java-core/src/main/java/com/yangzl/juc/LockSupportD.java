@@ -9,7 +9,8 @@ import java.util.concurrent.locks.LockSupport;
 /**
  * @author yangzl
  * @date 2020/8/28 09:59
- * @desc .. Java并发编程之美 > 并发包锁原理 > LockSupport工具类
+ *
+ * Java并发编程之美 > 并发包锁原理 > LockSupport工具类
  */
 public class LockSupportD {
 	
@@ -31,7 +32,8 @@ public class LockSupportD {
 	
 	/**
 	 * @date 2020/8/28
-	 * @desc 测试其它线程调用 因park()被阻塞线程的interrupt()不会InterruptedException
+	 *
+	 * 测试其它线程调用 因park()被阻塞线程的interrupt()不会InterruptedException
 	 * 其他线程调用了阻塞线程的interrupt()，设置了中断标志或者线程被虚假唤醒，则阻塞线程也会返回
 	 */
 	@Test

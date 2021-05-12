@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
 /**
  * @author yangzl
  * @date 2020/10/10 15:08
- * @desc 牛客 ACM
+ *
+ * 牛客 ACM
  */
 public class Main {
 	

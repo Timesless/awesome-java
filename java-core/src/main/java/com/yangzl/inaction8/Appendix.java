@@ -22,7 +22,8 @@ import java.util.stream.Stream;
 /**
  * @author yangzl
  * @date 2020/11/24 19:19
- * @desc Java 8 In Action 附录 A, B, C, D
+ *
+ * Java 8 In Action 附录 A, B, C, D
  */
 
 public class Appendix {

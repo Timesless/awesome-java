@@ -7,7 +7,8 @@ import java.util.PriorityQueue;
 /**
  * @author yangzl
  * @date 2020/4/8
- * @desc 设计实现 LFU 缓存
+ *
+ * 设计实现 LFU 缓存
  * 
  * 时间复杂度较高，缓存满之后remove都需要构造一个PriorityQueue，可以使用LinkedHashMap来做LRU（当frq相同时按LRU排）
  * TODO LinkedHashMap
@@ -36,7 +37,7 @@ public class LFUCache {
 
 	Map<Integer, Node> map;
 	int sz;
-	// 当作全局的时间戳
+	/** 当作全局的时间戳 */
 	static int t = 0;
 
 	public LFUCache(int capacity) {
@@ -85,10 +86,14 @@ public class LFUCache {
 
 		cache.put(3, 3);
 		cache.put(4, 4);
-		System.out.println(cache.get(3));	// -1
-		System.out.println(cache.get(2));	// 2
-		System.out.println(cache.get(1));	// 1
-		System.out.println(cache.get(4));	// 4
+		// -1
+		System.out.println(cache.get(3));
+		// 2
+		System.out.println(cache.get(2));
+		// 1
+		System.out.println(cache.get(1));
+		// 4
+		System.out.println(cache.get(4));
 
 		LFUCache cache1 = new LFUCache(2);
 

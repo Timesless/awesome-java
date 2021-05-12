@@ -6,9 +6,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2020/11/14 10:02
- * @desc 多线程按序打印 -> 信号量实现
- * 
- * 在 leetcode 这个解法会超时， 难道说他不是启动的三个线程
+ *
+ * 线程按序打印 -> 信号量实现
+ * TODO 在 leetcode 这个解法会超时， 难道说他不是启动的三个线程
  */
 
 public class PrintInorderSemaphore {

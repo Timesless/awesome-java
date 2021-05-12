@@ -6,9 +6,10 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/18 09:26
- * @Desc: .. 多线程按顺序打印 -> ReentrantLock实现
+ * @author yangzl
+ * @date 2020/1/18 09:26
+ *
+ * 多线程按顺序打印 -> ReentrantLock实现
  */
 public class PrintInorderReentrantLock {
 

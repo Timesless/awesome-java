@@ -21,7 +21,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yangzl
  * @date 2021/3/22
- * @desc controller 商品购买
+ *
+ * controller 商品购买
  */
 @Slf4j
 @RestController

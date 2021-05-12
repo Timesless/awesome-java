@@ -6,7 +6,8 @@ import com.yangzl.spring.annotation.Component;
 /**
  * @author yangzl
  * @date 2021/3/29
- * @desc
+ *
+ * Spring Bean 后置处理器
  */
 @Component
 public class MyBeanPostProcessor implements BeanPostProcessor {

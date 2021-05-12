@@ -11,7 +11,10 @@ import java.io.Serializable;
 /**
  * @author yangzl
  * @date 2021/3/22
- * @desc
+ *
+ * redis 配置
+ *
+ * 可以考虑 PostConstruct 为 RedisTemplate 设置属性
  */
 @Configuration
 public class RedisConfig {

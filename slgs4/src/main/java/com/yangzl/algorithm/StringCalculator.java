@@ -1,16 +1,18 @@
 package com.yangzl.algorithm;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.util.StringUtils;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 /**
  * @author yangzl
  * @date 2019/10/26 13:13
- * @desc .. 计算后缀表达式的值 逆波兰式计算器，支持括号
+ *
+ * 计算后缀表达式的值 逆波兰式计算器，支持括号
  * 
  * 已提供为工具类
  * TODO: BigDecimal

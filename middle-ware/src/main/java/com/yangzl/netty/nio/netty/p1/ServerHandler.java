@@ -7,9 +7,8 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/1 00:11
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/1/1 00:11
  **/
 public class ServerHandler extends ChannelInboundHandlerAdapter {
 	

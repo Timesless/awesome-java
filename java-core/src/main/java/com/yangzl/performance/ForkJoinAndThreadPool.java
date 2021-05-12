@@ -7,8 +7,6 @@ import java.util.concurrent.*;
 /**
  * @author yangzl
  * @date 2020/11/28 21:27
- * @desc
- * 
  * 
  * 结果: 49995349, 线程池花费时间：50 
  * 结果: 49995349, forkjoin花费时间：80 
@@ -22,7 +20,6 @@ import java.util.concurrent.*;
  *  		？？？？？？？？？？？？？？？？
  *  		导致速度永远是threadpool的 1 / 4	
  */
-
 public class ForkJoinAndThreadPool {
 
 	private final double[] d;

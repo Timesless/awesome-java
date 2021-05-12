@@ -12,7 +12,6 @@ import java.util.function.Supplier;
 /**
  * @author yangzl
  * @date 2020/11/7 13:05
- * @desc
  * 
  * 	invokedynamic ==> 关注对象的行为而非对象的类型，不关注对象的继承关系
  * 		lambda本质是前端编译器将lambda编译为静态方法，并为每一个lambda生成BootstrapMethods

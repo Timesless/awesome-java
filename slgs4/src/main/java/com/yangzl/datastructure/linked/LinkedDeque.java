@@ -3,7 +3,8 @@ package com.yangzl.datastructure.linked;
 /**
  * @author yangzl
  * @date 2020/2/11 13:51
- * @desc .. 切勿犯“完美主义”的错误
+ *
+ * 切勿犯“完美主义”的错误
  * 
  * 		TODO
  */

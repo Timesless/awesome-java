@@ -11,7 +11,8 @@ import java.util.stream.Collectors;
 /**
  * @author yangzl
  * @date 2020/10/7 18:43
- * @desc 图的深度优先遍历
+ *
+ * 图的深度优先遍历
  * 
  * 	时间复杂度：O(V + E)
  * 	作用：
@@ -36,7 +37,7 @@ public class DFS {
 	boolean[] visited;
 	List<List<Integer>> rs;
 	
-	/* 
+	/**
 	 * 深度优先遍历模板，请认真理解
 	 * dfs(int v) {
 	 * 		visited[v] = true;
@@ -46,8 +47,8 @@ public class DFS {
 	 * 				dfs(w);
 	 * 		}
 	 * }
+	 * 建议迭代实现先序遍历
 	 */
-	// 建议迭代实现先序遍历
 	public void dfs(int vertexNum) {
 		/*
 		 * 对于多个连通分量，我们需要通过for去遍历

@@ -4,16 +4,17 @@ import java.util.Arrays;
 import java.util.function.BinaryOperator;
 
 /**
- * @Author yangzl
- * @Date 2020/2/13 12:10
- * @Desc .. 线段树，区域内检索和更新
- *  用于解决多种范围查询问题，在对数时间内从数组中找到最小值、最大值、总和、最大公约数、最小公倍数等。
+ * @author yangzl
+ * @date 2020/2/13 12:10
+ *
+ * 线段树，区域内检索和更新
+ * 用于解决多种范围查询问题，在对数时间内从数组中找到最小值、最大值、总和、最大公约数、最小公倍数等。
  */
 public class SegmentTree<E> {
 	private final E[] ele;
-	// 线段树
+	/** 线段树 使用数组保存 */
 	private final E[] tree;
-	/*
+	/**
 	 * 这里是否 ? super E
 	 */
 	private final BinaryOperator<E> operator;

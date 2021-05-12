@@ -11,9 +11,8 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 /**
- * @Author yangzl
+ * @author yangzl
  * @date 2019/12/28 12:46
- * @desc ..
  */
 public class ClientStrap {
 	
@@ -34,7 +33,7 @@ public class ClientStrap {
 							ChannelPipeline pipeline = socketChannel.pipeline();
 							pipeline.addLast(new StringDecoder());
 							pipeline.addLast(new StringEncoder());
-							pipeline.addLast(new ClientHanlder());
+							pipeline.addLast(new ClientHandler());
 						}
 					});
 			ChannelFuture future = bootstrap.connect("127.0.0.1", 6666).sync();

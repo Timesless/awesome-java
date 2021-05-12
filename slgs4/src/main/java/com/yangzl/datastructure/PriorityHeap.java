@@ -5,7 +5,8 @@ import java.util.Arrays;
 /**
  * @author yangzl
  * @date 2020/2/12 12:47
- * @desc 	优先级队列 对应 JDK 标准库 PriorityQueue
+ *
+ * 优先级队列 对应 JDK 标准库 PriorityQueue
  * 	二叉最小堆实现优先最小队列，出队O1，入队最差OlogN；可以实现排序
  * 	标准库中PriorityQueue也是最小堆实现
  * 	实现1000000元素，选出最小的100个元素

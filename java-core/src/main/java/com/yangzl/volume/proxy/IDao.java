@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy;
  *  JDK动态代理， -Dfile.encoding == System.setProperty("file.encoding", "")
  */
 public interface IDao {
-
+	/** hello */
     void sayHello();
 }
 

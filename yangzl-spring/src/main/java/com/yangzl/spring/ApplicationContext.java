@@ -17,7 +17,8 @@ import java.util.stream.Stream;
 /**
  * @author yangzl
  * @date 2021/3/28
- * @desc
+ *
+ * 模拟 spring ApplicationContext
  */
 public class ApplicationContext {
 	private static final String PROTOTYPE = "prototype";

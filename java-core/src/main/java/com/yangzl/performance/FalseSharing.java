@@ -3,7 +3,8 @@ package com.yangzl.performance;
 /**
  * @author yangzl
  * @date 2020/11/29 17:44
- * @desc 伪共享。与CPU处理高速缓存的方式有关
+ *
+ * 伪共享。与CPU处理高速缓存的方式有关
  * 
  * 		使用@Contented注解解决伪共享，@Contented注解会填充空白使每个字段占64K bytes
  * 		
@@ -23,7 +24,6 @@ package com.yangzl.performance;
  * 	    
  * 	    最好将数据移到局部变量中，稍后再保存起来避免伪共享
  */
-
 public class FalseSharing extends Thread {
 	
 	public FalseSharing(Runnable r) {

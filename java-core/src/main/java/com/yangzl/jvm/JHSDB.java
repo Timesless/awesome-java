@@ -3,8 +3,9 @@ package com.yangzl.jvm;
 /**
  * @author yangzl
  * @date 2020/11/5 09:47
- * @desc JHSDB 启动请配置容量不然很卡
- * 		-Xmx10m -XX:+UseSerialGC -XX:-UseCompressedOops
+ *
+ * JHSDB 启动请配置容量不然很卡
+ * 	-Xmx10m -XX:+UseSerialGC -XX:-UseCompressedOops
  * 	由于jhsdb在JDK9才提供，JDK8及之前只能使用sa-jdi.jar启动 java -cp sa-jdi.jar sun.jvm.hotspot.HSDB
  * 	jhsdb hsdb --pid vmid
  * 
@@ -31,7 +32,7 @@ public class JHSDB {
 	
 	private static class Data {}
 
-	static abstract class AHolder {
+	static abstract class AbstractHolder {
 		public void print() {
 			System.out.println("I Love Vim");
 		}
@@ -39,7 +40,7 @@ public class JHSDB {
 		public abstract void sayHello();
 	}
 
-	static class BHodler extends AHolder {
+	static class BHodler extends AbstractHolder {
 		/** staticObj 布局 */
 		static Data staticObj = new Data();
 		/** instanceObj 布局 */
@@ -53,7 +54,7 @@ public class JHSDB {
 	}
 	
 	public static void main(String[] args) {
-		AHolder obj = new BHodler();
+		AbstractHolder obj = new BHodler();
 		obj.sayHello();
 	}
 }

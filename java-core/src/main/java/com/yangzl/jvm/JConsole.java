@@ -6,11 +6,11 @@ import java.io.InputStreamReader;
 /**
  * @author yangzl
  * @date 2020/12/22 22:18
- * @desc jconsole 测试JConsole线程页签
+ *
+ * jconsole 测试JConsole线程页签
  * 
  * main线程处于Runnable，堆栈追踪到readBytes()，检测到流没有更新立刻将CPU归还給OS
  */
-
 public class JConsole {
 
 	/**

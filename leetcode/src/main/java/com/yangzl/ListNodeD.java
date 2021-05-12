@@ -299,7 +299,7 @@ public class ListNodeD {
 		return dummy.next;
 	}
 	@Test
-	public void testmergeInBetween() {
+	public void testMergeInBetween() {
 		ListNode l = new ListNode(1).addHead(2).addHead(3).addHead(4);
 		ListNode t = new ListNode(11).addTail(12).addTail(13).addTail(14);
 		System.out.println(mergeInBetween(l, 1, 2, t));

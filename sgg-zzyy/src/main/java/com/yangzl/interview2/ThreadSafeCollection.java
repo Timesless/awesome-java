@@ -7,7 +7,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * @author yangzl
  * @date 2021/3/19
- * @desc
  * 		线程安全集合
  * 			CopyOnWriteArrayList
  * 			CopyOnWriteArraySet

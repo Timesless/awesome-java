@@ -3,7 +3,8 @@ package com.yangzl.algorithm;
 /**
  * @author yangzl
  * @date 2019/10/26 21:14
- * @desc ..	递归 + 回溯解迷宫
+ *
+ * 递归 + 回溯解迷宫
  * 使用一个矩阵来表示迷宫，0表示还未走过的路径，1表示路障，2表示通路，3表示走过的路径但无解
  */
 public class Maze {

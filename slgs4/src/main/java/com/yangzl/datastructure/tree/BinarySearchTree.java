@@ -3,7 +3,8 @@ package com.yangzl.datastructure.tree;
 /**
  * @author yangzl
  * @date 2019/12/3 20:09
- * @desc .. 二叉搜索树 | 二叉排序树，正式版本可作为参考
+ *
+ * 二叉搜索树 | 二叉排序树，正式版本可作为参考
  */
 public class BinarySearchTree {
 	
@@ -57,7 +58,6 @@ public class BinarySearchTree {
 	
 	/**
 	 * @date 2019/12/3 添加节点
-	 * @desc
 	 */
 	public void add(int val) { root = add(val, root); }
 	// 重载提供实现

@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author yangzl
  * @date 2021/3/22
- * @desc
  */
 @SpringBootApplication
 public class DistributedLockApplication {

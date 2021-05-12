@@ -9,9 +9,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/1 00:17
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/1/1 00:17
  */
 public class NettyClient {
 	

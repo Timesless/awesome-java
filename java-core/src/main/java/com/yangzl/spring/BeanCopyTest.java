@@ -8,13 +8,10 @@ import org.springframework.beans.BeanUtils;
 /**
  * @author yangzl
  * @date 2020/11/11 17:20
- * @desc
  */
-
-
 @Data
 class TestVO {
-	private long id;
+	private Long id;
 	private String name;
 }
 

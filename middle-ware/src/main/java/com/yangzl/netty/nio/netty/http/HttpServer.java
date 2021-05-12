@@ -6,9 +6,8 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/1 13:45
- * @Desc: ..
+ * @author yangzl
+ * @date 2020/1/1 13:45
  */
 public class HttpServer {
 

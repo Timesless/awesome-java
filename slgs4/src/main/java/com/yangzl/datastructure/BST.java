@@ -7,6 +7,7 @@ import java.util.Queue;
 /**
  * @author yangzl
  * @date 2020/2/11 15:31
+ *
  * 		二分搜索树「Binary Search Tree，BST」，增删查时间复杂度为O(h)
  * 	递归
  * 		1 判断基准情形
@@ -43,7 +44,7 @@ public class BST<E extends Comparable<? super E>> {
 	public boolean isEmpty() { return this.size == 0; }
 	/**
 	 * @date 2019/12/3 前中后序遍历，是DFS
-	 * @desc 以下的判断可以在递归的例程进行判断，这样就无须判断多次
+	 *  以下的判断可以在递归的例程进行判断，这样就无须判断多次
 	 * 		对每个节点有三次机会进行访问，所以前中后遍历只是选择某次机会进行访问
 	 */
 	public void preOrder() {
@@ -61,7 +62,7 @@ public class BST<E extends Comparable<? super E>> {
 	
 	/**
 	 * @date 2020/2/11
-	 * @desc 前序遍历的非递归实现，使用栈记录将要依次访问的节点
+	 *  前序遍历的非递归实现，使用栈记录将要依次访问的节点
 	 */
 	public void preOrderNR() {
 		if (null == root)
@@ -81,7 +82,7 @@ public class BST<E extends Comparable<? super E>> {
 	
 	/**
 	 * @date 2020/2/11
-	 * @desc 中序遍历非递归实现
+	 *  中序遍历非递归实现
 	 */
 	public void inOrderNR() {
 		if (null == root)
@@ -101,7 +102,7 @@ public class BST<E extends Comparable<? super E>> {
 	
 	/**
 	 * @date 2020/2/11
-	 * @desc  广度优先遍历，借助队列实现
+	 *   广度优先遍历，借助队列实现
 	 */
 	public void BFS() {
 		Queue<Node<E>> queue = new ArrayDeque<>(this.size);
@@ -118,13 +119,13 @@ public class BST<E extends Comparable<? super E>> {
 
 	/**
 	 * @date 2019/12/3 添加节点
-	 * @desc 重载提供实现
+	 *  重载提供实现
 	 */
 	public void add(E val) { root = this.add(val, root); }
 	
 	/**
 	 * @date 2020/2/11
-	 * @desc 是否包含元素
+	 *  是否包含元素
 	 */
 	public boolean contains(E e) { return this.contains(root, e); }
 	
@@ -139,7 +140,7 @@ public class BST<E extends Comparable<? super E>> {
 	
 	/**
 	 * @date 2020/2/11 删除节点
-	 * @desc 只有一个子树时，用子树替代删除节点
+	 *  只有一个子树时，用子树替代删除节点
 	 * 		左右子树都存在时，用左子树的最大节点或右子树的最小节点代替删除节点
 	 */
 	public void remove(E e) { root = remove(root, e); }
@@ -150,7 +151,7 @@ public class BST<E extends Comparable<? super E>> {
 
 	/**
 	 * @date 2019/12/3 重载提供实现
-	 * @desc 这样判断可节约栈帧
+	 *  这样判断可节约栈帧
 	 */
 	private void preOrder(Node<E> node) {
 		System.out.print(node.val + " ");

@@ -12,7 +12,8 @@ import java.util.TreeSet;
 /**
  * @author yangzl
  * @date 2020/10/7 17:35
- * @desc 邻接表
+ *
+ * 邻接表
  * 	空间复杂度：O(V + E)顶点 + 边
  * 	时间复杂度：
  * 	LinkedList:
@@ -109,7 +110,7 @@ public class GraphTable extends AbstractGraph {
 	// ============================================================
 	
 
-	// 自环边、平行边检测
+	/** 自环边、平行边检测 */
 	private void edgeCheck(int v1, int v2) {
 		
 		// 其实对于无向无权图来说，这个边没有任何影响
@@ -118,7 +119,7 @@ public class GraphTable extends AbstractGraph {
 		if (v1 == v2)
 			throw new IllegalArgumentException("Self loop edge does not allow here");
 	}
-	// 顶点合法性检测
+	/** 顶点合法性检测 */
 	private void vertexCheck(int v1, int v2) {
 		vertexCheck(v1);
 		vertexCheck(v2);

@@ -7,9 +7,10 @@ import java.nio.channels.*;
 import java.util.Iterator;
 
 /**
- * @Author: yangzl
- * @Date: 2019/12/29 16:43
- * @Desc: .. 注意处理客户端关闭连接的情况
+ * @author yangzl
+ * @date 2019/12/29 16:43
+ *
+ * 注意处理客户端关闭连接的情况
  */
 public class ChatServer {
 
@@ -70,8 +71,8 @@ public class ChatServer {
 	}
 
 	/**
-	 * @Date: 2019/12/29
-	 * @Desc: 转发消息。 读取发生异常，可能是客户端关闭连接
+	 * @date 2019/12/29
+	 * 	转发消息。 读取发生异常，可能是客户端关闭连接
 	 */
 	private void forwardMsg(SocketChannel channel) {
 		ByteBuffer inBuffer = ByteBuffer.allocate(1024);

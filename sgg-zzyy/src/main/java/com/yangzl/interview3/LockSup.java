@@ -11,7 +11,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author yangzl
  * @date 2021/3/21
- * @desc LockSupport 基本使用
+ *
+ * LockSupport 基本使用
  * 		1. permit 无法累加最多为 1
  * 		2. park 消耗一个许可证
  * 		3. unpark 获得一个许可证

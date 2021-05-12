@@ -3,7 +3,8 @@ package com.yangzl.jvm;
 /**
  * @author yangzl
  * @date 2021/3/14
- * @desc	测试堆空间初始值与最大值，注意：runtime.maxMemory() = eden + s0 / s1 + 老年代
+ *
+ * 测试堆空间初始值与最大值，注意：runtime.maxMemory() = eden + s0 / s1 + 老年代
  *
  * 	-Xms1000m
  * 	-Xmx1000m

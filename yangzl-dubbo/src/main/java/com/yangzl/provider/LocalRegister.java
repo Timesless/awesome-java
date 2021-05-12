@@ -6,7 +6,8 @@ import java.util.Map;
 /**
  * @author yangzl
  * @date 2021/3/29
- * @desc 本地服务注册表
+ *
+ * 本地服务注册表
  */
 public class LocalRegister {
 

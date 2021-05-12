@@ -3,7 +3,8 @@ package com.yangzl.datastructure.tree;
 /**
  * @author yangzl
  * @date 2019/12/7 21:41
- * @desc .. 二叉堆，是一颗完全二叉树，可由顺序存储二叉树数组实现
+ * 
+ * 二叉堆，是一颗完全二叉树，可由顺序存储二叉树数组实现
  * 			二叉堆ADT ： 最小堆 findMin(), deleteMin(), insert()
  * 						最大堆 findMax(), deleteMax(), insert()
  * 	我们可以使数组第0位置不存储值，那么对数组任意位置i，其左儿子位置为 i << 1，右儿子 (i << 1) + 1，父节点 i >>> 1
@@ -26,7 +27,6 @@ public class BinaryHeap {
 	
 	/**
 	 * @date 2019/12/7 将无序的数组构建为堆，我们这里构建最小堆
-	 * @desc
 	 */
 	private void buildHeap() {
 		for (int x = curSize >>> 1; x > 0; --x) { percolateDown(x); }
@@ -34,13 +34,12 @@ public class BinaryHeap {
 	
 	/**
 	 * @date 2019/12/7 获取最小元
-	 * @desc
 	 */
 	public int findMin() { return arr[1]; }
 	
 	/**
 	 * @date 2019/12/7 删除最小元
-	 * @desc  最小堆删除最小元，需要在根节点建立 hole， 现在堆中少了一个元素，因此堆中最后一个元素x，必须移动到某个位置
+	 *   最小堆删除最小元，需要在根节点建立 hole， 现在堆中少了一个元素，因此堆中最后一个元素x，必须移动到某个位置
 	 * 				我们将 hole的较小儿子移入 hole，让 hole下沉，重复此步骤直到找到x被放入hole，这种策略叫做下滤
 	 * 			percolateDown	
 	 */
@@ -54,7 +53,7 @@ public class BinaryHeap {
 	
 	/**
 	 * @date 2019/12/7 添加元素
-	 * @desc  在堆下一个可用位置建立 hole，否则该堆不是完全二叉树，如果x可以放入hole那么插入完成，否则
+	 *   在堆下一个可用位置建立 hole，否则该堆不是完全二叉树，如果x可以放入hole那么插入完成，否则
 	 * 			把 hole 父节点的值放入hole，hole上移，这种策略叫上滤 percolateUp
 	 * 		这里我们没有考虑扩容。	
 	 */
@@ -67,7 +66,6 @@ public class BinaryHeap {
 	
 	/**
 	 * @date 2019/12/7 打印当前堆
-	 * @desc
 	 */
 	public void printHeap() {
 		int x = 1;
@@ -76,7 +74,7 @@ public class BinaryHeap {
 	
 	/**
 	 * @date 2019/12/7 将idx节点的值与以idx位置为父节点的较小儿子节点的值交换
-	 * @desc
+	 * 
 	 * 		70				50
 	 * 	   /  \		=>     /  \
 	 * 	  50  120		 70	  120
@@ -97,7 +95,7 @@ public class BinaryHeap {
 	
 	/**
 	 * @date 2019/12/7 堆排序
-	 * @desc 每次deleteMin之后，堆缩小1，此时位于堆中最后的单元可以用来存放刚刚删除的元素
+	 *  每次deleteMin之后，堆缩小1，此时位于堆中最后的单元可以用来存放刚刚删除的元素
 	 * 			升序序列需要构建最大堆， 降序序列需要构建最小堆
 	 */
 	public void heapSort() {

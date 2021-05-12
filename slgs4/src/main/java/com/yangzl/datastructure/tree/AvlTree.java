@@ -3,7 +3,8 @@ package com.yangzl.datastructure.tree;
 /**
  * @author yangzl
  * @date 2019/12/3 20:04
- * @desc .. 平衡二叉树
+ * 
+ * 平衡二叉树
  */
 public class AvlTree {
 	
@@ -21,7 +22,7 @@ public class AvlTree {
 	
 	/**
 	 * @date 2019/12/3 计算树的高度，可作为AvlNode属性提供
-	 * @desc ..如果作为属性提供，每次添加 | 删除例程之后需调整树的高度
+	 *  ..如果作为属性提供，每次添加 | 删除例程之后需调整树的高度
 	 */
 	public int height() {
 		return height(root);
@@ -32,7 +33,7 @@ public class AvlTree {
 	
 	/**
 	 * @date 2019/12/3 查找值最小的节点
-	 * @desc .. 必定是往当前节点的左子树去查找
+	 *  .. 必定是往当前节点的左子树去查找
 	 */
 	public AvlNode findMin(AvlNode node) {
 		if (null == node || null == node.left) { return null; }
@@ -41,7 +42,7 @@ public class AvlTree {
 	
 	/**
 	 * @date 2019/12/3 查找值最大的节点
-	 * @desc .. 必定是往当前节点的右子树去查找
+	 *  .. 必定是往当前节点的右子树去查找
 	 */
 	public AvlNode findMax(AvlNode node) {
 		while (null != node)
@@ -51,7 +52,6 @@ public class AvlTree {
 
 	/**
 	 * @date 2019/12/3 提供中序遍历
-	 * @desc 
 	 */
 	public void infixOrder() {
 		if (null == root) { return; }
@@ -65,7 +65,6 @@ public class AvlTree {
 	
 	/**
 	 * @date 2019/12/3 添加节点
-	 * @desc
 	 */
 	public void add(int val) { root = add(val, root); }
 	private AvlNode add(int val, AvlNode node) {
@@ -90,7 +89,7 @@ public class AvlTree {
 	
 	/**
 	 * @date 2019/12/3 平衡二叉树的例程
-	 * @desc .. 存在以下情况：
+	 *  .. 存在以下情况：
 	 * 			1. 在当前节点左子树的左子节点插入导致不平衡 右旋
 	 * 			2. 在当前节点左子树的右子节点插入导致不平衡 左右双旋 => 先将当前节点的左子树左旋，再将当前节点的树右旋
 	 * 			3. 在当前节点右子树的左子节点插入导致不平衡 右左双旋 => 先将当前节点的右子树右旋，再将当前节点的树左旋
@@ -135,7 +134,7 @@ public class AvlTree {
 	}
 	/**
 	 * @date 2019/12/3 无返回值的左旋例程
-	 * @desc  1
+	 *   1
 	 * 		  /	\
 	 * 	   null	 2
 	 * 			/  \
@@ -160,7 +159,7 @@ public class AvlTree {
 	}
 	/**
 	 * @date 2019/12/3 无返回值的右旋例程
-	 * @desc ..  1
+	 *  		  1
 	 * 			 /
 	 * 			2
 	 * 		   /
@@ -181,7 +180,7 @@ public class AvlTree {
 
 	/**
 	 * @date 2019/12/8 
-	 * @desc .. 以下代码为另一种实现方式，参考自数据结构与算法分析
+	 *  .. 以下代码为另一种实现方式，参考自数据结构与算法分析
 	 */
 	private AvlNode banlanceWithReturn(AvlNode node) {
 		// 当前节点左子树高度 - 当前节点右子树高度 > BANLANCE_FACTOR
@@ -215,7 +214,7 @@ public class AvlTree {
 	}
 	/**
 	 * @date 2019/12/3 有返回值的左旋例程
-	 * @desc .. 左旋传入k2
+	 *  .. 左旋传入k2
 	 * 		1
 	 * 		 \
 	 * 		  2
@@ -233,7 +232,7 @@ public class AvlTree {
 	}
 	/**
 	 * @date 2019/12/3 有返回值的右旋例程
-	 * @desc 
+	 *  
 	 */
 	private AvlNode rotateWithLeft(AvlNode k2) {
 		System.out.println("执行右旋...");

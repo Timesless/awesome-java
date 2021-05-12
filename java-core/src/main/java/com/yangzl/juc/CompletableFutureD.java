@@ -8,7 +8,6 @@ import java.util.concurrent.CompletableFuture;
  *
  *  可组合式异步回调
  */
-
 public class CompletableFutureD {
 
 	public static void main(String[] args) throws Exception {

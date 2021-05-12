@@ -3,7 +3,6 @@ package com.yangzl.spring.aware;
 /**
  * @author yangzl
  * @date 2021/3/29
- * @desc
  */
 public interface BeanNameAware {
 	/**

@@ -5,7 +5,8 @@ import java.util.stream.IntStream;
 /**
  * @author yangzl
  * @date 2019/11/9 16:42
- * @desc .. 单向环形链表
+ *
+ * 单向环形链表
  * 		需要一个指向第一个节点的指针，类似于单链表的head节点
  * 		遍历：辅助指针，当tmp.next = first时遍历结束
  * 		解决约瑟夫问题：	

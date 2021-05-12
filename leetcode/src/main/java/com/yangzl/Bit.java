@@ -7,7 +7,8 @@ import java.util.Arrays;
 /**
  * @author yangzl
  * @date 2020/3/31 14:38
- *  .. 位运算
+ *
+ * 位运算
  */
 public class Bit {
 	

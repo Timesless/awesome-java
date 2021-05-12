@@ -1,26 +1,30 @@
 package com.yangzl.datastructure;
 
 /**
- * @Date: 2020/2/15
- * @Desc:  Union Find 并查集， 每个元素只有一个指针，所以可以用数组模拟， t[i] = i
+ * @date 2020/2/15
+ * 
+ * Union Find 并查集， 每个元素只有一个指针，所以可以用数组模拟， t[i] = i
  */
 public interface UF {
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc:  朋友圈
+	 * @date 2020/2/15
+	 *   朋友圈
 	 */
 	void union(int p, int q);
 	
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc:  对于元素具体类型我们是不关心的， 我们只需要关心他们之间是否有联系
+	 * @date 2020/2/15
+	 *   对于元素具体类型我们是不关心的， 我们只需要关心他们之间是否有联系
+	 *
+	 * @param p p
+	 * @param q q
 	 */
 	boolean isConnected(int p, int q);
 }
 
 /**
- * @Date: 2020/2/15
- * @Desc:  Union时间复杂度(Oh), find(Oh)
+ * @date 2020/2/15
+ *   Union时间复杂度(Oh), find(Oh)
  * 		union执行多次，会被组织到一棵树中，性能可能变低
  */
 class QuickUnion implements UF {
@@ -33,8 +37,8 @@ class QuickUnion implements UF {
 	}
 	
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc:  查询当前节点的根节点。O(h)
+	 * @date 2020/2/15
+	 *   查询当前节点的根节点。O(h)
 	 */
 	private int getRoot(int e) {
 		while (t[e] != e)
@@ -57,8 +61,8 @@ class QuickUnion implements UF {
 
 
 /**
- * @Date: 2020/2/15
- * @Desc: 基于rank优化，降低树的高度。每个节点保存一个相对高度rank，union时低的指向高的
+ * @date 2020/2/15
+ *  基于rank优化，降低树的高度。每个节点保存一个相对高度rank，union时低的指向高的
  */
 class RankUF implements UF {
 	private final int[] t;
@@ -74,8 +78,8 @@ class RankUF implements UF {
 	}
 
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc: 基于rank优化执行路径压缩，find时顺便压缩路径parant[p] = parent[parent[p]]
+	 * @date 2020/2/15
+	 *  基于rank优化执行路径压缩，find时顺便压缩路径parant[p] = parent[parent[p]]
 	 * 		不需要维护rank，rank是一个相对高度
 	 * 	时间复杂度  log*N
 	 * 	将访问路径上所有节点都指向，同一个根节点
@@ -93,8 +97,8 @@ class RankUF implements UF {
 	}
 	
 	/**
-	 * @Date: 2020/2/15
-	 * @Desc:  union维护rank
+	 * @date 2020/2/15
+	 *   union维护rank
 	 */
 	@Override
 	public void union(int p, int q) {

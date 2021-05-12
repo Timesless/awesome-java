@@ -3,7 +3,6 @@ package com.yangzl.interview2;
 /**
  * @author yangzl
  * @date 2021/3/19
- * @desc
  * 		类初始化与实例初始化过程
  *			1. main 所在的类会初始化
  *			2. 类初始化就是执行 <clinit>()

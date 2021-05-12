@@ -5,7 +5,8 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * @author yangzl
  * @date 2020/1/4 23:36
- * @desc CyclicBarrier「回环屏障」，所有线程都到达栅栏时放行
+ *
+ * CyclicBarrier「回环屏障」，所有线程都到达栅栏时放行
  * 		集齐七颗龙珠召唤神龙
  */
 public class CyclicBarrierD {

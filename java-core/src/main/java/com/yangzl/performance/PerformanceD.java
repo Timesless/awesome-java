@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 /**
  * @author yangzl
  * @date 2020/11/27 16:54
- * @desc 性能测试
+ *
+ * 性能测试
  */
 public class PerformanceD {
-	
 	/**
 	 * 2020/11/27 对比 if，三目运算符，Math.max调用
 	 * 

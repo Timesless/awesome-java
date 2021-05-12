@@ -11,12 +11,10 @@ import java.util.concurrent.atomic.AtomicStampedReference;
 /**
  * @author yangzl
  * @date 2021/3/19
- * @desc
- * 		原子引用更新 AtomicReference<V>, AtomicStampedReference<V>
  *
+ * 		原子引用更新 AtomicReference<V>, AtomicStampedReference<V>
  * 		 AtomicStampedReference 可以解决 ABA 问题
  */
-
 @Slf4j
 public class AtomicRef {
 

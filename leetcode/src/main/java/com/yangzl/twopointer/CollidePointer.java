@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  *  双指针 => 对撞指针
  */
 public class CollidePointer {
-	// 判断一个数是否是两个数的平方和
+	/** 判断一个数是否是两个数的平方和 */
 	public boolean judgeSquareSum(int c) {
 		if (c == 1) return true;
 		int p1 = 0, p2 = (int) Math.sqrt(c);

@@ -8,9 +8,10 @@ import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/1 13:51
- * @Desc: .. http无状态协议，每次通讯完成断开连接
+ * @author yangzl
+ * @date 2020/1/1 13:51
+ *
+ * http无状态协议，每次通讯完成断开连接
  */
 public class HttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
 	@Override

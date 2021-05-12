@@ -3,7 +3,8 @@ package com.yangzl.jvm.instruction;
 /**
  * @author yangzl
  * @date 2020/12/30 20:29
- * @desc 方法调用字节码深入理解
+ *
+ * 方法调用字节码深入理解
  * 
  * ❏ 5条方法调用指令的联系和区别
  * ❏ JVM方法分派机制与vtable、itable原理
@@ -67,7 +68,6 @@ package com.yangzl.jvm.instruction;
  *  ❏ 接口方法的调用使用invokeinterface指令，Java使用itable来支持多接口实现，itable由offset table和methodtable两部分组成。
  *  	在调用接口方法时，会先在offset table中查找method table的偏移量位置，随后在method table查找具体的接口实现。
  */
-
 public class InvokeTest {
 	
 	

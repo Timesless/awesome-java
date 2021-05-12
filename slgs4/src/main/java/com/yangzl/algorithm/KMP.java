@@ -3,9 +3,10 @@ package com.yangzl.algorithm;
 import java.util.Arrays;
 
 /**
- * @Author: yangzl
- * @Date: 2019/11/7 19:25
- * @Desc: ..	KMP算法在源字符串 "BBC ABCDAB ABCDABCDABDE"中匹配
+ * @author yangzl
+ * @date 2019/11/7 19:25
+ *
+ * KMP算法在源字符串 "BBC ABCDAB ABCDABCDABDE"中匹配
  * 			模式串："ABCDABD"
  * 	模式串部分匹配值表（相同前缀后缀长度最大值）：	0 0 0 0 1 2 0
  * 	部分匹配值表会令源字符串i不回溯，模式串j向右移动j - next[j]，此值 >= 1

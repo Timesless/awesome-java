@@ -4,11 +4,12 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Author: yangzl
- * @Date: 2020/1/18 10:43
- * @Desc: .. CountDownLatch 所有人离开了再锁门
- * 			CyclicBarrier 七颗龙珠召唤神龙
- * 		多线程按序打印 -> CountDownLatch实现	
+ * @author yangzl
+ * @date 2020/1/18 10:43
+ *
+ * CountDownLatch 所有人离开了再锁门
+ * CyclicBarrier 七颗龙珠召唤神龙
+ * 多线程按序打印 -> CountDownLatch实现
  */
 public class PrintInorderCdl {
 

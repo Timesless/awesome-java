@@ -1,5 +1,10 @@
 package com.yangzl.datastructure;
 
+/**
+ * @author yangzl
+ * @date 2020/2/15 20:51
+ *
+ */
 public interface Map<K, V> {
 
 	/**

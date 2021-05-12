@@ -12,7 +12,8 @@ import java.util.stream.Stream;
 /**
  * @author yangzl
  * @date 2019/12/7 23:12
- * @desc .. 数据结构与算法分析描述的几种排序，需掌握
+ *
+ * 数据结构与算法分析描述的几种排序，需掌握
  */
 public class SortAlgorithm {
 

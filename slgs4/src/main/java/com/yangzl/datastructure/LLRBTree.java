@@ -3,7 +3,8 @@ package com.yangzl.datastructure;
 /**
  * @author yangzl
  * @date 2020/2/15 20:51
- * @desc .. 左倾红黑树 == 2-3树
+ * 
+ * 左倾红黑树 == 2-3树
  * MaxHeight = 2logN，当所有节点都是3节点，那么会多logN的红节点
  *
  * 	TODO
@@ -34,7 +35,6 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	public int size() { return this.size; }
 	/**
 	 * @date 2020/2/15
-	 * @desc
 	 */
 	public void add(K k, V v) {
 		root = add0(root, k, v);
@@ -60,7 +60,7 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 
 	/**
 	 * @date 2020/2/15
-	 * @desc 所有步骤如下：维持黑节点平衡
+	 * 所有步骤如下：维持黑节点平衡
 	 *  BLACK 	BLACK    BLACK	  BLACK         RED
 	 *   /	 	/         /	   	   / \          / \
 	 * RED ==> RED  ==> RED ==>  RED RED ==> BLACK BLACK
@@ -86,7 +86,7 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	
 	/**
 	 * @date 2020/2/15
-	 * @desc 右旋转，不维持红黑树性质
+	 * 右旋转，不维持红黑树性质
 	 *         BLACK         RED                BLACK
 	 *          /           /  \     change     /  \
 	 *        RED    =>   RED  BLACK  ====>    RED  RED
@@ -105,7 +105,7 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 
 	/**
 	 * @date 2020/2/15
-	 * @desc 左旋转，不维持红黑树性质
+	 * 左旋转，不维持红黑树性质
 	 *    k1
 	 *      \
 	 *       k2
@@ -122,7 +122,7 @@ public class LLRBTree<K extends Comparable<? super K>,V> {
 	
 	/**
 	 * @date 2020/2/15
-	 * @desc 颜色翻转
+	 * 颜色翻转
 	 */
 	private void flipColor(Node<K,V> node) {
 		node.left.color = node.right.color = BLACK;

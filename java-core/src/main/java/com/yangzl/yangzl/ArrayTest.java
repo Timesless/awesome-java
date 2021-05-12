@@ -8,9 +8,9 @@ import java.util.Arrays;
 /**
  * @author yangzl
  * @date 2020/12/5 20:22
- * @desc 数组测试
+ *
+ * 数组测试
  */
-
 public class ArrayTest {
 	
 	@Test

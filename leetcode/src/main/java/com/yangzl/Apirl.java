@@ -7,6 +7,8 @@ import java.util.PriorityQueue;
  * @author yangzl
  * @date 2020/4/30 13:53
  *
+ * leetcode 4 月每日一题
+ *
  * 1. A LeetCode a day keeps unemployment away
  * 2. A LeetCode a day keeps confidence away.
  * 3. 一杯茶，一包烟，一道力扣做一天。一根笔，一双手，一个 Bug 敲一宿。
@@ -21,7 +23,7 @@ public class Apirl {
 	// =======================================================================
 	// 21. 合并 k 个排序链表，返回合并后的排序链表
 	// =======================================================================
-	// 作弊解法
+	/** 作弊解法 */
 	public ListNode mergeKLists(ListNode[] lists) {
 		ListNode dummyHead = new ListNode(-1), p = dummyHead;
 		PriorityQueue<Integer> pq = new PriorityQueue<>();
@@ -38,11 +40,11 @@ public class Apirl {
 		}
 		return dummyHead.next;
 	}
-	// 正确解法
+	/** 正解 */
 	public ListNode mergeKLists2(ListNode[] lists) {
 		ListNode dummyHead = new ListNode(-1), cur = dummyHead;
 		// 若ListNode提供getVal方法，那么可以方法引用ListNode::getVal
-		// PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparing(ListNode::getVal));
+		// PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparing(ListNode::getVal))
 		// PriorityQueue<ListNode> pq = new PriorityQueue<>((x1, x2) -> x1.val - x2.val);
 		PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparingInt(x -> x.val));
 		for (ListNode listNode : lists) {

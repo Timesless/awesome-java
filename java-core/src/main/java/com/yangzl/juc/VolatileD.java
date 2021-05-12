@@ -8,7 +8,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author yangzl
  * @date 2020/1/5 19:32
- * @desc volatile
+ *
+ * volatile
  * 		1. 保证可见性
  * 			可见性测试
  * 		2. 禁止指令重排

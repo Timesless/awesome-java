@@ -3,7 +3,8 @@ package com.yangzl.util;
 /**
  * @author yangzl
  * @date 2020/11/17 10:06
- * @desc 自实现的一些数学类的工具
+ *
+ * 自实现的一些数学类的工具
  */
 
 public class Maths {

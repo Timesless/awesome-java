@@ -6,7 +6,8 @@ import org.springframework.stereotype.Component;
 /**
  * @author yangzl
  * @date 2020/11/15 00:09
- * @desc Spring循环依赖 测试bean
+ *
+ * Spring循环依赖 测试bean
  */
 @Component
 public class A {

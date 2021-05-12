@@ -5,7 +5,8 @@ import org.openjdk.jol.info.ClassLayout;
 /**
  * @author yangzl
  * @date 2020/11/23 10:58
- * @desc  jol - 对象内存查看
+ *
+ * jol - 对象内存查看
  * 
  * com.yangzl.jvm.MemoryInspect object internals:
  *  OFFSET  SIZE   TYPE DESCRIPTION                               VALUE
@@ -16,7 +17,6 @@ import org.openjdk.jol.info.ClassLayout;
  * Instance size: 16 bytes
  * Space losses: 0 bytes internal + 0 bytes external = 0 bytes total
  */
-
 public class MemoryInspect {
 	
 	private int i;

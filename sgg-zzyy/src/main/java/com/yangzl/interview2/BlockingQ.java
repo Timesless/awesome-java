@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 /**
  * @author yangzl
  * @date 2021/3/20
- * @desc interface BlockingQueue「阻塞队列」
+ *
+ * interface BlockingQueue「阻塞队列」
  *								消息中间件的核心
  * 		阻塞 API：
  * 			1. put / take

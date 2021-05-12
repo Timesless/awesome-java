@@ -9,7 +9,8 @@ import java.util.function.IntConsumer;
 /**
  * @author yangzl
  * @date 2020/1/19
- *  编写一个可以从 1 到 n 输出代表这个数字的字符串的程序，但是：
+ *
+ * 编写一个可以从 1 到 n 输出代表这个数字的字符串的程序，但是：
  * 如果这个数字可以被 3 整除，输出 "fizz"。
  * 如果这个数字可以被 5 整除，输出 "buzz"。
  * 如果这个数字可以同时被 3 和 5 整除，输出 "fizzbuzz"。

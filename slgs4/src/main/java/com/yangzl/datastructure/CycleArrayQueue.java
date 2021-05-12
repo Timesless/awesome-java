@@ -3,9 +3,9 @@ package com.yangzl.datastructure;
 import org.omg.CORBA.Object;
 
 /**
- * @Author yangzl
- * @Date 2019/10/21 22:05
- * @Desc
+ * @author yangzl
+ * @date 2019/10/21 22:05
+ *
  *  数组实现循环队列
  *  	入队：rear = ++rear % ele.length，出队：front = ++front % ele.length;
  * 		队满条件：留一个位置作为标识，当(rear + 1) % size == front队满

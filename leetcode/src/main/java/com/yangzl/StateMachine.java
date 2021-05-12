@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 /**
  * @author yangzl
  * @date 2020/4/19 22:33
- * @desc .. 状态机
+ *
+ * 状态机
  */
 public class StateMachine {
 
